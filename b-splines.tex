@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+
+\title{}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{B-splines}
+
+Funções spline constituem uma base indicada para quando os dados possuem natureza não-periódica. 
+Cada uma das funções $\phi_k$ é um polinômio, de uma ordem $m$ pré-estabelecida. 
+Como regra de bolso, escolhe-se o grau do polinômio como duas unidades a mais que o número de vezes que a função será derivada.
+A grande diferença entre uma base utilizando splines e uma base polinomial convencional é que cada uma das funções da base spline estará definida apenas para um subintervalo do intervalo $[t_0,t_1]$ no qual  deseja-se aproximar a função $f(t)$.
+Os locais em que se dividem o intervalo total são pontos denominados de breakpoints.
+
+A base B-spline é um conjunto específico de funções que são adequadas para fazer a aproximação desejada.
+A literatura cita vantagens computacionais em se utilizar uma base B-splines em relação a outras, tanto no tempo de estimação dos coeficientes $\hat{c}_k$ como na disponibilidade de pacotes que o implementam em diversas linguagens e softwares diferentes.
+Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_2001}.
+
+Graficamente, uma base B-spline é da seguinte forma:
+-------inserir gráfico da base-----
+
+
+
+
+
+\begin{equation}
+y_i = x_{ij} + \varepsilon_i
+\end{equation}
+
+\section{}
+
+\section{}
+
+\end{document}
