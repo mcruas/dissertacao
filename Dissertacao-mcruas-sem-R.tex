@@ -56,7 +56,31 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{mathtools, amsmath, amssymb, amsthm, latexsym}
-\usepackage{lscape}
+\usepackage{lscape}				% Gira a página em 90 graus
+\usepackage{listings}			% Formatação para inserir códigos
+\usepackage{subcaption}			% Faz subfiguras
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+ }
 %\usepackage{geometry}
 %\usepackage{Sweave}
 % ---
@@ -77,18 +101,18 @@
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+%\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+%% Texto padrão antes do número das páginas
+%\renewcommand{\backref}{}
+%% Define os textos da citação
+%\renewcommand*{\backrefalt}[4]{
+%	\ifcase #1 %
+%		Nenhuma citação no texto.%
+%	\or
+%		Citado na página #2.%
+%	\else
+%		Citado #1 vezes nas páginas #2.%
+%	\fi}%
 % ---
 
 % ---
@@ -299,50 +323,47 @@ como quesito parcial para obtenção do
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{ Este trabalho é dedicado às crianças adultas que,\\
-   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
-\end{dedicatoria}
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+%\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-projeto abn\TeX\ foram extraídos de
-\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
 
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-novos voluntários do grupo
-\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-\url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
+%O primeiro agradecimento vai ao orientador Prof. Hudson Torrent. Além de 
+%
+%No âmbito "gigantes em cujos ombros este trabalho está sob", os agradecimentos especiais vão aos matemáticos. Se eles já não tivessem demonstrado as propriedades e teoremas necessários para sustentar a utilização dos métodos aqui propostos, o autor provavalmente escolheria outro tema de estudo.
+
+Este trabalho utilizou somente \emph{software} livre em todas as fases da sua concepção: sistema operacional GNU/Linux\footnote{há diversas distribuições gratuitas disponíveis para baixar na internet. }, \abnTeX \footnote{\emph{https://code.google.com/p/abntex2/}}~com \LaTeX \footnote{ver \emph{http://www.tug.org/}} para escrita deste documento, e linguagem científica R\footnote{http://www.r-project.org/} e RStudio\footnote{http://www.rstudio.com/} para a implementação das rotinas computacionais.
+Portanto, as pessoas que dedicam seu trabalho na elaboração \emph{softwares} de qualidade que podem ser gratuitamente utilizados por todos merecem todo o agradecimento do autor.
+
+Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, agindo conjuntamente com bebidas preparadas com a erva \emph{Ilex paraguariensis}, funcionam como esteroides para o cérebro.
 
 \end{agradecimentos}
 % ---
 
 % ---
-% Epígrafe
+% Epígrafe - 1846, 1904, 2508
 % ---
 \begin{epigrafe}
     \vspace*{\fill}
 	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
+		\textit{
+		``É difícil fazer previsões, especialmente sobre o futuro.''\\
+		``O futuro não é mais como costumava ser.'' \\
+		(Yogi Berra, ex-técnico de beisebol)\\ [1cm]
+		``Não estou dizendo que ninguém que trabalhe com o futuro\\
+		só diga coisas irrelevantes. Por exemplo, o jornal prevê \\
+		o horário de abentura dos cinemas muito bem.'' \\		
+		(Nassim Taleb, em sua obra \emph{O Cisne Negro})
+		}
 	\end{flushright}
 \end{epigrafe}
 % ---
@@ -398,8 +419,13 @@ contribuirão para a evolução do \abnTeX.
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-  \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
+  \item[DL] Modelo de Diebold-Li
+  \item[ETTJ] Estrutura a Termo da Taxa de Juros
+  \item[FPCA] Análise de Componentes Principais Funcional
+  \item[GW] Teste de Giacomini-White
+  \item[NS] Modelo de Nelson-Siegel
+  \item[PCA] Análise de Componentes Principais
+  \item[SV] Modelo de Svensson
 \end{siglas}
 % ---
 
@@ -407,8 +433,8 @@ contribuirão para a evolução do \abnTeX.
 % inserir lista de símbolos
 % ---
 \begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
+  \item[$ a,b $] Intervalo fechado em $\mathbb{R}$
+  \item[$ K $] Função Kernel assimétrica
   \item[$ \zeta $] Letra grega minúscula zeta
   \item[$ \in $] Pertence
 \end{simbolos}
@@ -575,11 +601,10 @@ Fazer uma revisão das metodologias principais para Análise de Dados Funcionais
 % Preview source code from paragraph 0 to 4
 
 \begin{itemize}
-\item Apresentar modelos mais utilizados na literatura sobre modelagem da
-ETTJ.
+\item Apresentar modelos mais utilizados na literatura sobre previsão e modelagem da ETTJ.
 \item Apresentar os métodos paramétricos e não-paramétricos para Análise
 de Dados Funcionais.
-\item Estimar a ETTJ utilizando os métodos apresentados.
+\item Estimar previsões fora da amostra para a ETTJ utilizando os métodos apresentados.
 \item Discussão sobre a adequação da abordagem funcional para a modelagem
 da ETTJ.
 \item Comparação entre os resultados obtidos no trabalho e os resultados
@@ -868,9 +893,9 @@ em que $L$ é um operador diferencial linear adequado para o problema.
 Enquanto $g$ penaliza a distância ao quadrado entre a variável resposta
 e a variável real, o $h$ penaliza a falta de suavidade do modelo.
 Assim, o parâmetro $\lambda$ irá ponderar o grau de suavização da
-curva. Tomando $\lambda=0$, a curva vai se ajustar perfeitamente
-aos dados, e haverá um problema de \emph{overfitting}. Por outro lado,
-quando $\lambda\rightarrow\infty$, a regressão será uma curva totalmente
+curva. Caso se tome $\lambda=0$, a curva vai se ajustará perfeitamente
+aos dados, e se estará diante de um problema de \emph{overfitting}. Por outro lado,
+quando $\lambda\rightarrow\infty$, a regressão será uma curva completamente
 suave.
 
 Há duas maneiras de escolher o valor de $\lambda$. A primeira é fazê-lo
@@ -878,7 +903,7 @@ de forma subjetiva, isto é, fazendo variar o parâmetro e escolher
 a que mais agrade visualmente. A segunda é escolher automaticamente
 através de um procedimento de \emph{cross-validation},
 realizado da seguinte forma:
-\begin{itemize}
+\begin{enumerate}
 \item Obtém-se as estimativas de $\alpha_{\lambda}^{(-i)}$ e $\beta_{\lambda}^{(-i)}$,
 obtidas encontrando os valores de $\alpha$ e $\beta$ que minimizam
 a equação (\ref{eq:pensse}) de toda a amostra, com exceção dos valores
@@ -890,7 +915,7 @@ CV(\lambda)=\sum_{i=1}^{N}[y_{i}-\alpha_{\lambda}^{(-i)}-\int z_{i}(t)\beta_{\la
 Escolhendo $\lambda$ de forma a minimizar a função $CV(\lambda)$
 será a escolha ótima do parâmetro utilizando-se o procedimento de
 \emph{cross-validation}.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Séries temporais funcionais}
 
@@ -919,7 +944,7 @@ o modelo tomará a seguinte forma:
 \[
 Y=r(\chi)+erro,
 \]
-em que $r(\cdot)$ é um operador linear contínuo de $\mathcal{H}$
+em que $r(\cdot)$ é um operador linear contínuo de um espaco infinito dimensional $\mathcal{H}$
 em $\mathbb{R}$. A maioria das funções utilizadas para implementação
 podem ser encontradas em \emph{http://www.lsp.ups-tlse.fr/staph/npfda. }
 
@@ -948,19 +973,20 @@ e a previsão por esse método será dada por:
 \[
 \hat{y}=\hat{r}(\chi).
 \]
-
 Para a estimação de $\hat{r}(\chi)$, é proposta a utilização do estimador
-não paramétrico utilizando-se uma função kernel assimétrica $K$:~\ref{peso-local}
-
-\begin{equation}
-\hat{r}(\chi)=\frac{\sum_{i=1}^{n}Y_{i}K(h^{-1}d(\chi,\boldsymbol{\chi}_{i})}{\sum_{i=1}^{n}K(h^{-1}d(\chi,\CHI_{i})}.
-\end{equation}
-
-Assim, para se atribuir pesos localmente, utilizando funções Kernel, pra dados funcionais, define-se:
+não paramétrico utilizando-se uma função kernel assimétrica $K$. Considere que os pesos das curvas são dados por
 \begin{equation} \label{peso-local}
-\Delta_i=\frac{K(h^{-1}d(\chi,\boldsymbol{\chi}_{i})}{\mathbb{E} \left( K(h^{-1}d(\chi,\CHI_{i}) \right)},
+\Delta_i=\frac{K(h^{-1}d(\chi,\boldsymbol{\chi}_{i})}{\mathbb{E} \left( K(h^{-1}d(\chi,\CHI_{i}) \right)}.
+\end{equation}
+A regressão não-paramétrica funcional será uma extensão do estimador de Nadaraya-Watson (empregado comumente para dados em espaço com número finito de dimensões) para o caso funcional. 
+Assim, quando se atribui pesos localmente utilizando dados funcionais, sua média ponderada resultará no estimador da regressão funcional
+\begin{equation}
+	\hat{r}(\chi) = \sum_{i=1}^n \Delta_i Y_i.
 \end{equation}
 
+É uma característica desejável, portanto, que quando toma-se curvas com um valor pequeno de $d(\chi,CHI_i)$, as respostas escalares $Y_i$ se aproximem do valor esperado de $E(Y|\CHI = \chi)$. Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é \bw quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
+
+\citeonline{ferraty_2007} investigam aspectos teóricos sobre a regressão com NP-FDA, mostrando aplicações para dados de quemometria. Já \citeonline{barrientos-marin_locally_2010} implementa a generalização do estimador \emph{local linear} para o caso funcional.
 
 
 \subsubsection*{Previsão via função de densidade acumulada condicional}
@@ -1024,6 +1050,7 @@ uma semi-norma, dentro de um espaço semi-métrico, ao invés de uma
 norma num espaço métrico. As duas gozam das mesmas propriedades, com
 exceção de que para a semi-norma vale que $d(x,y)=0\nRightarrow x=y$. 
 
+A escolha da semimétrica utilizada tem papel fundamental no resultado das estimações, pois mudando a forma como se define as distâncias entre as curvas muda-se também as respostas escalares que serão levadas em conta. Assim, a seguir apresenta-se, a seguir, duas famílias de semimétricas
 
 \subsubsection*{Semi-métrica baseada em Análise de Componente Principal Funcional
 (FPCA)}
@@ -1099,7 +1126,7 @@ Trabalha-se com uma base constituída de x \todo{completar as maturidades e obse
 
 \subsection*{Implementação}
 
-A implementação será feita em R, uma linguagem de programação construída dentro da lógica de software livre. Ela é usada predominantemente para solucionar problemas estatísticos. Por ser livre, é amplamente incrementada por pesquisadores, possuindo um enorme banco de funções e pacotes. Mais sobre a linguagem R pode ser obtido em http://cran.r-project.org/. O ambiente de programação que será utilizado é o software RStudio, também um programa de código aberto.
+A implementação será feita em R, uma linguagem de programação construída dentro da lógica de software livre. Ela é usada predominantemente para solucionar problemas estatísticos. Por ser livre, é amplamente incrementada por pesquisadores, possuindo um enorme banco de funções e pacotes. Mais sobre a linguagem R pode ser obtido em \emph{http://cran.r-project.org/}. O ambiente de programação que será utilizado é o software RStudio, também um programa de código aberto.
 
 Para cada valor previsto, estima-se o modelo em uma dada janela num intervalo $[t_a,t_b]$, e prevê-se o valor de  $\hat{y}_{t+h|t}(\tau_i)$, em que $h$ é o horizonte da previsão e $\tau_i$ o valor da maturidade. Assim, para cada valor previsto, utiliza-se uma janela que termina $h$ unidades de tempo anteriores à previsão.
 
@@ -1157,7 +1184,7 @@ Para prever mais do que $1$ passo à frente, é possível utilizar o valor previ
 \end{equation}
 e assim por diante. Iterativamente, consegue-se então utilizar o método para fazer a previsão $n$ passos à frente.
 
-\section{Previsão com Métodos não-paramétricos para FDA}
+\section{Previsão com Métodos não-paramétricos para Análise de Dados Funcionais} \label{metodologia-npfda}
 
 Seja $(\chi_i,Y_i)_{i=t_i,...,t_f}$ pares de variáveis aleatórias funcionais identicamente distribuídos como $(\CHI,\boldsymbol{Y})$, tomando valor em $E \times \mathbb{R}$, em que $(E,d)$ é um espaço semi-métrico. O objetivo do problema é prever a resposta escalar de um preditor funcional $\chi$ utilizando algum dos três métodos apresentados na seção \ref{metodos-previsao-npfda}. Como a resposta escalar é uma variável unidimensional, e deseja-se fazer a previsão para diversas maturidades, é necessário fazer a estimação para cada uma das maturidades que se deseja realizar previsões.
 
@@ -1177,19 +1204,44 @@ Uma análise preliminar mostrou que, caso a estimação fosse feita sem nenhum t
 
 Por essa razão, decidiu-se retirar o nível da curva para testar o método. Isto, porém, levanta outra questâo: qual é o valor que representa o nível da curva? A média, alguma maturidade, ou ainda outro valor? Levando isso em conta, considera-se um modelo mais geral de estimação, apresentado a seguir:
 \begin{equation}
-\hat{y}_{\tau,t+h} - k_t = m(\chi - k_t),
+\hat{y}_{t+h}(\tau_i) - k_t = m(\chi - k_t),
 \end{equation}
 em que $k \in \mathbb{R}$. Caso $k=0$, tem-se o modelo padrão
 \begin{equation}
-\hat{y}_{\tau,t+h}= m(\chi),
+\hat{y}_{t+h}(\tau_i) = m(\chi),
 \end{equation}
-e quando $k_t = y_{\tau,t}$, tem-se o modelo de estimação em diferença
+e quando $k_t = \hat{y}_{t+h}(\tau_i)$, tem-se o modelo de estimação em diferença
 \begin{equation}
-\Delta \hat{y}_{\tau,t+h}= m(\chi - y_{\tau,t}).
+\Delta \hat{y}_{t+h}(\tau_i)= m(\chi - \hat{y}_{t+h}(\tau_i)).
 \end{equation}
+Além desses, achou-se interessante atribuir valores mais diversos para $k_t$, de certas maturidades específicas. Assim, também foram utilizados uma maturidade curta ($\tau = 3$ meses), uma média ($\tau = 2$ anos), uma longa ($\tau = 3$ meses) e, por fim, tomar $k_t = \hat{\beta}_{1,t}$, em que $\hat{\beta}_{1,t}$ representa a estimação do primeiro fator no modelo de DL. 
 
-Além desses valores, achou-se interessante utilizar também outros valores, como tomar $k = \hat{\beta}_{1,t}$, em que $\hat{\beta}_{1,t}$ representa a estimação do primeiro fator no modelo de \citeonline{diebold_forecasting_2006}. 
-\todo[inline]{valores retirados}
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/perfil_curvas_retira0.pdf}
+     \subcaption{$k_t=0$}
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/perfil_curvas_retira1.pdf} \subcaption{$k_t=y_t(0,25)$}
+    \end{minipage}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/perfil_curvas_retira7.pdf}
+	\subcaption{$k_t=y_t(2)$}
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/perfil_curvas_retira17.pdf} \subcaption{$k_t=y_t(10)$}
+    \end{minipage}
+  \end{minipage}
+  \caption{Curvas $\chi_t(\tau) - k_t$, para valores distintos de $k_t$ e argumento de $y_t$ em anos}
+  \label{figuras-retirar-kt}
+\end{figure}
+
 
 \subsection*{Escolha da \emph{bandwidth}}
 
@@ -1207,7 +1259,7 @@ Trabalha-se com um valor único para $h$, independente da curva $\chi$ que desej
 \[
 R_{CV}^{kernel}(x)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{i}})/h_{opt})}{\sum_{i=1}^{n}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{i}})/h_{opt})},
 \]
-o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\bullet)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\boldsymbol{x_j},\boldsymbol{x_i})$. Assim, toma-se 
+o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\boldsymbol{x_j},\boldsymbol{x_i})$. Assim, toma-se 
 \[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
 onde 
 \[
@@ -1220,19 +1272,19 @@ R_{-i}^{kernel}(x)=\dfrac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\boldsymbo
 
 \item Vizinhos mais próximos
 
-\todo[inline]{Escrever seção}
+Aqui, a ideia é testar qual o número de vizinhos mais próximos (isto é, as curvas $i$ com menores valores de $d(\chi,\CHI_i)$) a se levar em conta para definir a \bw~e chegar nas melhores previsões.
 
 \end{itemize}
 
 
 \section{Metodologia para avaliação da performance das previsões}
 
-As previsões serão avaliadas utilizando as seguintes métricas:
+Para analisar quão boas são as previsões feitas pelos métodos analisados, utiliza-se diversar métricas distintas. Seja $\{y_{t}(\tau_i)\}_{t=1}^T$ a série temporal referente à maturidade $\tau_i$ e $\{\hat{y}_{t}^m(\tau_i)\}_{t=t_0}^T$ os valores previstos para um dado método $m$. A série temporal dos erros de previsão para este método será denominada $\{e_{t}^m(\tau_i)\}_{t=t_0}^T$.
 
 \begin{description}
-	\item[Raiz do Erro Quadrático Médio] O erro quadrático médio das previsões é um critério estatístico amplamente utilizado na literatura. Pelo erro ser elevado ao quadrado, esse critério pune com mais severamente os desvios grandes da meta. Ele é obtido pela seguinte expressão: \[ REQM_m(\tau_i) = \sqrt{ \frac{1}{R} \sum _{t = 1}^R (\hat{y}_{t+h|t,m}(\tau_i) - y_{t+h}(\tau_i))^2 } \]
+	\item[Raiz do Erro Quadrático Médio] O erro quadrático médio das previsões é um critério estatístico amplamente utilizado na literatura. Pelo erro ser elevado ao quadrado, esse critério pune com mais severamente os desvios grandes da meta. Ele é obtido pela seguinte expressão: \[ REQM^m(\tau_i) = \sqrt{ \frac{1}{R} \sum _{t = t_0}^T (\hat{y}_{t+h|t}^m(\tau_i) - y_{t+h}(\tau_i))^2 } \]
 	\item[Erro Quadrático Acumulado de Previsão] É uma metodologia que não fornece um simples indicador comparativo de performance, mas sim um gráfico do comportamento da previsão do método avaliado com relação a algum outro método que é utilizado como \emph{benchmark}. A fórmula para implementar o método é a seguinte:
-	\[ EQAP_{m}(\tau_i) = \sum_{t=w+1}^T  \left[ \left( \hat{y}_{t+h|t,benchmark}(\tau_i) - y_{t+h}(\tau_i) \right)^2 - \left( \hat{y}_{t+h|t,m}(\tau_i) - y_{t+h}(\tau_i) \right)^2 \right]. \]
+	\[ EQAP_{m}(\tau_i) = \sum_{t=t_0}^T  \left[ \left( \hat{y}_{t+h|t}^{benchmark}(\tau_i) - y_{t+h}(\tau_i) \right)^2 - \left( \hat{y}_{t+h|t}^m(\tau_i) - y_{t+h}(\tau_i) \right)^2 \right]. \]
 Assim, o trecho em que o gráfico possui inclinação positiva é onde o método avaliado possui performance superior ao \emph{benchmark}, enquanto quando é negativamente inclinado é o método \emph{benchmark} quem possui a melhor performance.
 	
 	\item[Significância da diferença de previsão]
@@ -1256,7 +1308,9 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right) \overset{d}{\longrightarrow} \chi_{dim(\delta)}^2
 \end{equation}		
 	
-	\todo[inline]{escrever seção}
+	\todo[inline]{terminar Giacomini-White}
+	
+	
 	
 \end{description}
 
@@ -1265,6 +1319,17 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 % Resultados
 %---------------------------------
 \chapter{Resultados}
+
+As estimações foram realizadas com códigos escritos em R disponíveis na internet: \emph{https://github.com/mcruas/dissertacao} \todo{verificar o site}. Uma breve  explicação está 
+disponível no apêndice deste trabalho, enquanto a versão mais completa do documento está descrita neste \emph{site}.
+
+A primeira pergunta a ser respondida, quando a série começou a ser analisada é com relação a sua estacionariedade. Para ser considerada estacionária, as séries devem ser geradas a partir de um processo cuja distribuição não dependa do tempo. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada.
+
+Uma análise preliminar mostrou que as previsões via função de densidade acumulada condicional e via moda da função de densidade produziam resultados insatisfatórios, bem inferiores ao produzido prevendo com regressão. Com isso, estes tipos de previsão foram retirados do resto do estudo. Daqui em diante, portanto, toda a estimação aqui descrita é feita com previsão via regressão.
+
+Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o EQM.
+
+As abreviaturas para a identificação dos métodos são descritas a seguir. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$.
 
 % ----------------------------------------------------------
 % PARTE
@@ -1300,11 +1365,16 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 % ---
 % Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
-%\chapter*[Conclusão]{Conclusão}
-%\addcontentsline{toc}{chapter}{Conclusão}
+\chapter*[Conclusão]{Considerações Finais}
+\addcontentsline{toc}{chapter}{Considerações Finais}
 % ---
 
-%Blau blau blau
+A Estrutura a Termo da Taxa de Juros é objeto de muitos estudos. Mesmo assim, fazer previsões com uma estratégia tão simples como o passeio aleatório permanecer como um \bm~tão utilizado demonstra a dificuldade em se prever essas séries temporais.
+
+Assim, qualquer método novo utilizado tem . 
+ter utilizado Análise de Dados Funcionais Não-Paramétricos para estimar e prever a ETTJ era, sabidamente, um
+
+Na literatura encontrada, os métodos de NP-FDA são utilizados para curvas melhor comportadas, em que as distâncias $d(\chi_i,\chi_j)$ entre as curvas é um preditor razoável das  como o das curvas quemométricas
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
@@ -1332,12 +1402,18 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 % ---
 % Inicia os apêndices
 % ---
-%\begin{apendicesenv}
+\begin{apendicesenv}
 %
 %% Imprime uma página indicando o início dos apêndices
-%\partapendices
+\partapendices
 %
-%\chapter{Tabelas}
+
+
+
+\chapter{Tabelas} \label{tabelas-resultados}
+
+Resultados
+
 %% ----------- movel horizonte 1 ------------------%
 %\newgeometry{left=1cm,right=1cm,bottom=1cm}
 %
@@ -1448,7 +1524,58 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 %
 %
 %
-%\end{apendicesenv}
+
+
+\chapter{Sobre as rotinas utilizadas}
+
+Um dos cuidados que se teve na execução deste trabalho foi montar os códigos e rotinas de modo que fosse facilmente reproduzível por quem tivesse interesse. Assim, fica fácil para quem quiser dar continuidade à pesquisa, encontrar melhorias e até potenciais erros no código que influenciem os resultados.
+
+Os códigos estão disponíveis em \emph{https://github.com/mcruas/dissertacao}. Para um início fácil e rápido, recomenda-se clonar o repositório. Instruções para isso estão disponíveis no \emph{site}.
+
+\section{Estimação da ETTJ com NP-FDA}
+Para realizar a estimação e previsão da ETTJ, é preciso, primeiro, carregar o arquivo \texttt{biblioteca-npfda-ettj.R}. As funções presentes nesse arquivo foram uma extensão das disponibilizadas em \emph{http://www.math.univ-toulouse.fr/staph/npfda/} como acompanhamento do livro \citeonline{vieu_nonparametric_2006}.
+
+As variáveis necessárias para representar a base de dados são:
+\begin{itemize}
+\item \textbf{tempo.maturidades:} um vetor que contém o tempo, em anos, das maturidades disponíveis na base de dados. No caso deste trabalho, tem-se:
+0.25, 0.5, 0.75, 1,  1.25,  1.5,  1.75,	2,	2.5,	3,	4,	5,	6,	7,	8,	9,	10 anos.
+\item \textbf{taxas.juro:} uma matriz com cada coluna representando uma maturidade diferente, na ordem explicitada pelo vetor \texttt{tempo.maturidades}. Observação: internamente, as funções não verificam se as dimensões das variáveis são compatíveis, portanto é importante verificar, pois certos erros podem aparecer como decorrência.
+\end{itemize}
+
+A função \textbf{PreparaCurvasCorte()} transforma a base de dados num objeto que será lido posteriormente para fazer a estimação. O código a seguir
+\begin{lstlisting}
+curvas <- PreparaCurvasCorte(taxas.juro, intervalo.passado = c(101,200),
+				    maturidade = 5,intervalo.futuro = 212, 
+				    retirar = taxas.juro[, 7])
+\end{lstlisting}
+irá criar um objeto da classe \texttt{fdaCorte} que utilizará as curvas tais que $t \in [101,200]$ para prever o valor da taxa de juros $\hat{y}_{t=212}(\tau = 1.25)$, em que o valor da sétima maturidade (em ordem crescente) é subtraída de cada curva. Nota-se que os índices para determinar a maturidade são relativos à coluna, e não ao tempo de duração das mesmas; por esse motivo, quando se escreve \texttt{maturidade = 5} se está referindo à maturidade com a quinta menor duração, isto é, $1.25$ anos.
+
+A seguir, é necessário criar um objeto da classe \texttt{semimetricas}, que contém matrizes medindo as distâncias entre as curvas. Este objeto é gerado a partir da função \textbf{SemimetricasClasse()}. A seguir, há exemplos de como gerar o objeto quando a distância entre as curvas é feita com base na derivada de ordem 1 ou quando a distância utiliza semimétricas do tipo pca com 5 fatores principais principais.
+\begin{lstlisting} 
+semimetricas.deriv <- SemimetricasClasse(curvas,q=1,tipo="deriv")
+semimetricas.pca <- SemimetricasClasse(curvas,q=5,tipo="pca")
+\end{lstlisting}
+Uma vez que há objetos criados para as classes \texttt{fdaCorte} e \texttt{semimetricas}, pode-se utilizar um método da função \textbf{predict()} específico para este tipo de dados, depois de carregados os arquivos citados acima:
+\begin{lstlisting}
+taxas.previstas.corte <- predict(curvas,semimetricas)
+\end{lstlisting}
+Como resultado final, obtém se o valor previsto para $\hat{y}_{t=212}(\tau = 1.25)$. Para efetuar a estimação de todo o intervalo de interesse, basta criar um laço que atualize a janela passada e os valores que devem ser previstos.
+
+\section{Estimação da ETTJ com séries temporais funcionais}
+
+Para fazer previsões utilizando séries temporais funcionais, utiliza-se o mesmo conjunto de variáveis de entrada que na seção anterior. O funcionamento das rotinas também é muito semelhante. A função \textbf{PreparaCurvasFts()} cria um objeto da classe \texttt{fdats}, com parâmetros similares aos já utilizados.
+\begin{lstlisting} 
+curvas.fts <- PreparaCurvasFts(taxas.juro, intervalo.passado = c(101,200), 					tempo.maturidades, retirar = taxas.juro[, 1])
+\end{lstlisting} 
+O objeto criado servirá de entrada para a previsão. Nesse caso, alguns parâmetros adicionais são necessários. No exemplo a seguir, são estimadas previsões para os horizontes de 1, 3, 6 e 12 meses, utilizando 5 componentes principais, cuja dinâmica é modelada através de um processo ARIMA. 
+\begin{lstlisting} 
+previsoes <- predict(curvas.fts,vetor.horizontes = c(1,3,6,12), ordem.pca = 5, 
+							metodo.previsao = "arima")
+\end{lstlisting}
+É importante notar que a rotina que implementa as séries temporais funcionais estima todas as maturidades ao mesmo tempo, uma das razões pelas quais o tempo de execução total é muito menor para estes métodos do que para métodos com NP-FDA.
+
+
+\end{apendicesenv}
 %% ---
 %
 %
@@ -1489,7 +1616,7 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 %\phantompart
-%\printindex
+\printindex
 %---------------------------------------------------------------------
 
 \end{document}
