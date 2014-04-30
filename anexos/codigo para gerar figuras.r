@@ -96,3 +96,34 @@ plot(tmp2)
 dev.off()
 
 
+# Teste estacionariedade --------------------------------------------------
+
+require("tseries")
+for (i in 1:17) {
+  serie <- taxas.juro[, i]
+  for (j in c(1,7,17)) {
+    if (i == j) next
+    serie.ret <- serie - taxas.juro[, j]
+    cat(i,",",j,",",sep="")
+    cat(adf.test(x=ts(serie.ret),5,alternative="s")$p.value)
+    cat("\n")
+  }
+}
+
+
+
+# Heatmap -----------------------------------------------------------------
+
+#tabela.moving <- TabelaEQM(moving,vetor.maturidade, horizonte = horizonte,normaliza=TRUE,subconjunto=intervalo)
+
+for (horizonte in c(1,3,6,12)) {
+  nome.arquivo <- paste0("heatmap",horizonte,".pdf")
+  pdf(width=6,height=4,file=nome.arquivo)
+  par(mar=c(1.1, 1.1, 0.5, 1.1))
+  tabela.expanding <- TabelaEQM(expanding,vetor.maturidade, horizonte = horizonte,normaliza=TRUE,subconjunto=intervalo)
+  heatmap(tabela.expanding[-2, ],scale="column", Colv=NA, Rowv=NA)
+  dev.off()
+}
+
+heatmap(tabela.expanding,scale="column", Colv=NA, Rowv=NA)
+

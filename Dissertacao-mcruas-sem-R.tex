@@ -375,27 +375,21 @@ Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, ag
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- Segundo a, o resumo deve ressaltar o
- objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
-
- \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+ 
+\todo[inline]{Escrever resumo} 
+ 
+ \textbf{Palavras-chaves}: Estrutura a Termo da Taxa de Juros. Análise de Dados Funcionais. Estatística não-paramétrica.
 \end{resumo}
 
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   This is the english abstract.
+   \todo[inline]{Write abstract}
 
    \vspace{\onelineskip}
  
    \noindent 
-   \textbf{Key-words}: latex. abntex. text editoration.
+   \textbf{Key-words}: Yield Curve Term Structure. Functional Data Analysis. Nonparametric Statistics.
  \end{otherlanguage*}
 \end{resumo}
 
@@ -471,8 +465,7 @@ Segundo \citeonline{rossi_estrutura_1996}, é importante que se conheça a rela�
 entre as taxas de juros de curto e longo prazo, pois o setor privado
 se utiliza dela para tomar decisões de investimento.
 
-Essas curvas, contudo, não podem ser observadas diretamente: apenas é possível \todo{ajeitar}
-observar dados discretos sobre elas. É necessário, portanto, algum
+Essas curvas, contudo, não podem ser observadas diretamente: apenas é possível observar dados discretos sobre elas. É necessário, portanto, algum
 processo de estimação, que possa interpolar as observações para que
 se possa obter uma curva contínua.  \citeonline{caldeira_estrutura_2010} apresenta
 uma revisão dos métodos mais utilizados em bancos centrais do mundo
@@ -543,7 +536,7 @@ técnicas devem ser utilizadas para o tratamento e modelagem de dados
 funcionais.
 
 Métodos não-paramétricos são utilizados quando um modelo de parâmetros
-finitos não se adequa bem aos dados, ou não se possui informação acerca
+finitos não se adéqua bem aos dados, ou não se possui informação acerca
 da distribuição exata da variável aleatória estudada. O ponto de partida
 para o estudo dos métodos não paramétricos é o estudo de inferências
 baseadas em funções Kernel. Uma introdução ao assunto, para dados não-funcionais, pode ser encontrado 
@@ -627,7 +620,7 @@ y_{t}(\tau)=\frac{1}{\tau}\int_{0}^{\tau}f_{t}(u)\, du.\label{eq:taxayt}
 \end{equation}
 Mesmo que somente uma das variáveis $P_{t}(\tau)$,\foreignlanguage{english}{ $f_{t}(\tau)$} ou $y_{t}(\tau)$ seja de interesse de um trabalho, pode-se trabalhar com qualquer uma das outras, uma vez que pode-se utilizar as equações (\ref{eq:taxapt}), (\ref{eq:taxaft}) e (\ref{eq:taxayt}) para fazer a transformação simples e direta entre elas. 
 
-Títulos coupom, ao contrário dos títulos zero-coupom, prevêem pagamentos durante o período da aplicação, sendo o principal restante quitado na maturidade. Para precificar um título coupom, este pode ser decomposto em diversos títulos zero-coupom, da seguinte forma:
+Títulos coupom, ao contrário dos títulos zero-coupom, preveem pagamentos durante o período da aplicação, sendo o principal restante quitado na maturidade. Para precificar um título coupom, este pode ser decomposto em diversos títulos zero-coupom, da seguinte forma:
 \[
 P_{0}(\tau)=\frac{C}{(1+y_{t}(1))}+\frac{C}{(1+y_{t}(2))^{2}}+...+\frac{C}{(1+y_{t}(\tau))^{\tau}}+\frac{V}{(1+y_{t}(\tau))^{\tau}},
 \]
@@ -653,14 +646,14 @@ uma série temporal.
 
 \citeonline{nelson_parsimonious_1987} criaram um modelo parcimonioso, baseado em 4 parâmetros
 ($b_{1},b_{2},b_{3},\lambda$), para representar a curva de juros
-zero-coupom. Eles consideraram a taxa forward como a solução de uma
+zero-coupom. Eles consideraram a taxa \emph{forward} como a solução de uma
 equação diferencial de segunda ordem em que há duas raízes reais iguais:
 \begin{equation} \label{eq:nelson-siegel}
 f(\tau)=b_{1}+b_{2}e^{-\lambda\tau}+b_{3}\lambda e^{-\lambda\tau}=b_1+e^{-\lambda \tau}(b_2+b_3 \lambda).
 \end{equation}
 Esta equação pode ser vista como uma constante mais uma função de
 Laguerre (uma polinomial vezes uma função exponencial). Assim, substituindo a equação~\ref{eq:nelson-siegel} em~\ref{eq:taxayt}
-obtem-se a equação para a curva de juros, segundo o modelo de NS:
+obtém-se a equação para a curva de juros, segundo o modelo de NS:
 \begin{equation}
 y(\tau)=b_{1}+(b_{2}+b_{3})\left(\frac{1-e^{-\lambda\tau}}{\lambda\tau}\right)-b_{2}e^{-\lambda\tau}.
 \end{equation}
@@ -751,10 +744,11 @@ A base de Fourier é eficiente para funções estáveis, isto é, que não
 possuam particularidades locais e cuja curvatura seja semelhante em
 toda a sua extensão. Assim, sua utilização não é recomendada em casos
 onde haja discontinuidades na função ou nas primeiras derivadas. As funções periódicas da base de Fourier são apresentadas na figura~\ref{fig-base-fourier}
-\begin{figure}[h!] \label{fig-base-fourier}
+\begin{figure}[h!] 
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/base_fourier}
   \caption{Exemplo de base Fourier utilizando 5 funções. Função constante não está representada.}
+  \label{fig-base-fourier}
 \end{figure}
 
 \subsubsection*{Base B-splines} \label{sub:Base-B-splines}
@@ -767,17 +761,18 @@ Os locais em que se dividem o intervalo total são pontos denominados de breakpo
 
 A base B-spline é um conjunto específico de funções que são adequadas para fazer a aproximação desejada.
 A literatura cita vantagens computacionais em se utilizar uma base B-splines em relação a outras, tanto no tempo de estimação dos coeficientes $\hat{c}_k$ como na disponibilidade de pacotes que o implementam em diversas linguagens e softwares diferentes.
-Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines é mostrado na figura~\ref{fig:base-bspline} \todo{ajeitar este link}.
-\begin{figure}[h!] \label{fig:base-bspline}
+Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines é mostrado na figura~\ref{fig:base-bspline}.
+\begin{figure}[h!] 
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/base_bsplines1}
   \caption{Exemplo de base B-splines utilizando 10 funções}
+  \label{fig:base-bspline}
 \end{figure}
 
 \subsection{Análise de Componente Principal Funcional}
 \label{FPCA}
 
-\todo{ajustar} A Análise de Componentes Principais (PCA) é um método muito utilizado na análise de dados multivariados com grandes dimensões, em que o efeito de uma variável, individualmente, não contribui o suficiente para a compreensão dos dados. O método consiste em encontrar os componentes que melhor explicam a variabilidade dos dados. 
+A Análise de Componentes Principais (PCA) é um método muito utilizado na análise de dados multivariados com grandes dimensões, em que o efeito de uma variável, individualmente, não contribui o suficiente para a compreensão dos dados. O método consiste em encontrar os componentes que melhor explicam a variabilidade dos dados. 
 
 A Análise de Componentes Principais Funcionais (FPCA) é uma extensão do método multivariado para o caso de dados funcionais. 
 A FPCA é utilizada, portanto, para reduzir a dimensão de um dado e exibir suas
@@ -971,7 +966,7 @@ Assim, quando se atribui pesos localmente utilizando dados funcionais, sua médi
 
 É uma característica desejável, portanto, que quando toma-se curvas com um valor pequeno de $d(\chi,CHI_i)$, as respostas escalares $Y_i$ se aproximem do valor esperado de $E(Y|\CHI = \chi)$. Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é \bw quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
 
-\citeonline{ferraty_2007} investigam aspectos teóricos sobre a regressão com NP-FDA, mostrando aplicações para dados de quemometria. Já \citeonline{barrientos-marin_locally_2010} implementa a generalização do estimador \emph{local linear} para o caso funcional.
+\citeonline{ferraty_2007} investiga aspectos teóricos sobre a regressão com NP-FDA, mostrando uma aplicação do método aplicado a um problema de quimiometria. Já \citeonline{barrientos-marin_locally_2010} implementa a generalização do estimador \emph{local linear} para o caso funcional.
 
 
 \subsubsection*{Previsão via função de densidade acumulada condicional}
@@ -1014,7 +1009,7 @@ o que resulta na expressão final de estimação:
 \hat{f}_{Y}^{\CHI}(\chi,y) = \frac{\sum_{i=1}^{n}K(h^{-1}d(\chi,\boldsymbol{\chi}_{i}) \frac{1}{g} H'(g^{-1}(y-Y_{i})}{\sum_{i=1}^{n}K(h^{-1}d(\chi,\CHI_{i})}.
 \end{equation}
 
-\subsection{Medindo a distância entre as curvas utilizando semi-normas}
+\subsection{Medindo a distância entre as curvas utilizando semi-normas} \label{sub:semimetricas}
 
 Nas seções anteriores, utilizou-se a função $d(\cdot)$ para expressar
 a distância entre duas curvas. Medir a distância entre variáveis é
@@ -1037,7 +1032,7 @@ exceção de que para a semi-norma vale que $d(x,y)=0\nRightarrow x=y$.
 
 A escolha da semimétrica utilizada tem papel fundamental no resultado das estimações, pois mudando a forma como se define as distâncias entre as curvas muda-se também as respostas escalares que serão levadas em conta. Assim, a seguir apresenta-se, a seguir, duas famílias de semimétricas
 
-\subsubsection*{Semi-métrica baseada em Análise de Componente Principal Funcional
+\subsubsection{Semi-métrica baseada em Análise de Componente Principal Funcional
 (FPCA)}
 
 A FPCA é utilizada para reduzir a dimensão de um dado e exibir suas
@@ -1064,7 +1059,7 @@ d_{q}^{PCA}(\CHI_{i},\chi)=\sqrt{\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int[\C
 
 
 
-\subsubsection*{Semi-métrica baseada em derivativas}
+\subsubsection{Semi-métrica baseada em derivativas}
 
 É possível construir outra família de semi-métricas a partir da distância
 entre seus derivativos, da forma a seguir:
@@ -1096,9 +1091,9 @@ Para a realização das estimações da ETTJ, os métodos utilizados serão os m
 
 Como estratégia de avaliação, os métodos de estimação serão aplicados a apenas uma parte da amostra, e a previsão é feita fora da amostra utilizada para fazer a estimação o restante para ser utilizado como teste da capacidade de previsão. Assim, pode-se calcular o Erro Quadrático Médio (EQM) das previsões e comparar suas performances. 
 
-\subsection*{Dados}
+\section{Dados}
 
-Os dados utilizados serão dados diários (no período de 25/11/1985 até 09/02/2012, constituindo 6537 dias) da taxa de juros para títulos de maturidades diversas (mensais no intervalo de 1 mês até 30 meses). Assim, a base de dados contém 196110 observações. A figura~\ref{fig-est-termo} contém as séries temporais das diferentes maturidades.
+Os dados utilizados serão dados diários (no período de 25/11/1985 até 09/02/2012, constituindo 6537 dias) da taxa de juros para títulos de maturidades diversas (mensais no intervalo de 1 mês até 30 meses). \todo{descobrir informações sobre a base} Assim, a base de dados contém 196110 observações. A figura~\ref{fig-est-termo} contém as séries temporais das diferentes maturidades.
 \begin{figure}[h!] \label{fig-est-termo}
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/taxas_juro}
@@ -1109,13 +1104,13 @@ Trabalha-se com uma base constituída de x \todo{completar as maturidades e obse
 
 
 
-\subsection*{Implementação}
+\section{Implementação}
 
 A implementação será feita em R, uma linguagem de programação construída dentro da lógica de software livre. Ela é usada predominantemente para solucionar problemas estatísticos. Por ser livre, é amplamente incrementada por pesquisadores, possuindo um enorme banco de funções e pacotes. Mais sobre a linguagem R pode ser obtido em \emph{http://cran.r-project.org/}. O ambiente de programação que será utilizado é o software RStudio, também um programa de código aberto.
 
 Para cada valor previsto, estima-se o modelo em uma dada janela num intervalo $[t_a,t_b]$, e prevê-se o valor de  $\hat{y}_{t+h|t}(\tau_i)$, em que $h$ é o horizonte da previsão e $\tau_i$ o valor da maturidade. Assim, para cada valor previsto, utiliza-se uma janela que termina $h$ unidades de tempo anteriores à previsão.
 
-Dois tipos de janela móvel foram utilizados: com tamanho fixo e tamanho expandível. 
+Dois tipos de janela móvel foram utilizados: com \textbf{tamanho fixo }e \textbf{tamanho expandível}. 
 No primeiro tipo, a janela de estimação possui tamanho fixo. Então, enquanto utiliza-se a janela $[t_a,t_b]$ para estimar o modelo e fazer a previsão do valor de $\hat{y}_{t+h|t}(\tau_i)$, a janela $[t_{a+1},t_{b+1}]$ é utilizada para prever o valor de $\hat{y}_{t+1+h|t+1}(\tau_i)$. Quando trabalha-se com tamanho expandível, o ponto de início do intervalo se mantém, mas o final dele é incrementado: utilizam-se os intervalos $[t_{a},t_{b}] ,[t_{a},t_{b+1}],[t_{a},t_{b+2}],\dots$  pra prever $\hat{y}_{t+h|t}(\tau_i),\hat{y}_{t+1+h|t}(\tau_i),\hat{y}_{t+2+h|t}(\tau_i),\dots$, respectivamente.
 
 Quando se trabalha com tamanho expandível, obtém-se o aproveitamento máximo dos dados disponíveis para efetuar a previsão, já que todo valor conhecido pode ser utilizado, enquanto quando trabalha-se com janela fixa, a parte inicial da amostra vai sendo descartada à medida que a janela avança. Ter mais dados é essencialmente importante quando se utiliza métodos cuja convergência dos parâmetros aos seus valores verdadeiros é mais lenta, como ocorre normalmente com os métodos não-paramétricos. 
@@ -1168,6 +1163,10 @@ Para prever mais do que $1$ passo à frente, é possível utilizar o valor previ
 \hat{y}_{t+p/t}(\tau_i)=\hat{\alpha}(\tau_i) + \hat{\phi}(\tau_i) \hat{y}_{t+p-1/t}(\tau_i),
 \end{equation}
 e assim por diante. Iterativamente, consegue-se então utilizar o método para fazer a previsão $n$ passos à frente.
+
+\subsection{Série temporal funcional}
+
+\todo[inline]{Escrever seção}
 
 \section{Previsão com Métodos não-paramétricos para Análise de Dados Funcionais} \label{metodologia-npfda}
 
@@ -1281,7 +1280,12 @@ R_{GCV}^{kNN}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}}
 
 \subsection{Escolha da semimétrica}
 
-\todo[inline]{colocar escolha dos tipos de }
+As semimétricas serão testadas dentro das duas famílias apresentadas na seção~\ref{sub:semimetricas}: derivadas e FPCA. 
+
+Uma análise preliminar mostrou que os resultados de previsão eram muito insatisfatórios para derivadas de grau $2$ ou maior. Portanto, usou-se apenas a derivadas de ordem $1$ e a curva sem tomar derivada ($q=0$).
+
+Já para a semimétrica baseada na FPCA, o testes foram feitos para o número de componentes principais $q \in \{1, 2, ..., 9\}$. Destes, a mudança na distância entre as curvas torna-se totalmente irrelevante à medida que o número de componentes é maior do que $5$, e o resultado da previsão muda muito pouco entre tomar $2,3,4$ ou $5$ componentes principais. Além disso, notou-se que quando se toma apenas $1$ componente principal, o resultado da previsão é ruim. Assim, escolheu-se somente utilizar $q=5$.
+
 
 \section{Metodologia para avaliação da performance das previsões}
 
@@ -1326,16 +1330,51 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 %---------------------------------
 \chapter{Resultados} \label{ch:resultados}
 
-As estimações foram realizadas com códigos escritos em R disponíveis na internet: \emph{https://github.com/mcruas/dissertacao} \todo{verificar o site}. Uma breve  explicação está 
-disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita neste \emph{site}.
+As estimações foram realizadas com códigos escritos em R, que foram disponibilizados na internet: \emph{https://github.com/mcruas/dissertacao}. Uma breve  explicação está 
+disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita nesse \emph{site}. 
+Estimou-se a ETTJ com os seguintes métodos: \textbf{passeio aleatório} (utilizado como \bm ), modelo \textbf{AR(1)}, modelo de \textbf{DL}, \textbf{regressão não-paramétrica para dados funcionais} de diversas combinações de semimétricas e valores de $k_t$ e \textbf{séries temporais funcionais}, também com diferentes números de componentes principais e valores de $k_t$, além de diferentes formas de modelar a dinâmica dos fatores (foi utilizado para isso o passeio aleatório, suavização exponencial e modelo ARIMA).
 
-A primeira pergunta a ser respondida, quando a série começou a ser analisada é com relação a sua estacionariedade. Para ser considerada estacionária, as séries devem ser geradas a partir de um processo cuja distribuição não dependa do tempo. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada.
+A primeira pergunta a ser respondida, quando a série começou a ser analisada, é com relação à sua estacionariedade. Para ser considerada estacionária, as séries devem ser geradas a partir de um processo cuja distribuição não dependa do tempo. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada. Para todos os valores de $k_t$ descritos, com exceção de quando é identicamente nulo, a série não teve sua estacionariedade rejeitada pelo teste ADF. Decidiu-se realizar o mesmo processo de retirar valores das curvas na estimação das séries temporais funcionais. Os valores de $k_t$ utilizados são os mesmos definidos na seção~\ref{metodologia-npfda}.
 
+Em relação às semimétricas escolhidas para a análise com NP-FDA, percebeu-se que a previsão da curva quando utiliza-se a distância das curvas em nível (semimétrica derivada com $d=0$) é extremamente parecida com a previsão quando utiliza-se a semimétrica baseada em FPCA com $q=5$. Por isso, decidiu-se omitir a versão da derivada com $d=0$ dos resultados finais.
 Uma análise preliminar mostrou que as previsões via função de densidade acumulada condicional e via moda da função de densidade produziam resultados insatisfatórios, bem inferiores ao produzido prevendo com regressão. Com isso, estes tipos de previsão foram retirados do resto do estudo. Daqui em diante, portanto, toda a estimação aqui descrita é feita com previsão via regressão.
 
-Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o EQM.
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap1.pdf}
+     \subcaption{Horizonte 1}
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap3.pdf} \subcaption{Horizonte 3}
+    \end{minipage}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap6.pdf}
+	\subcaption{Horizonte 6}
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap12.pdf} \subcaption{Horizonte 12}
+    \end{minipage}
+  \end{minipage}
+  \caption{Gráficos de calor do Erro Quadrático Médio das previsões}
+  \label{fig:heatmaps}
+\end{figure}
 
-As abreviaturas para a identificação dos métodos são descritas a seguir. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$.
+
+As abreviaturas para a identificação dos métodos são descritas a seguir. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$. Embora a performance utilizando $\lambda=0.5$ tenha sido, em geral, melhor no estudo com apenas a parte de teste da amostra, decidiu-se manter nos resultados a estimação feita com $\lambda=0.2$ pela performance boa nas maturidades menores.
+
+Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada.
+
+\todo[inline]{Colocar os gráficos de calor: os 4 horizontes (janela movel ou expandida?). Colocar o gráfico com os erros acumulados, 4 horizontes, melhor de ftsa, npf, DL e o ar1.}
+
+Analisando os resultados sobre os métodos NP-FDA, foi percebido que quanto maior a maturidade que se faz a previsão, pior foi o desempenho com relação ao passeio aleatório. Igual relação se estabelece quando se aumenta o horizonte de previsão: o desempenho relativo ao passeio aleatório também cai. Um fato importante a se destacar é que, para os métodos NP-FDA, a maioria das variações estimadas possuiu melhor desempenho utilizando a janela expandida que janela móvel. O motivo disso é que provavelmente haver mais dados acaba contribuindo significativamente para a melhora do desempenho, possivelmente dada a convergência lenta de métodos não-paramétricos aplicados a dados funcionais. 
+
+\todo[inline]{analisar relação dos kt sobre os resultados, assim como das semimetricas}
 
 % ----------------------------------------------------------
 % PARTE
@@ -1377,10 +1416,12 @@ As abreviaturas para a identificação dos métodos são descritas a seguir. A d
 
 A Estrutura a Termo da Taxa de Juros é objeto de muitos estudos. Mesmo assim, fazer previsões com uma estratégia tão simples como o passeio aleatório permanecer como um \bm~tão utilizado demonstra a dificuldade em se prever essas séries temporais.
 
-Assim, qualquer método novo utilizado tem . 
-ter utilizado Análise de Dados Funcionais Não-Paramétricos para estimar e prever a ETTJ era, sabidamente, um
+O \emph{framework} de dados funcionais é relativamente novo. Como já havia a experiência de bons resultados na previsão da ETTJ utilizando séries temporais funcionais (baseadas em dinâmica de fatores utilizando FPCA) achou-se importante investigar outras variações de métodos que considerassem a natureza funcional do problema. Por isso, havia motivação suficiente para testar a capacidade de previsão fora da amostra com métodos não-paramétricos para dados funcionais. Os resultados insatisfatórios encontrados, porém, não podem ser encarados conclusivos de que os os métodos com NP-FDA são ruins para o problema, apenas que o caminho seguido neste trabalho não encontrou bons resultados. Como é uma área que no momento de escrita desta dissertação pertence à fronteira do conhecimento, há muita pesquisa sendo feita na base do método que pode melhorar consideravelmente sua performance. Embora computacionalmente intensivo, o aumento da força bruta computacional não representa uma possibilidade plausível de melhora.
 
-Na literatura encontrada, os métodos de NP-FDA são utilizados para curvas melhor comportadas, em que as distâncias $d(\chi_i,\chi_j)$ entre as curvas é um preditor razoável das  como o das curvas quemométricas
+Na literatura, ainda existem poucos trabalhos que se utilizam de métodos de NP-FDA. Naqueles encontrados, eles são aplicados na estimação de curvas melhor comportadas, em que as distâncias $d(\chi_i,\chi_j)$ entre as curvas é um preditor razoável da resposta escalar, tal como no exemplo das curvas quimiométricas apresentados em \citeonline{ferraty_2007}. 
+
+É possível apontar alguns caminhos interessantes para futuros trabalhos envolvendo dados funcionais e a estimação e previsão da ETTJ, como por exemplo trabalhar com a série diferenciada em relação ao tempo, ao invés de diferenciar com relação à maturidade, como feito aqui. Outra possibilidade é aplicar diretamente o modelo linear funcional para fazer a previsão. Dentro dos próprios métodos NP-FDA, pode-se investigar a utilização do \emph{local linear} ao invés do Nadaraya-Watson.
+
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
@@ -1418,7 +1459,25 @@ Na literatura encontrada, os métodos de NP-FDA são utilizados para curvas melh
 
 \chapter{Tabelas} \label{tabelas-resultados}
 
+
+\section{Legendas}
+
+Os métodos não-paramétricos funcionais são apresentados em códigos da seguinte forma:
+\begin{tabbing}
+\hspace{1cm}\=\hspace{0.5cm}\=\hspace{1cm}\=\hspace{0.5cm}\=\kill
+npf \> . \> p5 \>  \> \\ 
+npf \> . \> d1 \> . \> rmat6 \\ 
+npf \> . \> p5  \> . \> rpmat
+\end{tabbing} 
+
+\todo[inline]{explicar nome dos métodos na tabela}
+
+\section{Tabelas}
+
 Resultados
+
+
+
 
 %% ----------- movel horizonte 1 ------------------%
 %\newgeometry{left=1cm,right=1cm,bottom=1cm}
