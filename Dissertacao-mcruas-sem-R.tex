@@ -101,18 +101,18 @@
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
-%\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-%% Texto padrão antes do número das páginas
-%\renewcommand{\backref}{}
-%% Define os textos da citação
-%\renewcommand*{\backrefalt}[4]{
-%	\ifcase #1 %
-%		Nenhuma citação no texto.%
-%	\or
-%		Citado na página #2.%
-%	\else
-%		Citado #1 vezes nas páginas #2.%
-%	\fi}%
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
 % ---
 
 % ---
@@ -162,10 +162,10 @@ como quesito parcial para obtenção do
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
+    	linkcolor=black,   %blue       	% color of internal links
+    	citecolor=black,   %blue     		% color of links to bibliography
     	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
+		urlcolor=black,  %blue
 		bookmarksdepth=4
 }
 \makeatother
@@ -471,7 +471,7 @@ Segundo \citeonline{rossi_estrutura_1996}, é importante que se conheça a rela�
 entre as taxas de juros de curto e longo prazo, pois o setor privado
 se utiliza dela para tomar decisões de investimento.
 
-Essas curvas, contudo, não podem ser observadas diretamente: apenas é possível
+Essas curvas, contudo, não podem ser observadas diretamente: apenas é possível \todo{ajeitar}
 observar dados discretos sobre elas. É necessário, portanto, algum
 processo de estimação, que possa interpolar as observações para que
 se possa obter uma curva contínua.  \citeonline{caldeira_estrutura_2010} apresenta
@@ -483,28 +483,25 @@ de \citeonline{nelson_parsimonious_1987}(NS),
 \citeonline{de_pooter_examining_2007} mostra que os modelos de NS possuem
 melhor capacidade de previsão quando eles são mais flexíveis, isto é, incorporam mais parâmetros para um melhor ajuste das curvas.
 
-
+Este trabalho estuda o uso de métodos de Análise de Dados Funcionais (FDA) na estimação e previsão da ETTJ. Antes de mais nada, é importante esclarecer o que são dados funcionais.
 Uma dada variável aleatória $\chi$ é denominada \textbf{variável
 funcional }quando ela toma valor num espaco infinito dimensional $\mathcal{H}$.
 Uma observação $\chi$ de $\mathcal{\CHI}$ é denominada um \textbf{dado
 funcional} \cite{vieu_nonparametric_2006}.
-
 De forma intuitiva, pode-se entender um dado funcional como uma variável
 que varia em função de um parâmetro contínuo. Um exemplo utilizado
 na literatura de dado tipicamente funcional é a função $\chi_{i}(t)$
 que descreve a altura do indivíduo $i$ em função do tempo $t$. Cada
 uma dessas funções representa uma observação da variável funcional
-$\CHI$. A ETTJ é interpretada nessa dissertação
-como um dado funcional.
-
+$\CHI$. 
 No mundo real, porém, coletar dados num intervalo contínuo é tarefa
 impossível. Por exemplo, pode-se conseguir coletar a altura de uma
 criança num conjunto de tempo $(t_{1},t_{2},t_{3},...,t_{T})$ muito
 próximo um do outro, mas nunca de forma contínua. Assim, os dados coletados serão 
 uma sequência de observações $(\chi(t_{1}),\chi(t_{2}),\chi(t_{3}),...,\chi(t_{T}))$,
-mas nunca diretamente a função $\chi(t)$. É preciso, portanto, encontrar
-métodos que possam fazer interpolação entre cada par de
-observações subsequentes $t_{s}$ e $t_{s+1}$.
+mas nunca observa-se diretamente a função $\chi(t)$. É preciso, portanto, encontrar
+métodos que considerem a natureza funcional dos dados, mas que façam isso a a partir dos dados discretos.
+O que é proposto, nesse dissertação, é que as taxas de juros, para um dado período $t$, sejam consideradas uma função contínua das maturidades $\tau$.
 
 Considere o seguinte modelo de regressão:
 \begin{equation}
@@ -521,7 +518,6 @@ $\chi(t)$ é a função que representa o dado funcional e $\rho(t)$
 o parâmetro único da regressão funcional paramétrica. Se não for imposta
 \emph{a priori} nenhuma forma funcional para a regressão, então esta
 se trata de uma regressão não-paramétrica.
-
 Há um \emph{tradeoff} entre o uso de cada abordagem. Enquanto o uso de um
 modelo não-paramétrico permite a modelagem dos dados sem que se conheça
 a distribuição de probabilidade das variáveis, ele possui o custo
@@ -531,7 +527,7 @@ no entanto, a má escolha da sua forma fará com que o modelo explique
 muito pouco e grande parte da variabilidade não será explicada pelas
 variáveis explicativas, ficando dentro do termo de erro.
 
-Há duas motivações para a diferença de tratamento que se dá a dados
+Duas motivações principais surgem para a diferença de tratamento que se dá a dados
 funcionais e a dados multivariados. O primeiro deles é que há forte
 correlação entre as variáveis, uma vez que as funções tratadas são
 funções contínuas. Lembrando da definição de continuidade%
@@ -542,8 +538,7 @@ contínua%
 }, é possível tomar $t_{p}$ e $t_{p+1}$ tão próximos quanto se queira,
 tal que $f(t_{p})$ e $f(t_{p+1})$ sejam igualmente próximos. Isso
 acarretaria um problema de multicolinearidade caso adotássemos um
-modelo para dados multivariados, conforme discutido em \citeonline{ramsay_functional_2005}. Além disso, como $\chi(t)$ toma valores em $\mathcal{H}$, há muitas
-variáveis explicativas com relação ao tamanho da amostra. Assim, outras
+modelo para dados multivariados, conforme discutido em \citeonline{ramsay_functional_2005}. Além disso, como $\CHI$ toma valor num espaço de infinitas dimensões, o tamanho da amostra será, certamente, menor do que o número de variáveis explicativas (já que cada subintervalo pode ser considerado como um parâmetro). Assim, outras
 técnicas devem ser utilizadas para o tratamento e modelagem de dados
 funcionais.
 
@@ -554,6 +549,7 @@ para o estudo dos métodos não paramétricos é o estudo de inferências
 baseadas em funções Kernel. Uma introdução ao assunto, para dados não-funcionais, pode ser encontrado 
 em \citeonline{wand_kernel_1995}.
 
+\citeonline{vieu_nonparametric_2006} formaliza a diferença entre métodos paramétricos e métodos não-paramétricos.
 Seja $Z$ uma variável aleatória que toma valor num espaço infinito
 dimensional $\mathcal{H}$ e seja $\phi$ uma função definida em $\mathcal{H}$
 que dependa da distribuição de $Z$. O modelo para a estimação de
@@ -563,58 +559,52 @@ $\phi$ consiste em introduzir uma restrição da forma
 \]
 O modelo é chamado de modelo funcional não paramétrico para a estimação
 de $\phi$ se $C$ é indexado por um número infinito de elementos
-de $\mathcal{H}$ \cite{vieu_nonparametric_2006}.
+de $\mathcal{H}$ .
 
 A utilização de modelos Paramétricos de Análise de Dados Funcionais
 (P-FDA) para análise de séries temporais
 é formalizada por  \citeonline{hormann_functional_2012}.
 Modelos deste tipo são usados por \citeonline{benko_functional_2006},
 \citeonline{kargin_curve_2008} para a estimação da ETTJ.
-
 Modelos não-paramétricos para Análise de Dados Funcionais (NP-FDA) são um instrumento recente para a análise
 de séries temporais (ver \citeonline{ferraty_nonparametric_2004} e o Capítulo 12 de \citeonline{vieu_nonparametric_2006}).
 \citeonline{caldeira_previsao_2011} estimam a ETTJ utilizando
 NP-FDA. %
 
-Assim, o objetivo desta dissertação é fazer uma revisão das metodologias
+Sintetizando, o objetivo desta dissertação é fazer uma revisão das metodologias
 principais para Análise de Dados Funcionais (tanto P-FDA como NP-FDA)
-para tratamento de séries temporais e aplicá-las para a previsão da
-ETTJ . O Capítulo 2 fará uma revisão de literatura dos modelos de
-ETTJ, assim como apresentará os aspectos teóricos e de implementação
-dos métodos para Análise de Dados Funcionais. O Capítulo 3 falará
+para tratamento de séries temporais e aplicá-las para a previsão da ETTJ. Especial atenção é dada para a estimação com NP-FDA, pois é um método pouco explorado, e é a principal contribuição desta dissertação.
+
+No Capítulo~\ref{ch:revisao-biblio}, é feita uma revisão de literatura dos modelos de ETTJ, assim como são apresentados os aspectos teóricos dos métodos para Análise de Dados Funcionais, tanto paramétricos como não-paramétricos. 
+O Capítulo~\ref{ch:metodologia} trata
 da metodologia utilizada para a modelagem, dos dados e do ambiente
-de programação utilizados. No Capítulo 4 (Estimação dos modelos),
-será feita a estimação da ETTJ de acordo com os métodos mostrados
-nas seções anteriores. Ele tratará, também, de problemas específicos
-de implementação computacional não explorados nas seções metodológicas
-anteriores. O Capítulo 5 (Resultados) \todo{Rever os capítulos} discutirá a adequação dos modelos
-analisados na estimação da ETTJ; em seguida, fará uma comparação em
-relação aos modelos de DL e SV. 
+de programação utilizados. No Capítulo~\ref{ch:resultados},
+são apresentados os resultados da estimação da ETTJ de acordo com os métodos apresentados
+nos capítulos anteriores. Por fim, apresenta-se as considerações finais.
 
 
-
-\section*{Objetivo Geral}
-
-Fazer uma revisão das metodologias principais para Análise de Dados Funcionais e aplicá-las para a previsão da ETTJ. 
-
-\section*{Objetivos específicos}
-% Preview source code from paragraph 0 to 4
-
-\begin{itemize}
-\item Apresentar modelos mais utilizados na literatura sobre previsão e modelagem da ETTJ.
-\item Apresentar os métodos paramétricos e não-paramétricos para Análise
-de Dados Funcionais.
-\item Estimar previsões fora da amostra para a ETTJ utilizando os métodos apresentados.
-\item Discussão sobre a adequação da abordagem funcional para a modelagem
-da ETTJ.
-\item Comparação entre os resultados obtidos no trabalho e os resultados
-obtidos utilizando os modelos mais utilizados na literatura. \end{itemize}
+%\section*{Objetivo Geral}
+%
+%Fazer uma revisão das metodologias principais para Análise de Dados Funcionais e aplicá-las para a previsão da ETTJ. 
+%
+%\section*{Objetivos específicos}
+%% Preview source code from paragraph 0 to 4
+%
+%\begin{itemize}
+%\item Apresentar modelos mais utilizados na literatura sobre previsão e modelagem da ETTJ.
+%\item Apresentar os métodos paramétricos e não-paramétricos para Análise
+%de Dados Funcionais.
+%\item Estimar previsões fora da amostra para a ETTJ utilizando os métodos apresentados.
+%\item Discussão sobre a adequação da abordagem funcional para a modelagem
+%da ETTJ.
+%\item Comparação entre os resultados obtidos no trabalho e os resultados
+%obtidos utilizando os modelos mais utilizados na literatura. \end{itemize}
 
 
 %-------------------------
 % REVISÃO BIBLIOGRÁFICA
 %-------------------------
-\chapter{Revisão Bibliográfica}
+\chapter{Revisão Bibliográfica} \label{ch:revisao-biblio}
 
 Este capítulo fará uma revisão da literatura utilizada nos assuntos tratados nesta dissertação. Primeiro, os trabalhos de NS, SV e DL sobre a ETTJ serão apresentados. Em seguida, o estudo da Análise de Dados Funcionais é iniciado, e ambas as abordagens P-FDA e NP-FDA têm uma seção detalhando como os métodos serão utilizados para estimar e prever a ETTJ. 
 
@@ -635,11 +625,9 @@ a média ponderada das taxas \emph{forward}, definida abaixo:
 \begin{equation}
 y_{t}(\tau)=\frac{1}{\tau}\int_{0}^{\tau}f_{t}(u)\, du.\label{eq:taxayt}
 \end{equation}
-Assim, utilizando-se as equações (\ref{eq:taxapt}), (\ref{eq:taxaft})
-e (\ref{eq:taxayt}), pode-se trabalhar com qualquer uma das variáveis
-$P_{t}(\tau)$,\foreignlanguage{english}{ $f_{t}(\tau)$} ou $y_{t}(\tau)$.
+Mesmo que somente uma das variáveis $P_{t}(\tau)$,\foreignlanguage{english}{ $f_{t}(\tau)$} ou $y_{t}(\tau)$ seja de interesse de um trabalho, pode-se trabalhar com qualquer uma das outras, uma vez que pode-se utilizar as equações (\ref{eq:taxapt}), (\ref{eq:taxaft}) e (\ref{eq:taxayt}) para fazer a transformação simples e direta entre elas. 
 
-Títulos coupom, ao contrário dos zero-coupom, prevêem pagamentos durante o período da aplicação, sendo o principal restante quitado na maturidade. Para precificar um título coupom, este pode ser decomposto em diversos títulos zero-coupom, da seguinte forma:
+Títulos coupom, ao contrário dos títulos zero-coupom, prevêem pagamentos durante o período da aplicação, sendo o principal restante quitado na maturidade. Para precificar um título coupom, este pode ser decomposto em diversos títulos zero-coupom, da seguinte forma:
 \[
 P_{0}(\tau)=\frac{C}{(1+y_{t}(1))}+\frac{C}{(1+y_{t}(2))^{2}}+...+\frac{C}{(1+y_{t}(\tau))^{\tau}}+\frac{V}{(1+y_{t}(\tau))^{\tau}},
 \]
@@ -661,25 +649,25 @@ uma série temporal.
 % Preview source code from paragraph 33 to 34
 
 
-\subsection{Modelos de Nelson e Siegel e de Diebold e Li}
+\subsection{Modelos de Nelson-Siegel e de Diebold-Li}
 
 \citeonline{nelson_parsimonious_1987} criaram um modelo parcimonioso, baseado em 4 parâmetros
 ($b_{1},b_{2},b_{3},\lambda$), para representar a curva de juros
 zero-coupom. Eles consideraram a taxa forward como a solução de uma
 equação diferencial de segunda ordem em que há duas raízes reais iguais:
-\begin{equation}
+\begin{equation} \label{eq:nelson-siegel}
 f(\tau)=b_{1}+b_{2}e^{-\lambda\tau}+b_{3}\lambda e^{-\lambda\tau}=b_1+e^{-\lambda \tau}(b_2+b_3 \lambda).
 \end{equation}
 Esta equação pode ser vista como uma constante mais uma função de
-Lagerre (uma polinomial vezes uma função exponencial). Assim, a equação
-da curva de juros será dada por
+Laguerre (uma polinomial vezes uma função exponencial). Assim, substituindo a equação~\ref{eq:nelson-siegel} em~\ref{eq:taxayt}
+obtem-se a equação para a curva de juros, segundo o modelo de NS:
 \begin{equation}
 y(\tau)=b_{1}+(b_{2}+b_{3})\left(\frac{1-e^{-\lambda\tau}}{\lambda\tau}\right)-b_{2}e^{-\lambda\tau}.
 \end{equation}
-\citeonline{diebold_forecasting_2006} reinterpretam o modelo de NS, atribuindo um significado
+\citeonline{diebold_forecasting_2006} reinterpretam o modelo de NS, atribuindo uma interpretação econômica mais relevante
 aos seus parâmetros. Primeiro, eles fizeram uma transformação nos
 parâmetros, fazendo $b_{1t}=\beta_{1t}$, $b_{2t}=\beta_{2t}+\beta_{3t}$
-e $b_{3t}=\beta_{3t}$. Após as mudanças de variáveis, podemos reescrever a função da curva de juros como:
+e $b_{3t}=\beta_{3t}$. Após as mudanças de variáveis, podemos reescrever a equação da curva de juros como:
 \begin{equation}
 y_t(\tau)=\beta_{1t}+\beta_{2t}\left(\frac{1-e^{-\lambda\tau}}{\lambda\tau}\right)+\beta_{3t}\left(\frac{1-e^{-\lambda\tau}}{\lambda\tau}-e^{-\lambda\tau}\right).
 \end{equation}
@@ -693,15 +681,15 @@ de médio prazo, relacionando-se com a curvatura da curva de juros.
 \citeonline{diebold_forecasting_2006} apresentam vantagens para a utilização da curva de juros
 de acordo com a modificação proposta. Pelo modelo de NS é preciso estimar os coeficientes de $\frac{1-e^{-\lambda_{t}\tau}}{\lambda_{t}\tau}$
 e $e^{-\lambda_{t}\tau}$; estas, porém, são funções com decaimento similares. Por isso,
-diferenciação entre seus efeitos não pode ser facilmente estimada, tendo como consequência problemas de multicolinearidade. 
-Pensando na melhoria de performance da estimação, DL também sugerem que o parâmetro $\lambda$ seja definido \emph{a priori}. Com essa modificação, a estimação pode ser feita utilizando-se um modelo linear, gerando melhores resultados, segundo os autores, que quando os quatro parâmetros eram estimados através de um modelo não-linear.
+o efeito de cada um dos fatores não é facilmente diferenciável,  tendo como consequência problemas de multicolinearidade. 
+Pensando na melhoria de performance da estimação, \citeonline{diebold_forecasting_2006} também sugerem que o parâmetro $\lambda$ seja definido \emph{a priori}. Enquanto no modelo de NS é necessário utilizar algum método de estimação não-linear, o modelo de DL vira um modelo linear após a fixação do parâmetro $\lambda$, podendo ser estimado com algum método mais simples e de convergência mais veloz aos parâmetros populacionais, como máxima verossimilhança ou mínimos quadráticos ordinários.
 
 \subsection{Modelo de Svensson}
 
-\citeonline{svensson_estimating_1994} propõe a adição de mais um termo capaz
+\citeonline{svensson_estimating_1994} propõe incorporar ao modelo de NS mais um fator capaz
 de modelar o comportamento de médio prazo da curva de juros (curva
-com formato em U): $\lambda e^{\lambda\tau}$. Assim, mais dois parâmetros
-($\lambda_{2t}$ e $\beta_{4t}$) são adicionados ao modelo de NS.
+com formato em U invertido): $\lambda e^{\lambda\tau}$. Assim, mais dois parâmetros
+($\lambda_{2t}$ e $\beta_{4t}$) são adicionados ao modelo original.
 A curva de juros zero-coupom proposta por SV é a seguinte:
 \begin{equation}
 \begin{split}
@@ -709,8 +697,8 @@ y_{t}(\tau)=\beta_{1t}+\beta_{2t}\left(\frac{1-e^{-\lambda_{1t}\tau}}{\lambda_{1
 +\beta_{4t}\left(\frac{1-e^{-\lambda_{2t}\tau}}{\lambda_{2t}\tau} - e^{-\lambda_{2t}\tau}\right).
 \end{split}
 \end{equation}
-Ele mostra que esse aumento de flexibilidade torna o modelo de SV
-geralmente melhor ajustado que o de NS; o modelo será, porém, menos
+Em seu artigo, ele argumenta que esse aumento de flexibilidade torna o modelo de SV
+geralmente melhor ajustado que o de NS. Em contrapartida, o modelo será menos
 parcimonioso.
 
 \section{Métodos Paramétricos para a Análise de Dados Funcionais\label{sec:Metodologias-para-modelos}}
@@ -719,11 +707,9 @@ Nesta seção, serão investigados os procedimentos necessários para
 a representação, exploração e previsão de dados funcionais utilizando
 métodos paramétricos. A referência base dessa seção é \citeonline{ramsay_functional_2005}.
 Um guia para implementação nas linguagens R e Matlab pode ser encontrado
-em \citeonline{ramsay_functional_2009}. As funções utilizadas fazem parte
-do pacote estatístico 'fda', disponível gratuitamente no repositório
-da linguagem R. Para fixação dos conceitos apresentados e potenciais
+em \citeonline{ramsay_functional_2009}. Para fixação dos conceitos apresentados e potenciais
 aplicações diversas dos métodos aqui apresentados, recomenda-se olhar
-\citeonline{ramsay_applied_2002}.
+\citeonline{ramsay_applied_2002}. 
 
 Este estudo dos modelos paramétricos será dividido em duas partes:
 primeiro será visto como representar computacionalmente um dado funcional
@@ -731,7 +717,7 @@ para, em seguida, realizar a exploração e previsão.
 
 
 \subsection{Bases para representação
-de dados funcionais} \label{sub:Bases-para-representa}
+de dados funcionais} %\label{sub:Bases-para-representa}
 
 Como já dito anteriormente, mesmo dados funcionais não são observados
 diretamente nas suas formas funcionais; cada dado é visto como uma
@@ -745,9 +731,8 @@ em funções que possam ser interpretadas facilmente pelo computador.
 Uma base de funções é um conjunto de funções conhecidas $\phi_{k}$,
 matematicamente distintas umas das outras, cuja combinação linear
 consegue aproxima alguma outra função $f(t)$. É possível aproximar-se da função $f(t)$ tanto quanto se queira, bastando que
-para isso haja um número suficiente $K$ de funções $\phi_{k}$ utilizadas
-como base. Devemos, então, escolher um conjunto $\{c_{k}\}$ de parâmetros
-tais que
+para isso haja um número suficiente $K$ de funções $\phi_{k}$ utilizadas 
+como base. Devemos, então, escolher um conjunto $\{c_{k}\}$ de parâmetros tais que
 \begin{equation}
 f(t)=\sum_{k=1}^{K}c_{k}\phi_{k}.
 \end{equation}
@@ -782,8 +767,8 @@ Os locais em que se dividem o intervalo total são pontos denominados de breakpo
 
 A base B-spline é um conjunto específico de funções que são adequadas para fazer a aproximação desejada.
 A literatura cita vantagens computacionais em se utilizar uma base B-splines em relação a outras, tanto no tempo de estimação dos coeficientes $\hat{c}_k$ como na disponibilidade de pacotes que o implementam em diversas linguagens e softwares diferentes.
-Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines é mostrado na figura~\ref{fig-base-bspline} \todo{ajeitar este link}.
-\begin{figure}[h!] \label{fig-base-bspline}
+Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines é mostrado na figura~\ref{fig:base-bspline} \todo{ajeitar este link}.
+\begin{figure}[h!] \label{fig:base-bspline}
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/base_bsplines1}
   \caption{Exemplo de base B-splines utilizando 10 funções}
@@ -794,7 +779,7 @@ Uma referência para aprofundar mais no estudo de splines pode ser encontrada em
 
 \todo{ajustar} A Análise de Componentes Principais (PCA) é um método muito utilizado na análise de dados multivariados com grandes dimensões, em que o efeito de uma variável, individualmente, não contribui o suficiente para a compreensão dos dados. O método consiste em encontrar os componentes que melhor explicam a variabilidade dos dados. 
 
-A Análise de Componentes Principais Funcionais (FPCA) é uma extensão do método muitivariado para o caso de dados funcionais. 
+A Análise de Componentes Principais Funcionais (FPCA) é uma extensão do método multivariado para o caso de dados funcionais. 
 A FPCA é utilizada, portanto, para reduzir a dimensão de um dado e exibir suas
 características mais marcantes de forma mais compreensível e visual. Sendo
 $\mathbb{E}(\int\CHI^{2}(t)dt)<\infty$, pelo teorema de Karhunen–Loève é possível igualar uma função a uma soma infinita de funções ortogonais:
@@ -814,17 +799,17 @@ Tomando um um número finito de autofunções, temos uma aproximação da funç�
 
 \subsection{Modelo linear funcional}
 
-Enquanto o modelo linear multivariado inclui um número finito de variáveis explicativas, o caso funcional possui infinitos:
+Enquanto o modelo linear multivariado inclui um número finito de variáveis explicativas, o caso funcional possui infinitos. O modelo linear funcional é definido pela equação abaixo:
 \begin{equation}
 Y_{i}=\alpha_{i}+\intop_{0}^{T}\rho(t)\chi_{i}(t)dt+\varepsilon_{i},\label{eq:modelofuncionallinear}
 \end{equation}
-onde $\alpha$ é o intercepto, $\chi(t)$ é a função que representa
+em que $\alpha$ é o intercepto, $\chi(t)$ é a função que representa
 cada dado funcional e $\rho(t)$ o parâmetro único da regressão funcional
 paramétrica. O termo $\varepsilon_{i}$ é o termo de erro associado
 a cada resposta e que não é explicado pela variável funcional
 independente.
 
-A modelagem de dados funcionais, no entanto, requer cuidados adicionais. Pensando no caso multivariado, por exemplo, há um problema quando
+A modelagem de dados funcionais, no entanto, requer cuidados adicionais. Fazendo um paralelo ao caso multivariado, há problemas quando
 o tamanho da amostra é menor do que o número de variáveis explicativas.
 Seja
 \begin{equation}
@@ -849,7 +834,7 @@ o modelo apresentado na equação (\ref{eq:modelofuncionallinear})
 também possuirá excesso de variáveis explicativas em relação à amostra.
 Dessa forma, alguma estratégia deve ser montada para realizar a regularização,
 isto é, impedir o \emph{overfitting} de ocorrer. A seguir, duas maneiras
-de realizar a regularização serão investigadas: a primeira delas é
+de realizar a regularização serão apresentadas: a primeira delas é
 restringir a quantidade de funções base para tirar a capacidade de
 ajuste perfeito aos dados, e a segunda é atribuir uma penalização
 para as flutuações da função modelada.
@@ -858,7 +843,7 @@ para as flutuações da função modelada.
 \subsubsection*{Regularização usando funções base restritas}
 
 Sejam $\theta_{0},\theta_{1},...$ e $\psi_{0},\psi_{1},...$ bases
-funcionais escolhidas, de acordo com a seção (\ref{sub:Bases-para-representa}),
+funcionais escolhidas, %(\ref{sub:Bases-para-representa}),
 e seja $K_{\beta}$ a quantidade de funções base utilizadas em
 \begin{equation}
 \beta(t)=\sum_{k}^{K_{\beta}}b_{k}\theta_{k}(t)\quad ou\quad\beta=\boldsymbol{\theta'b}
@@ -870,13 +855,13 @@ da mesma forma para que
 \chi_{i}(t)=\sum_{k}^{K_{z}}c_{ik}\psi_{k}(t)\quad ou\quad\chi(s)=\boldsymbol{C\psi(t)}
 \end{equation}
 também não tenha grande perda de informação nem \emph{overfitting}.
-$C$ é uma matriz $N$ (tamanho da amostra) por $K_{z}$. Assim, o
+$C$ é uma matriz $N \times K_{z}$, em que $N$ representa o tamanho da amostra. Assim, o
 modelo (\ref{eq:modelofuncionallinear}) pode ser reescrito da seguinte
 forma:
 \begin{equation}
 \hat{Y_{i}}=\intop_{0}^{T}\rho(t)\chi(t)dt=\intop_{0}^{T}\boldsymbol{C}\psi(t)\theta(t)'\boldsymbol{b}\, dt=\boldsymbol{C}\boldsymbol{J}_{\psi\theta}\boldsymbol{b},
 \end{equation}
-em que $\boldsymbol{J}_{\psi\theta}$ é uma matriz $K_{z}$ por $K_{\beta}$
+em que $\boldsymbol{J}_{\psi\theta}$ é uma matriz $K_{z} \times K_{\beta}$
 definida por:
 \begin{equation}
 \boldsymbol{J}_{\psi\theta}=\int\psi(t)\boldsymbol{\theta}'(t)\, dt.
@@ -901,36 +886,36 @@ suave.
 Há duas maneiras de escolher o valor de $\lambda$. A primeira é fazê-lo
 de forma subjetiva, isto é, fazendo variar o parâmetro e escolher
 a que mais agrade visualmente. A segunda é escolher automaticamente
-através de um procedimento de \emph{cross-validation},
+através de um procedimento de \emph{cross-validation} \footnote{\emph{Cross-validation} é uma forma de determinar um parâmetro com base em previsões dentro da própria amostra.} 
 realizado da seguinte forma:
 \begin{enumerate}
 \item Obtém-se as estimativas de $\alpha_{\lambda}^{(-i)}$ e $\beta_{\lambda}^{(-i)}$,
 obtidas encontrando os valores de $\alpha$ e $\beta$ que minimizam
 a equação (\ref{eq:pensse}) de toda a amostra, com exceção dos valores
-em $(z_{i},y_{i})$. 
+em $(z_{i},y_{i})$. Esta maneira de retirar apenas um valor para previsão é chamada de \emph{leave-one-out}.
 \item Monta-se a função 
 \[
 CV(\lambda)=\sum_{i=1}^{N}[y_{i}-\alpha_{\lambda}^{(-i)}-\int z_{i}(t)\beta_{\lambda}^{(-i)}(t)dt]^{2}.
 \]
 Escolhendo $\lambda$ de forma a minimizar a função $CV(\lambda)$
-será a escolha ótima do parâmetro utilizando-se o procedimento de
+será a escolha ótima do parâmetro utilizando esse procedimento de
 \emph{cross-validation}.
 \end{enumerate}
 
 \subsection{Séries temporais funcionais}
 
-É possível fazer a modelagem de uma série temporal pela decomposição da série em fatores utilizando FPCA. Seja a série temporal $\{ f_t(\tau) \}_{t=t_1}^{t_2}$ estimada no  intervalo $[t_1,t_2]$. Haverá, portanto, $n=t_2-t_1+1$ funções representando a série temporal:
+É possível fazer a modelagem de uma série temporal funcional pela decomposição da série em fatores utilizando FPCA. Seja a série temporal $\{ \chi_t(\tau) \}_{t=t_1}^{t_2}$ estimada no  intervalo $[t_1,t_2]$. Haverá, portanto, $n=t_2-t_1+1$ funções representando a série temporal:
 \begin{equation}
-f_{t_1}(\tau), f_{t1+1}(\tau), \dots, f_{t2}(\tau)
+\chi_{t_1}(\tau), \chi_{t1+1}(\tau), \dots, \chi_{t2}(\tau)
 \end{equation}
 Assim como demonstrado na seção~\ref{FPCA}, cada função pode ser aproximada pela combinação linear das autofunções ortonormais do operador de covariância:
 \begin{equation}
-\widetilde{f}_s(\tau)=\sum_{i=1}^{m}{ \underbrace{ \left(  \int f_s(\tau)  v_i(\tau)dt \right) }_{\phi_{i,t}} } v_i,
+\widetilde{\chi}_s(\tau)=\sum_{i=1}^{m}{ \underbrace{ \left(  \int \chi_s(\tau)  v_i(\tau)dt \right) }_{\phi_{i,t}} } v_i,
 \end{equation}
 em que $m$ é o número de 
-Tomando $t$ no intervalo $[t_1,t_2]$, tem-se uma série temporal de $\phi_i$ associada a cada autofunção. Essa série, por sua vez, pode ser estimada com algum método univariado tradicional, como ARIMA, passeio aleatório, série temporal exponencial, etc. A partir da estimação, pode-se prever cada um dos $\hat{\phi}_{i,t_2+h}$, para cada horizonte de interesse $h$. A curva prevista $f_{t_2+h}(\tau)$ é obtida quando se somam os produtos das autofunções com seus respectivos coeficientes previstos, isto é:
+Tomando $t$ no intervalo $[t_1,t_2]$, tem-se uma série temporal de $\phi_i$ associada a cada autofunção. Essa série, por sua vez, pode ser estimada com algum método univariado tradicional, como um modelo ARIMA, passeio aleatório, série temporal exponencial, etc. A partir da estimação, pode-se prever cada um dos $\hat{\phi}_{i,t_2+h}$, para cada horizonte de interesse $h$. A curva prevista $\chi_{t_2+h}(\tau)$ é obtida quando se somam os produtos das autofunções com seus respectivos coeficientes previstos, isto é:
 \begin{equation}
-\hat{f}_{t_2+h}(\tau)= \sum_{i=1}^{m}{\hat{\phi}_{i,t_2+h} v_i(\tau) }.
+\hat{\chi}_{t_2+h}(\tau)= \sum_{i=1}^{m}{\hat{\phi}_{i,t_2+h} v_i(\tau) }.
 \end{equation}
 
 As séries temporais funcionais foram utilizadas na previsão da ETTJ por \citeonline{shang}, com resultados muito bons. Como é uma abordagem funcional já utilizada na literatura, será implementada para comparação com os resultados obtidos pela estimação com métodos de NP-FDA.
@@ -950,7 +935,7 @@ podem ser encontradas em \emph{http://www.lsp.ups-tlse.fr/staph/npfda. }
 
 \subsection{Funções Kernel}
 
-Para dados funcionais, utiliza-se funções Kernel assimétricas, tais que $\int K = 0$, com suporte compacto em $[0,1]$ (à exceção do Kernel gaussiano, que possui suporte em $[0,\infty)$) e tais que $\forall u \in (0,1), K(u) > 0$. O motivo de se utilizar funções Kernel assimétricas é o fato de as semi-métricas utilizadas para medir a distância entre as curvas produzirem apenas valores positivos. As funções Kernel serão utilizadas pelos métodos estudados a seguir, possuindo uma característica de atribuir peso localmente.
+Enquanto no caso multivariado normalmente se utiliza funções Kernel simétricas (ver \citeonline{wand_kernel_1995}), para dados funcionais utiliza-se funções Kernel assimétricas, tais que $\int K = 0$, com suporte compacto em $[0,1]$ (à exceção do Kernel gaussiano, que possui suporte em $[0,\infty)$) e tais que $\forall u \in (0,1), K(u) > 0$. O motivo de se utilizar funções Kernel assimétricas é o fato de as semi-métricas utilizadas para medir a distância entre as curvas produzirem apenas valores positivos. As funções Kernel serão utilizadas pelos métodos não-paramétricos estudados a seguir, e possuem como finalidade atribuir peso localmente às variáveis da amostra.
 
 Seja $I_R(u)$ uma função definida como $1$, quando $u \in \mathbb{R}$ e 0, caso contrário, as funções Kernal mais utilizadas são as seguintes:
 \begin{description}
@@ -1105,7 +1090,7 @@ bem quando $f(t)$ é uma função suave.
 % Metodologia
 %-----------------------
 
-\chapter{Metodologia}
+\chapter{Metodologia} \label{ch:metodologia}
 
 Para a realização das estimações da ETTJ, os métodos utilizados serão os mesmos dos apresentados na revisão de literatura, tanto para o caso paramétrico quanto para o não-paramétrico. Assim, o estudo será relativamente abrangente em relação à adequação da abordagem funcional para a modelagem do problema em questão.
 
@@ -1243,39 +1228,60 @@ Além desses, achou-se interessante atribuir valores mais diversos para $k_t$, d
 \end{figure}
 
 
-\subsection*{Escolha da \emph{bandwidth}}
+\subsection{Escolha da \emph{bandwidth}}
 
-A escolha do valor da \bw é um fator central na estatística não-paramétrica, já que atua é o elemento principal que atua na suavização da função estimada, possuindo um papel de maior impacto que o da função Kernel. É uma escolha delicada, pois se a variância do modelo for muito alta, o poder de previsão será ruim. No outro extremo, se a suavização for máxima, o modelo estimado será um modelo linear, perdendo características importantes dos dados.
-
-\todo[inline]{implicações de h, p. 56}
+A escolha do valor da \bw~é um fator central na estatística não-paramétrica, já que atua é o elemento principal que atua na suavização da função estimada, possuindo um papel de maior impacto que o da função Kernel. É uma escolha delicada, pois se a variância do modelo for muito alta, o poder de previsão será ruim. No outro extremo, se a suavização for máxima, o modelo estimado será um modelo linear, perdendo características importantes dos dados.
 
 Há duas formas de definir a \bw: utilizando um valor fixo de $h$, ou definindo uma quantidade fixa de curvas para se levar em conta. A seguir, essas duas formas serão apresentadas.
 
-\begin{itemize}
+\begin{description}
 
-\item Utilização de \bw \,fixa:
+\item[Utilização de \bw \,fixa:]
 
 Trabalha-se com um valor único para $h$, independente da curva $\chi$ que deseja-se estimar na regressão. Seja a estimação da seguinte forma:
 \[
-R_{CV}^{kernel}(x)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{i}})/h_{opt})}{\sum_{i=1}^{n}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{i}})/h_{opt})},
+R_{CV}^{kernel}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\CHI_{i})/h_{opt})}{\sum_{i=1}^{n}K(d_{q}(\CHI,\CHI_{i})/h_{opt})},
 \]
-o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\boldsymbol{x_j},\boldsymbol{x_i})$. Assim, toma-se 
+o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\boldsymbol{x_j},\boldsymbol{x_i})$. Assim, o objetivo é encontrar um valor ótimo de $h$:
 \[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
-onde 
+sendo a função $CV(\cdot)$ definida por
 \[
 CV(h) = \sum \limits_{i=1}^n \left(  y_i - R_{(-i)}^{kernel}(\boldsymbol{x}_i)  \right)^2, 
 \]
-com
+em que
 \[
-R_{-i}^{kernel}(x)=\dfrac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{j}})/h)}{\sum \limits_{j=1,i \neq j}^{n}K(d_{q}(\boldsymbol{x},\boldsymbol{x_{i}})/h_{opt})}.
+R_{-i}^{kernel}(\CHI)=\frac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\CHI,\CHI_{j})/h)}{\sum \limits_{j=1,i \neq j}^{n}K(d_{q}(\CHI,\CHI_{i})/h)}.
 \]
 
-\item Vizinhos mais próximos
+\item[Vizinhos mais próximos:]
 
-Aqui, a ideia é testar qual o número de vizinhos mais próximos (isto é, as curvas $i$ com menores valores de $d(\chi,\CHI_i)$) a se levar em conta para definir a \bw~e chegar nas melhores previsões.
+Aqui, a ideia é testar qual o número de vizinhos mais próximos (isto é, as curvas $i$ com valores de $d(\chi,\CHI_i)$) a se levar em conta para definir a \bw~que geram as melhores previsões feitas dentro da amostra.
+O número de vizinhos se mantém fixo, enquanto o tamanho da \bw~$h_{k_{opt}}(\CHI)$ varia localmente para manter estável em exatamente $k$ a quantidade de curvas tais que $d_{q}(\CHI,\CHI_{i})/h_{k_{opt}} \in [0,1]$, isto é, estejam dentro do intervalo de suporte da função Kernel assimétrico.
 
-\end{itemize}
+Testa-se os valores de $k$ dentro do intervalo $[10,\dfrac{n}{2}]$, em que $n$ representa o tamanho da janela de estimação. Dentre esses valores, testados, escolhe-se o valor ótimo de vizinhos mais próximos através da minimização da função $GCV(\cdot)$:
+\[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
+em que $GCV(\cdot)$ é definida por
+\[
+GCV(k) = \sum \limits_{i=1}^n \left(  y_i - R_{(-i)}^{kNN}(\CHI_i)  \right)^2, 
+\]
+em que
+\[
+R_{-i}^{kernel}(x)=\frac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\CHI,\CHI_{j})/h_k(\CHI))}{\sum \limits_{j=1,i \neq j}^{n}K(d_{q}(\CHI,\CHI_{i})/h_k(\CHI))}.
+\]
 
+
+Após encontrado o valor de $h_{k_{opt}}$, chega-se no estimador desejado:
+\[
+R_{GCV}^{kNN}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}})/h_{k_{opt}}(\CHI))}{\sum_{i=1}^{n}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}})/h_{k_{opt}}(\CHI))}.
+\]
+
+
+\end{description}
+
+
+\subsection{Escolha da semimétrica}
+
+\todo[inline]{colocar escolha dos tipos de }
 
 \section{Metodologia para avaliação da performance das previsões}
 
@@ -1300,7 +1306,7 @@ produzidos a partir de uma janela móvel. A hipótese nula do teste é que os do
 \begin{equation}
 \mathbb{H}_0:E[d_{a,t+h}|\delta_{m,t}]=0,
 \end{equation}
-em que $\delta^{m,t}$ é um vetor $p \times 1$ de funções teste ou instrumentos, $h$ o horizonte de previsão, e 
+em que $\delta_{m,t}$ é um vetor $p \times 1$ de funções teste ou instrumentos, $h$ o horizonte de previsão, e 
 
 	
 \begin{equation}
@@ -1318,10 +1324,10 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 %---------------------------------
 % Resultados
 %---------------------------------
-\chapter{Resultados}
+\chapter{Resultados} \label{ch:resultados}
 
 As estimações foram realizadas com códigos escritos em R disponíveis na internet: \emph{https://github.com/mcruas/dissertacao} \todo{verificar o site}. Uma breve  explicação está 
-disponível no apêndice deste trabalho, enquanto a versão mais completa do documento está descrita neste \emph{site}.
+disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita neste \emph{site}.
 
 A primeira pergunta a ser respondida, quando a série começou a ser analisada é com relação a sua estacionariedade. Para ser considerada estacionária, as séries devem ser geradas a partir de um processo cuja distribuição não dependa do tempo. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada.
 
@@ -1365,7 +1371,7 @@ As abreviaturas para a identificação dos métodos são descritas a seguir. A d
 % ---
 % Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
-\chapter*[Conclusão]{Considerações Finais}
+\chapter*[Conclusão]{Considerações Finais} \label{ch:conclusao}
 \addcontentsline{toc}{chapter}{Considerações Finais}
 % ---
 
@@ -1526,7 +1532,7 @@ Resultados
 %
 
 
-\chapter{Sobre as rotinas utilizadas}
+\chapter{Sobre as rotinas utilizadas} \label{apend:rotinas}
 
 Um dos cuidados que se teve na execução deste trabalho foi montar os códigos e rotinas de modo que fosse facilmente reproduzível por quem tivesse interesse. Assim, fica fácil para quem quiser dar continuidade à pesquisa, encontrar melhorias e até potenciais erros no código que influenciem os resultados.
 
