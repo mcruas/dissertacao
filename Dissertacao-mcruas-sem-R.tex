@@ -964,7 +964,7 @@ Assim, quando se atribui pesos localmente utilizando dados funcionais, sua médi
 	\hat{r}(\chi) = \sum_{i=1}^n \Delta_i Y_i.
 \end{equation}
 
-É uma característica desejável, portanto, que quando toma-se curvas com um valor pequeno de $d(\chi,CHI_i)$, as respostas escalares $Y_i$ se aproximem do valor esperado de $E(Y|\CHI = \chi)$. Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é \bw quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
+É uma característica desejável, portanto, que quando toma-se curvas com um valor pequeno de $d(\chi,\CHI_i)$, as respostas escalares $Y_i$ se aproximem do valor esperado de $E(Y|\CHI = \chi)$. Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é \bw quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
 
 \citeonline{ferraty_2007} investiga aspectos teóricos sobre a regressão com NP-FDA, mostrando uma aplicação do método aplicado a um problema de quimiometria. Já \citeonline{barrientos-marin_locally_2010} implementa a generalização do estimador \emph{local linear} para o caso funcional.
 
@@ -1032,7 +1032,7 @@ exceção de que para a semi-norma vale que $d(x,y)=0\nRightarrow x=y$.
 
 A escolha da semimétrica utilizada tem papel fundamental no resultado das estimações, pois mudando a forma como se define as distâncias entre as curvas muda-se também as respostas escalares que serão levadas em conta. Assim, a seguir apresenta-se, a seguir, duas famílias de semimétricas
 
-\subsubsection{Semi-métrica baseada em Análise de Componente Principal Funcional
+\subsubsection{semimétrica baseada em Análise de Componente Principal Funcional
 (FPCA)}
 
 A FPCA é utilizada para reduzir a dimensão de um dado e exibir suas
@@ -1051,7 +1051,7 @@ Tomando um um número finito de autofunções, temos:
 \begin{equation}
 \tilde{\CHI}^{(q)}=\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int\CHI(t)v_{k}(t)dt\right)v_{k}.
 \end{equation}
-Dessa forma, é construída uma família de semi-métricas com parâmetro
+Dessa forma, é construída uma família de semimétricas com parâmetro
 $q$:
 \begin{equation}
 d_{q}^{PCA}(\CHI_{i},\chi)=\sqrt{\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int[\CHI_{i}(t)-\chi(t)]v_{k}(t)dt\right)^{2}}
@@ -1059,9 +1059,9 @@ d_{q}^{PCA}(\CHI_{i},\chi)=\sqrt{\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int[\C
 
 
 
-\subsubsection{Semi-métrica baseada em derivativas}
+\subsubsection{semimétrica baseada em derivativas}
 
-É possível construir outra família de semi-métricas a partir da distância
+É possível construir outra família de semimétricas a partir da distância
 entre seus derivativos, da forma a seguir:
 \begin{equation}
 d_{q}^{deriv}(\CHI_{i},\chi)=\int\left(\CHI_{i}^{(q)}(t)-\chi^{(q)}(t)\right)^{2}dt,
@@ -1106,7 +1106,7 @@ Trabalha-se com uma base constituída de x \todo{completar as maturidades e obse
 
 \section{Implementação}
 
-A implementação será feita em R, uma linguagem de programação construída dentro da lógica de software livre. Ela é usada predominantemente para solucionar problemas estatísticos. Por ser livre, é amplamente incrementada por pesquisadores, possuindo um enorme banco de funções e pacotes. Mais sobre a linguagem R pode ser obtido em \emph{http://cran.r-project.org/}. O ambiente de programação que será utilizado é o software RStudio, também um programa de código aberto.
+A implementação é feita em R, uma linguagem de programação construída dentro da lógica de software livre. Ela é usada predominantemente para solucionar problemas estatísticos. Por ser livre, é amplamente incrementada por pesquisadores, possuindo um enorme banco de funções e pacotes. O ambiente de programação que será utilizado é o \emph{software} RStudio.
 
 Para cada valor previsto, estima-se o modelo em uma dada janela num intervalo $[t_a,t_b]$, e prevê-se o valor de  $\hat{y}_{t+h|t}(\tau_i)$, em que $h$ é o horizonte da previsão e $\tau_i$ o valor da maturidade. Assim, para cada valor previsto, utiliza-se uma janela que termina $h$ unidades de tempo anteriores à previsão.
 
@@ -1166,7 +1166,7 @@ e assim por diante. Iterativamente, consegue-se então utilizar o método para f
 
 \subsection{Série temporal funcional}
 
-\todo[inline]{Escrever seção}
+\todo[inline]{Escrever seção: semelhante à NPFDA}
 
 \section{Previsão com Métodos não-paramétricos para Análise de Dados Funcionais} \label{metodologia-npfda}
 
@@ -1280,7 +1280,7 @@ R_{GCV}^{kNN}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}}
 
 \subsection{Escolha da semimétrica}
 
-As semimétricas serão testadas dentro das duas famílias apresentadas na seção~\ref{sub:semimetricas}: derivadas e FPCA. 
+As semimétricas serão testadas dentro das duas famílias apresentadas na seção~\ref{sub:semimetricas}: derivadas e FPCA. Em cada uma, é preciso definir um parâmetro: para a primeira, a ordem da derivada, e para a segunda, a quantidade de componentes principais levados em conta.
 
 Uma análise preliminar mostrou que os resultados de previsão eram muito insatisfatórios para derivadas de grau $2$ ou maior. Portanto, usou-se apenas a derivadas de ordem $1$ e a curva sem tomar derivada ($q=0$).
 
@@ -1299,7 +1299,7 @@ Assim, o trecho em que o gráfico possui inclinação positiva é onde o método
 	
 	\item[Significância da diferença de previsão]
 	
-	Giacomini-White e Diebold-Mariano
+	\todo[inline]{terminar seção}
 
 Embora alguns métodos possuam resultados melhores, em termos de erro quadrático médio, do que outros, é importante saber o quão melhor um método é e se o resultado e estatisticamente importante. 
 Para isso,utiliza-se neste trabalho dois testes comumente empregados na literatura para comparar previsões: o teste de 
@@ -1318,7 +1318,7 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right) \overset{d}{\longrightarrow} \chi_{dim(\delta)}^2
 \end{equation}		
 	
-	\todo[inline]{terminar Giacomini-White}
+\todo[inline]{Dúvida: DM em ambos ou utilizar GW na janela movel? Significância bilateral?}
 	
 	
 	
@@ -1330,11 +1330,11 @@ GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \h
 %---------------------------------
 \chapter{Resultados} \label{ch:resultados}
 
-As estimações foram realizadas com códigos escritos em R, que foram disponibilizados na internet: \emph{https://github.com/mcruas/dissertacao}. Uma breve  explicação está 
-disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita nesse \emph{site}. 
+As estimações foram feitas com códigos escritos em R, que foram disponibilizados na internet: \emph{https://github.com/mcruas/dissertacao}. Uma breve  explicação está 
+disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita no \emph{site} indicado acima. 
 Estimou-se a ETTJ com os seguintes métodos: \textbf{passeio aleatório} (utilizado como \bm ), modelo \textbf{AR(1)}, modelo de \textbf{DL}, \textbf{regressão não-paramétrica para dados funcionais} de diversas combinações de semimétricas e valores de $k_t$ e \textbf{séries temporais funcionais}, também com diferentes números de componentes principais e valores de $k_t$, além de diferentes formas de modelar a dinâmica dos fatores (foi utilizado para isso o passeio aleatório, suavização exponencial e modelo ARIMA).
 
-A primeira pergunta a ser respondida, quando a série começou a ser analisada, é com relação à sua estacionariedade. Para ser considerada estacionária, as séries devem ser geradas a partir de um processo cuja distribuição não dependa do tempo. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada. Para todos os valores de $k_t$ descritos, com exceção de quando é identicamente nulo, a série não teve sua estacionariedade rejeitada pelo teste ADF. Decidiu-se realizar o mesmo processo de retirar valores das curvas na estimação das séries temporais funcionais. Os valores de $k_t$ utilizados são os mesmos definidos na seção~\ref{metodologia-npfda}.
+A primeira pergunta a ser respondida, quando a série começou a ser analisada, é com relação à sua estacionariedade. Para ser considerada estacionária, na sua forma fraca, a série deve ser gerada por um processo de média e desvio padrão constantes. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada. Para todos os valores de $k_t$ descritos, com exceção de quando é identicamente nulo, a série não teve sua estacionariedade rejeitada pelo teste ADF, para nenhuma maturidade. Decidiu-se realizar o mesmo processo de retirar valores das curvas na estimação das séries temporais funcionais. Os valores de $k_t$ utilizados são os mesmos definidos na seção~\ref{metodologia-npfda}.
 
 Em relação às semimétricas escolhidas para a análise com NP-FDA, percebeu-se que a previsão da curva quando utiliza-se a distância das curvas em nível (semimétrica derivada com $d=0$) é extremamente parecida com a previsão quando utiliza-se a semimétrica baseada em FPCA com $q=5$. Por isso, decidiu-se omitir a versão da derivada com $d=0$ dos resultados finais.
 Uma análise preliminar mostrou que as previsões via função de densidade acumulada condicional e via moda da função de densidade produziam resultados insatisfatórios, bem inferiores ao produzido prevendo com regressão. Com isso, estes tipos de previsão foram retirados do resto do estudo. Daqui em diante, portanto, toda a estimação aqui descrita é feita com previsão via regressão.
@@ -1372,9 +1372,12 @@ Os resultados completos das estimações e previsões estão disponíveis no Ap�
 
 \todo[inline]{Colocar os gráficos de calor: os 4 horizontes (janela movel ou expandida?). Colocar o gráfico com os erros acumulados, 4 horizontes, melhor de ftsa, npf, DL e o ar1.}
 
-Analisando os resultados sobre os métodos NP-FDA, foi percebido que quanto maior a maturidade que se faz a previsão, pior foi o desempenho com relação ao passeio aleatório. Igual relação se estabelece quando se aumenta o horizonte de previsão: o desempenho relativo ao passeio aleatório também cai. Um fato importante a se destacar é que, para os métodos NP-FDA, a maioria das variações estimadas possuiu melhor desempenho utilizando a janela expandida que janela móvel. O motivo disso é que provavelmente haver mais dados acaba contribuindo significativamente para a melhora do desempenho, possivelmente dada a convergência lenta de métodos não-paramétricos aplicados a dados funcionais. 
+Analisando os resultados sobre os métodos NP-FDA, foi percebido que quanto maior a maturidade que se faz a previsão, pior foi o desempenho com relação ao passeio aleatório. Igual relação se estabelece quando se aumenta o horizonte de previsão: o desempenho relativo ao passeio aleatório também cai. Um fato importante a se destacar é que, para os métodos NP-FDA, a maioria das variações estimadas obteve melhor desempenho quando utilizada a janela expandida, com relação à janela móvel. O motivo disso é que provavelmente haver mais dados acaba contribuindo significativamente para a melhora do desempenho, possivelmente dada a convergência lenta desses métodos não-paramétricos aplicados a dados funcionais. 
 
-\todo[inline]{analisar relação dos kt sobre os resultados, assim como das semimetricas}
+As abreviaturas dos métodos são descritos no apêndice~\ref{apend:legendas}. Os métodos \texttt{crt.d1} e \texttt{crt.p5} tiveram desempenho relativamente pior que os outros métodos com NP-FDA, principalmente para horizontes maiores. Isso reforça a importância de se trabalhar com as séries estacionárias, inclusive quando trabalha-se com dados funcionais. 
+
+Com relação aos dois tipos de semimétricas utilizados (primeira derivada e FPCA com 5 componentes principais), não foi percebida melhora significativa de desempenho entre eles. Ora um possui melhores previsões, ora o outro. Sobre os valores $k_t$ utilizados, pode-se perceber uma tendência de melhores resultados quando toma-se $k_t = y_t(\tau_i)$, em que $\tau_i$ é a maturidade a ser prevista. Os métodos que utilizam como $k_t$ o valor da própria maturidade prevista são indicados por \texttt{npf.}\textbf{sm}\texttt{.rpmat}, em que \textbf{sm} indica a semimétrica utilizada.
+
 
 % ----------------------------------------------------------
 % PARTE
@@ -1423,6 +1426,7 @@ Na literatura, ainda existem poucos trabalhos que se utilizam de métodos de NP-
 É possível apontar alguns caminhos interessantes para futuros trabalhos envolvendo dados funcionais e a estimação e previsão da ETTJ, como por exemplo trabalhar com a série diferenciada em relação ao tempo, ao invés de diferenciar com relação à maturidade, como feito aqui. Outra possibilidade é aplicar diretamente o modelo linear funcional para fazer a previsão. Dentro dos próprios métodos NP-FDA, pode-se investigar a utilização do \emph{local linear} ao invés do Nadaraya-Watson.
 
 
+
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
@@ -1457,10 +1461,10 @@ Na literatura, ainda existem poucos trabalhos que se utilizam de métodos de NP-
 
 
 
-\chapter{Tabelas} \label{tabelas-resultados}
+\chapter{Apresentação dos resultados} \label{tabelas-resultados}
 
 
-\section{Legendas}
+\section{Legendas} \label{apend:legendas}
 
 Os métodos não-paramétricos funcionais são apresentados em códigos da seguinte forma:
 \begin{tabbing}
@@ -1472,7 +1476,7 @@ npf \> . \> p5  \> . \> rpmat
 
 \todo[inline]{explicar nome dos métodos na tabela}
 
-\section{Tabelas}
+\section{Tabelas} \label{apend:tabelas}
 
 Resultados
 
