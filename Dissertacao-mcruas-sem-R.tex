@@ -1,4 +1,7 @@
 %% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
+%DIF LATEXDIFF DIFFERENCE FILE
+
+
 %% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -27,7 +30,7 @@
 % Apresentacao
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-
+\PassOptionsToPackage{dvipsnames}{xcolor}
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
@@ -59,7 +62,9 @@
 \usepackage{lscape}				% Gira a página em 90 graus
 \usepackage{listings}			% Formatação para inserir códigos
 \usepackage{subcaption}			% Faz subfiguras
-
+\usepackage[normalem]{ulem}
+\usepackage[all]{xy}
+\usepackage{xcolor}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -190,6 +195,26 @@ como quesito parcial para obtenção do
 % ----
 % Início do documento
 % ----
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
@@ -237,20 +262,20 @@ como quesito parcial para obtenção do
 	\hrule							% Linha horizontal
 	\begin{center}					% Minipage Centralizado
 	\begin{minipage}[c]{12.5cm}		% Largura
-	
+
 	\imprimirautor
-	
+
 	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
 	\imprimirlocal, \imprimirdata-
-	
+
 	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
+
 	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
+
 	\hspace{0.5cm}
 	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
 	\imprimirdata.}\\
-	
+
 	\hspace{0.5cm}
 		1. Palavra-chave1.
 		2. Palavra-chave2.
@@ -258,9 +283,9 @@ como quesito parcial para obtenção do
 		II. Universidade xxx.
 		III. Faculdade de xxx.
 		IV. Título\\ 			
-	
+
 	\hspace{8.75cm} CDU 02:141:005.7\\
-	
+
 	\end{minipage}
 	\end{center}
 	\hrule
@@ -293,22 +318,22 @@ como quesito parcial para obtenção do
       \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
     \end{center}
     \vspace*{\fill}
-    
+
     \hspace{.45\textwidth}
     \begin{minipage}{.5\textwidth}
         \imprimirpreambulo
     \end{minipage}%
     \vspace*{\fill}
    \end{center}
-        
-   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
+
+   Trabalho entregue. \imprimirlocal, 05 de maio de 2014:
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
-   %\assinatura{\textbf{Professor} \\ Convidado 3}
+   \assinatura{\textbf{Prof. Dr. Fabricio Tourrucôo} \\ Convidado 1}
+   \assinatura{\textbf{Prof. Dr. João Frois Caldeira} \\ Convidado 2}
+   \assinatura{\textbf{Prof. Dr. Maurício Simiano Nunes} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
-      
+
    \begin{center}
     \vspace*{0.5cm}
     {\large\imprimirlocal}
@@ -316,7 +341,7 @@ como quesito parcial para obtenção do
     {\large\imprimirdata}
     \vspace*{1cm}
   \end{center}
-  
+
 \end{folhadeaprovacao}
 % ---
 
@@ -337,14 +362,7 @@ como quesito parcial para obtenção do
 % ---
 \begin{agradecimentos}
 
-%O primeiro agradecimento vai ao orientador Prof. Hudson Torrent. Além de 
-%
-%No âmbito "gigantes em cujos ombros este trabalho está sob", os agradecimentos especiais vão aos matemáticos. Se eles já não tivessem demonstrado as propriedades e teoremas necessários para sustentar a utilização dos métodos aqui propostos, o autor provavalmente escolheria outro tema de estudo.
-
-Este trabalho utilizou somente \emph{software} livre em todas as fases da sua concepção: sistema operacional GNU/Linux\footnote{há diversas distribuições gratuitas disponíveis para baixar na internet. }, \abnTeX \footnote{\emph{https://code.google.com/p/abntex2/}}~com \LaTeX \footnote{ver \emph{http://www.tug.org/}} para escrita deste documento, e linguagem científica R\footnote{http://www.r-project.org/} e RStudio\footnote{http://www.rstudio.com/} para a implementação das rotinas computacionais.
-Portanto, as pessoas que dedicam seu trabalho na elaboração \emph{softwares} de qualidade que podem ser gratuitamente utilizados por todos merecem todo o agradecimento do autor.
-
-Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, agindo conjuntamente com bebidas preparadas com a erva \emph{Ilex paraguariensis}, funcionam como esteroides para o cérebro.
+\todo[inline]{escrever}
 
 \end{agradecimentos}
 % ---
@@ -375,9 +393,11 @@ Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, ag
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- 
-\todo[inline]{Escrever resumo} 
- 
+
+Este trabalho possui como objetivo testar a performance de métodos de análise de dados funcionais com intuito de fazer previsão fora da amostra para Estrutura a Termo da Taxa de Juros. A contribuição principal é a utilização de um \emph{framework} não-paramétrico baseado em funções Kernel. Utiliza-se também séries temporais funcionais. Essas duas formas de estimar são implementadas, assim como outros métodos, que são utilizados como \emph{benchmark}. 
+
+\todo[inline]{acabar resumo}
+
  \textbf{Palavras-chaves}: Estrutura a Termo da Taxa de Juros. Análise de Dados Funcionais. Estatística não-paramétrica.
 \end{resumo}
 
@@ -387,7 +407,7 @@ Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, ag
    \todo[inline]{Write abstract}
 
    \vspace{\onelineskip}
- 
+
    \noindent 
    \textbf{Key-words}: Yield Curve Term Structure. Functional Data Analysis. Nonparametric Statistics.
  \end{otherlanguage*}
@@ -437,7 +457,9 @@ Por fim, agradecimentos a Wolfgang Amadeus Mozart por ter composto obras que, ag
 % ---
 % inserir o sumario
 % ---
+
 \pdfbookmark[0]{\contentsname}{toc}
+\setcounter{tocdepth}{2}
 \tableofcontents*
 \cleardoublepage
 % ---
@@ -473,10 +495,10 @@ para estimação da ETTJ. Dentre esses, as principais referências, com
 as quais esse trabalho procura se comparar, são encontradas nos trabalhos 
 de \citeonline{nelson_parsimonious_1987}(NS), 
 \citeonline{diebold_forecasting_2006}(DL) e \citeonline{svensson_estimating_1994}(SV).
-\citeonline{de_pooter_examining_2007} mostra que os modelos de NS possuem
-melhor capacidade de previsão quando eles são mais flexíveis, isto é, incorporam mais parâmetros para um melhor ajuste das curvas.
 
-Este trabalho estuda o uso de métodos de Análise de Dados Funcionais (FDA) na estimação e previsão da ETTJ. Antes de mais nada, é importante esclarecer o que são dados funcionais.
+
+A abordagem de dados funcionais já foi utilizada na previsão da ETTJ por \citeonline{hays_functional_2012}, que empregou séries temporais funcionais. Os resultados obtidos utilizando este método (uma mistura de modelos de fatores dinâmicos com análise de componentes principais funcional) foram muito bons, chamando a atenção para a adequação de tal abordagem ao problema estudado. Por essa razão, achou-se importante investigar outras variações de métodos que considerassem a natureza funcional do problema. 
+Assim, este trabalho estuda o uso de métodos de Análise de Dados Funcionais (FDA) na estimação e previsão da ETTJ. Antes de mais nada, é importante esclarecer o que são dados funcionais.
 Uma dada variável aleatória $\chi$ é denominada \textbf{variável
 funcional }quando ela toma valor num espaco infinito dimensional $\mathcal{H}$.
 Uma observação $\chi$ de $\mathcal{\CHI}$ é denominada um \textbf{dado
@@ -494,21 +516,21 @@ próximo um do outro, mas nunca de forma contínua. Assim, os dados coletados se
 uma sequência de observações $(\chi(t_{1}),\chi(t_{2}),\chi(t_{3}),...,\chi(t_{T}))$,
 mas nunca observa-se diretamente a função $\chi(t)$. É preciso, portanto, encontrar
 métodos que considerem a natureza funcional dos dados, mas que façam isso a a partir dos dados discretos.
-O que é proposto, nesse dissertação, é que as taxas de juros, para um dado período $t$, sejam consideradas uma função contínua das maturidades $\tau$.
+O que é proposto, nesta dissertação, é que as taxas de juros, para um dado período $t$, são tratadas como uma variável funcional $\chi(\tau)$ que possui a maturidade $\tau$ como parâmetro contínuo.
 
 Considere o seguinte modelo de regressão:
 \begin{equation}
-Y=r(\chi)+erro,\label{eq:modelo_regressao_basica}
+\hat{Y}= \mathbb{E} (Y|\CHI=\chi) =\hat{r}(\chi) ,\label{eq:modelo_regressao_basica}
 \end{equation}
 onde $Y$ é uma variável aleatória real, $\chi$ é uma função contínua
-de algum parâmetro $t$ ($\chi=\{\chi(t);t\in(0,1)\}$) e $r(\cdot)$
+de algum parâmetro $t$ ($\chi=\{\chi(t);t\in(t_a,t_b)\}$) e $r(\cdot)$
 pode assumir diferentes formatos, de acordo com as suposições que
 tomamos para o modelo. Se $r(\cdot)$ for da forma
 \begin{equation}
-r(\cdot)=\intop_{0}^{1}\rho(t)\chi(t)dt,
+r(\cdot)=\intop_{t_a}^{t_b}\rho(t)\chi(t)dt,
 \end{equation}
 $\chi(t)$ é a função que representa o dado funcional e $\rho(t)$
-o parâmetro único da regressão funcional paramétrica. Se não for imposta
+o parâmetro único da regressão num contexto funcional paramétrico. Se não for imposta
 \emph{a priori} nenhuma forma funcional para a regressão, então esta
 se trata de uma regressão não-paramétrica.
 Há um \emph{tradeoff} entre o uso de cada abordagem. Enquanto o uso de um
@@ -542,23 +564,17 @@ para o estudo dos métodos não paramétricos é o estudo de inferências
 baseadas em funções Kernel. Uma introdução ao assunto, para dados não-funcionais, pode ser encontrado 
 em \citeonline{wand_kernel_1995}.
 
-\citeonline{vieu_nonparametric_2006} formaliza a diferença entre métodos paramétricos e métodos não-paramétricos.
-Seja $Z$ uma variável aleatória que toma valor num espaço infinito
-dimensional $\mathcal{H}$ e seja $\phi$ uma função definida em $\mathcal{H}$
-que dependa da distribuição de $Z$. O modelo para a estimação de
-$\phi$ consiste em introduzir uma restrição da forma
-\[
-\phi\in C.
-\]
-O modelo é chamado de modelo funcional não paramétrico para a estimação
-de $\phi$ se $C$ é indexado por um número infinito de elementos
-de $\mathcal{H}$ .
+\citeonline{vieu_nonparametric_2006} definem um estimador não paramétrico para dados funcionais como um estimador de Nadaraya-Watson, expandindo-o do caso multivariado para o caso funcional. O estimador proposto para $r(\cdot)$ é definido por:
+\begin{equation}
+\hat{r}(\chi)=\dfrac{\sum_{i=1}^{n}Y_{i}K(d(\chi,\CHI_{i})/h)}{\sum_{i=1}^{n}K(d(\chi,\CHI_{i})/h)},
+\end{equation}
+em que $Y_i$ é a resposta escalar da função $\CHI_i$, $d(\cdot,\cdot)$ é uma medida de distância entre as curvas, $K(\cdot)$ uma função Kernel e $h$ o tamanho da \bw.
 
 A utilização de modelos Paramétricos de Análise de Dados Funcionais
 (P-FDA) para análise de séries temporais
 é formalizada por  \citeonline{hormann_functional_2012}.
-Modelos deste tipo são usados por \citeonline{benko_functional_2006},
-\citeonline{kargin_curve_2008} para a estimação da ETTJ.
+Além de ter sido utilizado por \citeonline{hays_functional_2012}, modelos deste tipo são também são usados por  \citeonline{benko_functional_2006},
+\citeonline{kargin_curve_2008}, para a estimação da ETTJ.
 Modelos não-paramétricos para Análise de Dados Funcionais (NP-FDA) são um instrumento recente para a análise
 de séries temporais (ver \citeonline{ferraty_nonparametric_2004} e o Capítulo 12 de \citeonline{vieu_nonparametric_2006}).
 \citeonline{caldeira_previsao_2011} estimam a ETTJ utilizando
@@ -573,7 +589,7 @@ O Capítulo~\ref{ch:metodologia} trata
 da metodologia utilizada para a modelagem, dos dados e do ambiente
 de programação utilizados. No Capítulo~\ref{ch:resultados},
 são apresentados os resultados da estimação da ETTJ de acordo com os métodos apresentados
-nos capítulos anteriores. Por fim, apresenta-se as considerações finais.
+nos capítulos anteriores. Por fim, apresentam-se as considerações finais.
 
 
 %\section*{Objetivo Geral}
@@ -599,15 +615,15 @@ nos capítulos anteriores. Por fim, apresenta-se as considerações finais.
 %-------------------------
 \chapter{Revisão Bibliográfica} \label{ch:revisao-biblio}
 
-Este capítulo fará uma revisão da literatura utilizada nos assuntos tratados nesta dissertação. Primeiro, os trabalhos de NS, SV e DL sobre a ETTJ serão apresentados. Em seguida, o estudo da Análise de Dados Funcionais é iniciado, e ambas as abordagens P-FDA e NP-FDA têm uma seção detalhando como os métodos serão utilizados para estimar e prever a ETTJ. 
+Este capítulo trata da revisão da literatura relacionada aos assuntos considerados nesta dissertação. Primeiro, os trabalhos de NS, SV e DL sobre a ETTJ serão apresentados. Em seguida, o estudo da Análise de Dados Funcionais é iniciado, e ambas as abordagens P-FDA e NP-FDA são apresentadas, detalhando-se como esses métodos serão utilizados para estimar e prever a ETTJ. 
 
 \section{A Estrutura a Termo da Taxa de Juros}
 
-Um título zero-coupom com tempo de maturidade $\tau$, emitido no tempo $t$, oferece retorno do valor investido com um pagamento único no tempo $\tau$. Seja $y_{t}(\tau)$ a taxa de juros zero-coupom continuamente composta para a maturidade $\tau$ , o preço do título, em valor presente, será dado por
+Um título zero-coupom com tempo de maturidade $\tau$, emitido no tempo $t$, oferece retorno do valor investido com um pagamento único no tempo $\tau$. Seja $y_{t}(\tau)$ a taxa de juros zero-coupom continuamente composta para a maturidade $\tau$ . O preço do título, em valor presente, de um título emitido no tempo $t$ será dado por
 \begin{equation}
 P_{t}(\tau)=e^{-\tau\, y_{t}(\tau)},\label{eq:taxapt}
 \end{equation}
-para cada unidade monetária recebida no tempo $\tau$. A curva da
+para cada unidade monetária recebida no tempo $t + \tau$. A curva da
 taxa forward $f_{t}(\tau)$ é construída a partir do preço do título
 da seguinte forma:
 \begin{equation}
@@ -657,6 +673,7 @@ obtém-se a equação para a curva de juros, segundo o modelo de NS:
 \begin{equation}
 y(\tau)=b_{1}+(b_{2}+b_{3})\left(\frac{1-e^{-\lambda\tau}}{\lambda\tau}\right)-b_{2}e^{-\lambda\tau}.
 \end{equation}
+
 \citeonline{diebold_forecasting_2006} reinterpretam o modelo de NS, atribuindo uma interpretação econômica mais relevante
 aos seus parâmetros. Primeiro, eles fizeram uma transformação nos
 parâmetros, fazendo $b_{1t}=\beta_{1t}$, $b_{2t}=\beta_{2t}+\beta_{3t}$
@@ -675,7 +692,7 @@ de médio prazo, relacionando-se com a curvatura da curva de juros.
 de acordo com a modificação proposta. Pelo modelo de NS é preciso estimar os coeficientes de $\frac{1-e^{-\lambda_{t}\tau}}{\lambda_{t}\tau}$
 e $e^{-\lambda_{t}\tau}$; estas, porém, são funções com decaimento similares. Por isso,
 o efeito de cada um dos fatores não é facilmente diferenciável,  tendo como consequência problemas de multicolinearidade. 
-Pensando na melhoria de performance da estimação, \citeonline{diebold_forecasting_2006} também sugerem que o parâmetro $\lambda$ seja definido \emph{a priori}. Enquanto no modelo de NS é necessário utilizar algum método de estimação não-linear, o modelo de DL vira um modelo linear após a fixação do parâmetro $\lambda$, podendo ser estimado com algum método mais simples e de convergência mais veloz aos parâmetros populacionais, como máxima verossimilhança ou mínimos quadráticos ordinários.
+Pensando na melhoria de performance da estimação, \citeonline{diebold_forecasting_2006} também sugerem que o parâmetro $\lambda$ seja definido \emph{a priori}. Enquanto no modelo de NS é necessário utilizar algum método de estimação não-linear, o modelo de DL vira um modelo linear após a fixação do parâmetro $\lambda$, podendo ser estimado com algum método mais simples e de convergência mais veloz aos parâmetros populacionais, como máxima verossimilhança ou mínimos quadráticos ordinários. 
 
 \subsection{Modelo de Svensson}
 
@@ -692,7 +709,9 @@ y_{t}(\tau)=\beta_{1t}+\beta_{2t}\left(\frac{1-e^{-\lambda_{1t}\tau}}{\lambda_{1
 \end{equation}
 Em seu artigo, ele argumenta que esse aumento de flexibilidade torna o modelo de SV
 geralmente melhor ajustado que o de NS. Em contrapartida, o modelo será menos
-parcimonioso.
+parcimonioso. Isto vao ao encontro da conclusão de \citeonline{de_pooter_examining_2007}, que mostra que os modelos de NS possuem
+melhor capacidade de previsão quando eles são mais flexíveis, isto é, incorporam mais parâmetros para um melhor ajuste das curvas.
+
 
 \section{Métodos Paramétricos para a Análise de Dados Funcionais\label{sec:Metodologias-para-modelos}}
 
@@ -712,7 +731,7 @@ para, em seguida, realizar a exploração e previsão.
 \subsection{Bases para representação
 de dados funcionais} %\label{sub:Bases-para-representa}
 
-Como já dito anteriormente, mesmo dados funcionais não são observados
+Como já dito anteriormente, dados funcionais não são observados
 diretamente nas suas formas funcionais; cada dado é visto como uma
 sequência de $t$ observações discretas: $(\chi_{i}(t_{1}),\chi_{i}(t_{2}),\chi_{i}(t_{3}),...,\chi_{i}(t_{T}))$.
 Assim, para cada uma das $n$ variáveis aleatórias funcionais deve-se
@@ -723,7 +742,7 @@ em funções que possam ser interpretadas facilmente pelo computador.
 
 Uma base de funções é um conjunto de funções conhecidas $\phi_{k}$,
 matematicamente distintas umas das outras, cuja combinação linear
-consegue aproxima alguma outra função $f(t)$. É possível aproximar-se da função $f(t)$ tanto quanto se queira, bastando que
+consegue aproximar alguma outra função $f(t)$. É possível aproximar-se da função $f(t)$ tanto quanto se queira, bastando que
 para isso haja um número suficiente $K$ de funções $\phi_{k}$ utilizadas 
 como base. Devemos, então, escolher um conjunto $\{c_{k}\}$ de parâmetros tais que
 \begin{equation}
@@ -753,7 +772,7 @@ onde haja discontinuidades na função ou nas primeiras derivadas. As funções 
 
 \subsubsection*{Base B-splines} \label{sub:Base-B-splines}
 
-Funções spline constituem uma base indicada para quando os dados possuem natureza não-periódica. 
+Funções spline constituem uma base indicada para  dados que possuem natureza não-periódica. 
 Cada uma das funções $\phi_k$ é um polinômio, de uma ordem $m$ pré-estabelecida. 
 Como regra de bolso, escolhe-se o grau do polinômio como duas unidades a mais que o número de vezes que a função será derivada.
 A grande diferença entre uma base utilizando splines e uma base polinomial convencional é que cada uma das funções da base spline estará definida apenas para um subintervalo do intervalo $[t_0,t_1]$ no qual  deseja-se aproximar a função $f(t)$.
@@ -761,7 +780,7 @@ Os locais em que se dividem o intervalo total são pontos denominados de breakpo
 
 A base B-spline é um conjunto específico de funções que são adequadas para fazer a aproximação desejada.
 A literatura cita vantagens computacionais em se utilizar uma base B-splines em relação a outras, tanto no tempo de estimação dos coeficientes $\hat{c}_k$ como na disponibilidade de pacotes que o implementam em diversas linguagens e softwares diferentes.
-Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines é mostrado na figura~\ref{fig:base-bspline}.
+Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines com polinômios de grau 4 e 4 \emph{breakpoints} é mostrado na figura~\ref{fig:base-bspline}.
 \begin{figure}[h!] 
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/base_bsplines1}
@@ -772,7 +791,7 @@ Uma referência para aprofundar mais no estudo de splines pode ser encontrada em
 \subsection{Análise de Componente Principal Funcional}
 \label{FPCA}
 
-A Análise de Componentes Principais (PCA) é um método muito utilizado na análise de dados multivariados com grandes dimensões, em que o efeito de uma variável, individualmente, não contribui o suficiente para a compreensão dos dados. O método consiste em encontrar os componentes que melhor explicam a variabilidade dos dados. 
+A Análise de Componentes Principais (PCA) é um método muito utilizado na análise de dados multivariados com grandes dimensões. Como há muitas variáveis explicativas, a contribuição individual acaba sendo pequena. O método consiste em encontrar componentes que expliquem a maior possível variabilidade dos dados. Os componentes devem ser linearmente independentes e devem ser ordenados em ordem decrescente da contribuição para explicar os dados. Para exposição completa do método, ver \citeonline{jolliffe2005principal}
 
 A Análise de Componentes Principais Funcionais (FPCA) é uma extensão do método multivariado para o caso de dados funcionais. 
 A FPCA é utilizada, portanto, para reduzir a dimensão de um dado e exibir suas
@@ -790,7 +809,7 @@ Tomando um um número finito de autofunções, temos uma aproximação da funç�
 \begin{equation}
 \tilde{\CHI}^{(q)}=\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int\CHI(t)v_{k}(t)dt\right)v_{k}.
 \end{equation}
-
+Exemplos de utilização da FPCA incluem desde a análise da trajetória de vida de criminosos \cite{ramsay_applied_2002} até o estudo de anormalidades na córnea do olho humano \cite{locantore_robust_1999}
 
 \subsection{Modelo linear funcional}
 
@@ -799,10 +818,8 @@ Enquanto o modelo linear multivariado inclui um número finito de variáveis exp
 Y_{i}=\alpha_{i}+\intop_{0}^{T}\rho(t)\chi_{i}(t)dt+\varepsilon_{i},\label{eq:modelofuncionallinear}
 \end{equation}
 em que $\alpha$ é o intercepto, $\chi(t)$ é a função que representa
-cada dado funcional e $\rho(t)$ o parâmetro único da regressão funcional
-paramétrica. O termo $\varepsilon_{i}$ é o termo de erro associado
-a cada resposta e que não é explicado pela variável funcional
-independente.
+cada dado funcional, $\rho(t)$ é o parâmetro único da regressão funcional
+paramétrica e $\varepsilon_{i}$ é o termo de erro associado.
 
 A modelagem de dados funcionais, no entanto, requer cuidados adicionais. Fazendo um paralelo ao caso multivariado, há problemas quando
 o tamanho da amostra é menor do que o número de variáveis explicativas.
@@ -810,8 +827,8 @@ Seja
 \begin{equation}
 Y=X\beta+\varepsilon
 \end{equation}
-o modelo a ser estimado, se $X$ for uma matriz com o número de linhas
-maior que o de colunas, necessariamente haverá variáveis livres. Assim,
+o modelo a ser estimado, se $X$ for uma matriz com o número de colunas
+maior que o de linhas, necessariamente haverá variáveis livres. Assim,
 diferentes valores de $\beta$ podem ser utilizados para gerar os
 mesmos valores de $Y$. Além disso, é muito provável que o espaço
 gerado pela matriz $X$ possua uma dimensão maior que a dimensão de
@@ -899,7 +916,7 @@ será a escolha ótima do parâmetro utilizando esse procedimento de
 
 \subsection{Séries temporais funcionais}
 
-É possível fazer a modelagem de uma série temporal funcional pela decomposição da série em fatores utilizando FPCA. Seja a série temporal $\{ \chi_t(\tau) \}_{t=t_1}^{t_2}$ estimada no  intervalo $[t_1,t_2]$. Haverá, portanto, $n=t_2-t_1+1$ funções representando a série temporal:
+É possível fazer a modelagem de uma série temporal funcional pela decomposição da série em fatores utilizando FPCA. Seja a série temporal $\{ \chi_t(\tau) \}_{t=t_1}^{t_2}$ estimada no  intervalo $[t_a,t_b]$. Haverá, portanto, $n=t_b-t_a+1$ funções representando a série temporal:
 \begin{equation}
 \chi_{t_1}(\tau), \chi_{t1+1}(\tau), \dots, \chi_{t2}(\tau)
 \end{equation}
@@ -907,13 +924,13 @@ Assim como demonstrado na seção~\ref{FPCA}, cada função pode ser aproximada 
 \begin{equation}
 \widetilde{\chi}_s(\tau)=\sum_{i=1}^{m}{ \underbrace{ \left(  \int \chi_s(\tau)  v_i(\tau)dt \right) }_{\phi_{i,t}} } v_i,
 \end{equation}
-em que $m$ é o número de 
-Tomando $t$ no intervalo $[t_1,t_2]$, tem-se uma série temporal de $\phi_i$ associada a cada autofunção. Essa série, por sua vez, pode ser estimada com algum método univariado tradicional, como um modelo ARIMA, passeio aleatório, série temporal exponencial, etc. A partir da estimação, pode-se prever cada um dos $\hat{\phi}_{i,t_2+h}$, para cada horizonte de interesse $h$. A curva prevista $\chi_{t_2+h}(\tau)$ é obtida quando se somam os produtos das autofunções com seus respectivos coeficientes previstos, isto é:
+em que $m$ é o número de fatores principais.
+Tomando $t$ no intervalo $[t_1,t_2]$, tem-se uma série temporal de $\phi_i$ associada a cada autofunção. Essa série, por sua vez, pode ser estimada com algum método de séries temporais univariadas tradicional, como um modelo ARIMA, passeio aleatório, suavização exponencial, etc. A partir da estimação, pode-se prever cada um dos $\hat{\phi}_{i,t_2+h}$, para cada horizonte de interesse $h$. A curva prevista $\chi_{t_2+h}(\tau)$ é obtida quando se somam os produtos das autofunções com seus respectivos coeficientes previstos, isto é:
 \begin{equation}
 \hat{\chi}_{t_2+h}(\tau)= \sum_{i=1}^{m}{\hat{\phi}_{i,t_2+h} v_i(\tau) }.
 \end{equation}
 
-As séries temporais funcionais foram utilizadas na previsão da ETTJ por \citeonline{shang}, com resultados muito bons. Como é uma abordagem funcional já utilizada na literatura, será implementada para comparação com os resultados obtidos pela estimação com métodos de NP-FDA.
+As séries temporais funcionais foram utilizadas na previsão da ETTJ por \citeonline{hays_functional_2012}, com resultados muito bons. Como é uma abordagem funcional já utilizada na literatura, será implementada para comparação com os resultados obtidos pela estimação com métodos de NP-FDA. \todo{ajeitar referência}
 
 \section{Métodos Não-paramétricos para a Análise de dados funcionais}
 
@@ -940,14 +957,10 @@ Seja $I_R(u)$ uma função definida como $1$, quando $u \in \mathbb{R}$ e 0, cas
     \item[Kernel gaussiano] $K(u)= \frac {\sqrt{2}}{\sqrt{\pi}} exp{-\frac{u^2}{2}} I_{[0,\infty]}(u)$
 \end{description}
 
-\subsection{Métodos para a previsão}
+\subsection{Regressão não-paramétrica funcional}
 \label{metodos-previsao-npfda}
 
-Nesta seção, apresenta-se as três formas de se fazer estimações conforme apresentado por \citeonline{vieu_nonparametric_2006}.
-
-
-\subsubsection*{Previsão via regressão}
-
+Seja $(\chi_i,Y_i)_{i=t_i,...,t_f}$ pares de variáveis aleatórias funcionais identicamente distribuídos como $(\CHI,\boldsymbol{Y})$, tomando valor em $E \times \mathbb{R}$, em que $(E,d)$ é um espaço semi-métrico. O objetivo da regressão é encontrar o valor mais provável para a resposta escalar $Y$ dada a variável funcional observada $\chi$.
 Utiliza-se um regressor não linear $r(\chi)=E(Y|\boldsymbol{\chi}=\chi)$
 e a previsão por esse método será dada por:
 \[
@@ -960,58 +973,19 @@ não paramétrico utilizando-se uma função kernel assimétrica $K$. Considere 
 \end{equation}
 A regressão não-paramétrica funcional será uma extensão do estimador de Nadaraya-Watson (empregado comumente para dados em espaço com número finito de dimensões) para o caso funcional. 
 Assim, quando se atribui pesos localmente utilizando dados funcionais, sua média ponderada resultará no estimador da regressão funcional
-\begin{equation}
+\begin{equation} \label{eq:regressao-npfda}
 	\hat{r}(\chi) = \sum_{i=1}^n \Delta_i Y_i.
 \end{equation}
 
-É uma característica desejável, portanto, que quando toma-se curvas com um valor pequeno de $d(\chi,\CHI_i)$, as respostas escalares $Y_i$ se aproximem do valor esperado de $E(Y|\CHI = \chi)$. Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é \bw quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
+Outra variável importante, tratada mais adiante, é a escolha da \bw. Como é a \bw~quem determina o peso de cada curva na estimação, ela possui grande influência nos resultados das previsões pelo método Kernel.
 
-\citeonline{ferraty_2007} investiga aspectos teóricos sobre a regressão com NP-FDA, mostrando uma aplicação do método aplicado a um problema de quimiometria. Já \citeonline{barrientos-marin_locally_2010} implementa a generalização do estimador \emph{local linear} para o caso funcional.
-
-
-\subsubsection*{Previsão via função de densidade acumulada condicional}
-
-A estratégia é utilizar a função densidade acumulada condicional
-
-\begin{equation} \label{fd-acum}
-F_{Y}^{\CHI}(\chi,y)=E(1_{(-\infty,y]}(Y)|\CHI=\chi).
-\end{equation}
-A partir da estimação de $F_{Y}^{\CHI}(\chi,y)$, toma-se por estimativa
-o valor de $m(\chi)=inf\{y\in\mathbb{R\mid}F_{Y}^{\CHI}(\chi,y)\geq1/2\}$.
-Assim, teremos 
-\[
-\hat{y}=\hat{m}(\chi).
-\]
-Já $F_{Y}^{\CHI}(\chi,y)$ pode ser estimada da seguinte forma:
-\begin{equation}
-\hat{F}_{Y}^{\CHI}(\chi,y)=\frac{\sum_{i=1}^{n}K(h^{-1}d(\chi,\boldsymbol{\chi}_{i})H(g^{-1}(y-Y_{i})}{\sum_{i=1}^{n}K(h^{-1}d(\chi,\CHI_{i})},
-\end{equation}
-onde $H$ é uma função definida por $H(u)=\int_{-\infty}^{u}K_{0}(v)dv$,
-e $K_{0}$ é uma função kernel simétrica.
-Utilizando-se a mesma função acumulada, é possível também estimar a função condicional quantílica $\hat{t}_{\alpha}(\chi)$, para qualquer $\alpha$ em $[0,1/2]$, bastando para isso tomar
-\begin{equation}
-\hat{t}_{\alpha}(\chi)=inf\{y\in\mathbb{R},\hat{F}_{Y}^{\CHI}(\chi,y)\geq\alpha
-\end{equation}
+\citeonline{ferraty_nonparametric_2007} investigam aspectos teóricos sobre a regressão com NP-FDA, mostrando uma aplicação do método aplicado a um problema de quimiometria. Já \citeonline{barrientos-marin_locally_2010} implementam a generalização do estimador \emph{local linear} para o caso funcional.
 
 
-\subsubsection*{Previsão via moda da função de densidade}
 
-Como a equação \ref{fd-acum} fornece uma expressão para a função de densidade acumulada, é possível utilizar uma outra estratégia para a estimação, baseada na função de densidade. O primeiro passo é, a partir da f.d.a conseguir derivar uma função de densidade. Isto pode ser obtido através da seguinte expressão:
-\begin{equation}
-\hat{f}_Y^\chi(\chi,Y)=\frac{\partial}{\partial y} \hat{F}_Y^\chi.
-\end{equation}
-Sendo, então, $H$ diferenciável, temos:
-\begin{equation}
-\frac{\partial}{\partial y} \hat{F}_{Y}^{\CHI}(\chi,y) = \frac{\sum_{i=1}^{n}K(h^{-1}d(\chi,\boldsymbol{\chi}_{i}) \frac{\partial}{\partial y} H(g^{-1}(y-Y_{i})}{\sum_{i=1}^{n}K(h^{-1}d(\chi,\CHI_{i})},
-\end{equation}
-o que resulta na expressão final de estimação:
-\begin{equation}
-\hat{f}_{Y}^{\CHI}(\chi,y) = \frac{\sum_{i=1}^{n}K(h^{-1}d(\chi,\boldsymbol{\chi}_{i}) \frac{1}{g} H'(g^{-1}(y-Y_{i})}{\sum_{i=1}^{n}K(h^{-1}d(\chi,\CHI_{i})}.
-\end{equation}
+\subsection{Medindo a distância entre as curvas utilizando seminormas} \label{sub:semimetricas}
 
-\subsection{Medindo a distância entre as curvas utilizando semi-normas} \label{sub:semimetricas}
-
-Nas seções anteriores, utilizou-se a função $d(\cdot)$ para expressar
+Nas seções anteriores, utilizou-se a função $d(\cdot,\cdot)$ para expressar
 a distância entre duas curvas. Medir a distância entre variáveis é
 simples quando trabalhamos no espaço $\mathbb{R}^{p}$, sendo $p$
 um número finito. Isso ocorre pois há equivalência entre todas as
@@ -1025,14 +999,14 @@ que requer atenção.
 Por outro lado, as variáveis funcionais tomam valores num espaço infinito
 dimensional. Em espaços dessa dimensionalidade, a equivalência de normas não se
 aplica. Além disso, a utilização de uma métrica pode não ser interessante
-por ser muito restritiva. Por isso, $d(\cdot)$ será escolhida como
+por ser muito restritiva. Por isso, $d(\cdot,\cdot)$ será escolhida como
 uma semi-norma, dentro de um espaço semi-métrico, ao invés de uma
 norma num espaço métrico. As duas gozam das mesmas propriedades, com
 exceção de que para a semi-norma vale que $d(x,y)=0\nRightarrow x=y$. 
 
 A escolha da semimétrica utilizada tem papel fundamental no resultado das estimações, pois mudando a forma como se define as distâncias entre as curvas muda-se também as respostas escalares que serão levadas em conta. Assim, a seguir apresenta-se, a seguir, duas famílias de semimétricas
 
-\subsubsection{semimétrica baseada em Análise de Componente Principal Funcional
+\subsubsection{Semimétrica baseada em Análise de Componente Principal Funcional
 (FPCA)}
 
 A FPCA é utilizada para reduzir a dimensão de um dado e exibir suas
@@ -1059,7 +1033,7 @@ d_{q}^{PCA}(\CHI_{i},\chi)=\sqrt{\sum_{k=1}^{\text{\ensuremath{q}}}\left(\int[\C
 
 
 
-\subsubsection{semimétrica baseada em derivativas}
+\subsubsection{Semimétrica baseada em derivativas}
 
 É possível construir outra família de semimétricas a partir da distância
 entre seus derivativos, da forma a seguir:
@@ -1087,22 +1061,21 @@ bem quando $f(t)$ é uma função suave.
 
 \chapter{Metodologia} \label{ch:metodologia}
 
-Para a realização das estimações da ETTJ, os métodos utilizados serão os mesmos dos apresentados na revisão de literatura, tanto para o caso paramétrico quanto para o não-paramétrico. Assim, o estudo será relativamente abrangente em relação à adequação da abordagem funcional para a modelagem do problema em questão.
+Para a realização das estimações da ETTJ, os métodos utilizados serão aqueles apresentados na revisão de literatura, tanto para o caso paramétrico quanto para o não-paramétrico. Assim, o estudo será relativamente abrangente em relação à adequação da abordagem funcional para a modelagem do problema em questão.
 
-Como estratégia de avaliação, os métodos de estimação serão aplicados a apenas uma parte da amostra, e a previsão é feita fora da amostra utilizada para fazer a estimação o restante para ser utilizado como teste da capacidade de previsão. Assim, pode-se calcular o Erro Quadrático Médio (EQM) das previsões e comparar suas performances. 
+Como estratégia de avaliação, a amostra será dividida em 2 partes. Os métodos de estimação serão aplicados à primeira parte da amostra, e a previsão é feita dessa primeira parte da amostra. A segunda parte utilizada como verificação da capacidade de previsão. Assim, pode-se calcular o erro das previsões com alguma métrica escolhida e comparar suas performances. 
 
 \section{Dados}
 
-Os dados utilizados serão dados diários (no período de 25/11/1985 até 09/02/2012, constituindo 6537 dias) da taxa de juros para títulos de maturidades diversas (mensais no intervalo de 1 mês até 30 meses). \todo{descobrir informações sobre a base} Assim, a base de dados contém 196110 observações. A figura~\ref{fig-est-termo} contém as séries temporais das diferentes maturidades.
-\begin{figure}[h!] \label{fig-est-termo}
+Os dados utilizados serão dados mensais no período de 30/01/1970 até 31/12/2009, \todo{origem da base} constituindo 480 observações da taxa de juros para títulos de maturidades diversas (3, 6, 9, 12, 15, 18, 21, 24, 30, 36, 48, 60, 72, 84, 96, 108 e 120 meses). A figura~\ref{fig:est-termo} contém as séries temporais das diferentes maturidades.
+\begin{figure}[h!] 
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/taxas_juro}
   \caption{Estrutura a termo da taxa de juros}
+  \label{fig:est-termo}
 \end{figure}
 
-Trabalha-se com uma base constituída de x \todo{completar as maturidades e observações} maturidades e y observações dessas maturidades. Como se está interessado na previsão dos valores da taxa de juros fora da amostra, este trabvalho modela cada dado funcional como uma observação no tempo $t$ de $f_t(\tau)$. A função $f_t:[\tau_1,\tau_k] \rightarrow \mathbb{R}$ é construída com base nos valores discretos ${\tau_1, ..., \tau_k}$, em que $k$ é o número total de maturidades.
-
-
+Como se está interessado na previsão dos valores da taxa de juros fora da amostra, este trabalho modela cada dado funcional como uma observação no tempo $t$ de $\chi_t(\tau)$. A função $f_t:[\tau_1,\tau_k] \rightarrow \mathbb{R}$ é construída com base nos valores discretos ${\tau_1, ..., \tau_k}$, em que $k$ é o número total de maturidades. 
 
 \section{Implementação}
 
@@ -1110,95 +1083,54 @@ A implementação é feita em R, uma linguagem de programação construída dent
 
 Para cada valor previsto, estima-se o modelo em uma dada janela num intervalo $[t_a,t_b]$, e prevê-se o valor de  $\hat{y}_{t+h|t}(\tau_i)$, em que $h$ é o horizonte da previsão e $\tau_i$ o valor da maturidade. Assim, para cada valor previsto, utiliza-se uma janela que termina $h$ unidades de tempo anteriores à previsão.
 
-Dois tipos de janela móvel foram utilizados: com \textbf{tamanho fixo }e \textbf{tamanho expandível}. 
-No primeiro tipo, a janela de estimação possui tamanho fixo. Então, enquanto utiliza-se a janela $[t_a,t_b]$ para estimar o modelo e fazer a previsão do valor de $\hat{y}_{t+h|t}(\tau_i)$, a janela $[t_{a+1},t_{b+1}]$ é utilizada para prever o valor de $\hat{y}_{t+1+h|t+1}(\tau_i)$. Quando trabalha-se com tamanho expandível, o ponto de início do intervalo se mantém, mas o final dele é incrementado: utilizam-se os intervalos $[t_{a},t_{b}] ,[t_{a},t_{b+1}],[t_{a},t_{b+2}],\dots$  pra prever $\hat{y}_{t+h|t}(\tau_i),\hat{y}_{t+1+h|t}(\tau_i),\hat{y}_{t+2+h|t}(\tau_i),\dots$, respectivamente.
+Dois tipos de janela móvel são utilizados: com \textbf{tamanho fixo} e \textbf{tamanho expansível}. 
+No primeiro tipo, a janela de estimação possui tamanho fixo. Então, enquanto utiliza-se a janela $[t_a,t_b]$ para estimar o modelo e fazer a previsão do valor de $\hat{y}_{t+h|t}(\tau_i)$, a janela $[t_{a+1},t_{b+1}]$ é utilizada para prever o valor de $\hat{y}_{t+1+h|t+1}(\tau_i)$. Quando trabalha-se com tamanho expansível, o ponto de início do intervalo se mantém, mas o final dele é incrementado: utilizam-se os intervalos $[t_{a},t_{b}] ,[t_{a},t_{b+1}],[t_{a},t_{b+2}],\dots$  pra prever $\hat{y}_{t+h|t}(\tau_i),\hat{y}_{t+1+h|t}(\tau_i),\hat{y}_{t+2+h|t}(\tau_i),\dots$, respectivamente. O tamanho da janela começa com 120 observações. Este número se mantém estável quando trabalha-se com tamanho fixo, e aumenta em uma unidade para cada novo unidade que avança no tempo quando se utiliza tamanho expansível.
 
-Quando se trabalha com tamanho expandível, obtém-se o aproveitamento máximo dos dados disponíveis para efetuar a previsão, já que todo valor conhecido pode ser utilizado, enquanto quando trabalha-se com janela fixa, a parte inicial da amostra vai sendo descartada à medida que a janela avança. Ter mais dados é essencialmente importante quando se utiliza métodos cuja convergência dos parâmetros aos seus valores verdadeiros é mais lenta, como ocorre normalmente com os métodos não-paramétricos. 
+Quando o tamanho expansível é utilizado, obtém-se o aproveitamento máximo dos dados disponíveis para efetuar a previsão, já que todo valor conhecido pode ser utilizado, enquanto quando trabalha-se com janela fixa, a parte inicial da amostra vai sendo descartada à medida que a janela avança. Ter mais dados é essencialmente importante quando se utiliza métodos cuja convergência dos parâmetros aos seus valores verdadeiros é mais lenta, como ocorre normalmente com os métodos não-paramétricos. 
 
-A vantagem de trabalhar com janela móvel e tamanho fixo, por outro lado, é que oferece resultados mais robustos, em que o ponto de início da série de dados não influencia a previsão de determinado valor. É possível verificar em quais subintervalos da série o método possui capacidade melhor de previsão, sem confundir o efeito do período de previsão com o efeito de aumento da quantidade de dados janela.
-
-\section{Previsão com os Métodos escolhidos como \emph{benchmark}}
-
-Para melhor avaliar os resultados dos métodos investigados neste trabalho, compara-se a capadidade de previsão deles com outros métodos utilizados na literatura. São eles: o modelo de DL, o passeio aleatório e o modelo AR(1).
-
-\subsection{Previsão com Método de Diebold-Li}
-
-Seja o modelo de \citeonline{diebold_forecasting_2006} a seguir:
-
-$$y_{t}(\tau)=\beta_{1,t}+\beta_{2,t}\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda\tau}  \right) -\beta_{3,t}\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  } -e^{ -\lambda \tau  } \right),$$
-o primeiro passo para realizar as previsões é definir o valor de $\lambda$, que é mantido fixo durante a estimação, ao contrário de quando se utiliza o modelo de NS. 
-
-Para escolher o valor de $\lambda$ emprega-se um método de \emph{cross-validation}. A busca foi realizada tomando valores dentro do intervalo $[0.2,1.2]$, com incrementos de $0.05$. O intervalo de aprendizado foi dividido em duas partes: uma para estimar (contendo 60\% do intervalo) e outra para prever fora da amostra (contendo o resto). Assim, para cada um dos valores testados, as previsões foram feitas e o Erro Quadrático Médio calculado. 
-De acordo com as simulações executadas nesse trabalho, tomar $\lambda=0.5$ gerou as melhores previsões dentro do intervalo de aprendizagem.
-
-Uma vez fixo o valor de $\lambda$, pode-se partir para as estimações por completo. Para cada período de $t$, os valores de $\hat{\beta}_{1,t}$, $\hat{\beta}_{2,t}$ e $\hat{\beta}_{3,t}$ são estimadas em \emph{cross-section}.
-
-A partir dos valores de  $\hat{\beta_1}$, $\hat{\beta_2}$ e $\hat{\beta_3}$, pode-se recriar a curva de juros, para um vetor qualquer de maturidades, utilizando-se a função . Note que os $\beta$'s podem reproduzir quaisquer maturidades desejadas, inclusive aquelas que não foram utilizadas estimar os $\beta$'s.
-
-Com base nos valores de $\hat{\beta}$ já estimados, prevê-se os valores futuros de $\hat{\beta}$ através de um modelo AR(1), com $h$ passos à frente. 
-$$\hat{\beta} _{ t+h/t } = \hat{c} + \hat{\Gamma}\hat{\beta}_t$$
-Após, o valor previsto para cada maturidade é obtido após multiplicar $\beta$ pelos fatores.
-$$\hat { y } _{ t+h/t }(\tau)=\hat{\beta} _{ 1,t+h/t }+\hat{\beta} _{ 2,t+h/t }\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  }  \right) -\hat{\beta} _{ 3,t+h/t }\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  } -e^{ -\lambda \tau  } \right)$$
-
-
-\subsection{Passeio aleatório}
-Considera-se a série temporal um passeio aleatório. Assim, para cada qualquer horizonte, considera-se que o valor futuro da maturidade se manterá o mesmo:
-
-\begin{equation}
-\hat{y}_{t+h/t}(\tau_i)=y_t(\tau_i).
-\end{equation}
-
-
-\subsection{AR(1)}
-Ajusta-se, à cada maturidade da curvas de juros, um modelo auto-regressivo de ordem 1, utilizando mínimos quadráticos ordinários:
-$$y_t(\tau_i)=\alpha(\tau_i) + \phi(\tau_i) y_{t-1}(\tau_i)+\varepsilon_{t}(\tau_i).$$
-Assim, minimizando os valores quadráticos de $\varepsilon$ obtém-se os estimadores de $\alpha(\tau_i)$ e $\phi(\tau_i)$.
-Pode-se, então, fazer a estimação $1$ passo à frente utilizando os valores dos coeficientes estimados na equação do modelo:
-\begin{equation}
-\hat{y}_{t+1/t}(\tau_i)=\hat{\alpha}(\tau_i) + \hat{\phi}(\tau_i) y_t(\tau_i).
-\end{equation}
-
-Para prever mais do que $1$ passo à frente, é possível utilizar o valor previsto para prever outro passo à frente:
-\begin{equation}
-\hat{y}_{t+p/t}(\tau_i)=\hat{\alpha}(\tau_i) + \hat{\phi}(\tau_i) \hat{y}_{t+p-1/t}(\tau_i),
-\end{equation}
-e assim por diante. Iterativamente, consegue-se então utilizar o método para fazer a previsão $n$ passos à frente.
-
-\subsection{Série temporal funcional}
-
-\todo[inline]{Escrever seção: semelhante à NPFDA}
+Os horizontes de previsão trabalhados são: 1 mês, 3 meses, 6 meses e 1 ano.
+A primeira janela de estimação compreende 120 observações (um período de 10 anos), entre jan/1984 e dez/1993, para prever os valores entre jan/1994 e dez/1994. A última janela é entre jan/1999 e nov/2008 para tamanho fixo e entre jan/1984 e nov/2008 para tamanho expansível. Ambas preveem, no último período, os valores da taxa de juros entre jan/2009 e dez/2009.
 
 \section{Previsão com Métodos não-paramétricos para Análise de Dados Funcionais} \label{metodologia-npfda}
 
-Seja $(\chi_i,Y_i)_{i=t_i,...,t_f}$ pares de variáveis aleatórias funcionais identicamente distribuídos como $(\CHI,\boldsymbol{Y})$, tomando valor em $E \times \mathbb{R}$, em que $(E,d)$ é um espaço semi-métrico. O objetivo do problema é prever a resposta escalar de um preditor funcional $\chi$ utilizando algum dos três métodos apresentados na seção \ref{metodos-previsao-npfda}. Como a resposta escalar é uma variável unidimensional, e deseja-se fazer a previsão para diversas maturidades, é necessário fazer a estimação para cada uma das maturidades que se deseja realizar previsões.
+O objetivo do problema é prever a resposta escalar de um preditor funcional $\chi$ utilizando o método apresentado na seção \ref{metodos-previsao-npfda}. Como a resposta escalar é uma variável unidimensional, e deseja-se fazer a previsão para diversas maturidades, é necessário fazer a estimação para cada uma das maturidades que se deseja realizar previsões.
 
-Como entrada do problema, há $m$ séries temporais de tamanho $n$, uma para cada maturidade disponível. Outra forma de se enxergar a base de dados é através de uma matriz $Y_{m \times n}$, conforme mostra-se a seguir:
-\begin{equation} 
-Y_{m,n} = 
+Como entrada do problema, há $m$ séries temporais de tamanho $n$, em que $m$ é o número de maturidades e $n$ o tamanho do período de tempo no qual as taxas de juro foram observadas. Outra forma de se enxergar a base de dados é através de uma matriz $Y_{m \times n}$, conforme mostra-se a seguir:
+\begin{equation} \label{eq:matriz-y}
+Y = 
  \begin{bmatrix}
-	  y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
-	  y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
+	  y_1(\tau_1) & y_1(\tau_2) & \cdots & y_1(\tau_m) \\
+	  y_2(\tau_1) & y_2(\tau_2) & \cdots & y_2(\tau_m) \\
 	  \vdots  & \vdots  & \ddots & \vdots  \\
-	  y_{m,1} & y_{m,2} & \cdots & y_{m,n}
- \end{bmatrix}
+	  y_n(\tau_1) & y_n(\tau_2) & \cdots & y_n(\tau_m)
+ \end{bmatrix}_{n \times m}
 \end{equation}
-Assim, sendo $[t_a,t_b]$ o intervalo para estimação e $h$ o horizonte para previsão desejado, uma  curva $\chi_t(\tau)$ pertencente à amostra é formada pela sequência dos valores discretos das colunas de $Y$: $(y_{1,t},y_{2,t}, ... , y_{m,t})$. A resposta escalar associada a esta curva de índice $i$ é $y_{\tau_i,t + h}$, levando em conta que se está fazendo previsão para o horizonte $h$ e maturidade $\tau_i$. A amostra inicial é composta dos pares $(\chi_t,y_{\tau,t+h})_{t=t_a,...,t_b-h}$. Para a previsão do valor de $y_{t_b+h}$, toma-se $E(Y|\CHI=\chi)$. 
+Assim, sendo $[t_a,t_b]$ o intervalo para estimação e $h$ o horizonte para previsão desejado, cada dado funcional $\chi_t(\tau)$ pertencente à amostra é formada pela sequência dos valores discretos das linhas de $Y$: $\left( y_1(\tau_1), y_1(\tau_2), ..., y_1(\tau_m) \right)$. 
+A resposta escalar associada a esta curva de índice $t$ é $y_{t + h}(\tau_i)$, levando em conta que se está fazendo previsão para o horizonte $h$ e maturidade $\tau_i$. A amostra inicial é composta dos pares $(\chi_j,y_{j+h}(\tau_i)_{j=t_a,...,t_b-h}$. Para a previsão do valor de $y_{t_b+h}(\tau_i)$, por exemplo, toma-se $E(Y|\CHI=\chi_t)$. Para o caso específico do exercício de previsão, o estimador apresentado na equação~\ref{eq:regressao-npfda} ficaria:
+
+\begin{equation}
+y_{t+h}(\tau_i)=\hat{r}(\chi_t) = 
+\frac
+	{\sum \limits_{j=t_a}^{t_b-h} K(d_{q}(\chi_t,\chi_j)/h)y_{j+h}(\tau_i)}
+	{\sum \limits_{j=t_a}^{t_b-h}K(d_{q}(\chi_t,\chi_j)/h)}.
+\end{equation}
+
 
 Uma análise preliminar mostrou que, caso a estimação fosse feita sem nenhum tratamento aos dados, os resultados seriam insatisfatórios. Isto ocorre pois o nível da curva é um dos fatores mais significativos para prever os valores futuros da taxa de juros (uma das razões pelas quais, embora muito simples, o passeio aleatório ainda é um método tido como \emph{benchmark} em trabalhos de previsão de curvas de juros). Assim, a matriz $D$ formada pelas distâncias entre curvas $d(\chi_i,\chi_j)$ possuirá valores mais altos, no geral. Como o fator mais decisivo para a proximidade passa a ser o nível das curvas, perde-se a maior vantagem em utilizar métodos funcionais, que é justamente levar em consideração o formato da função.
 
-Por essa razão, decidiu-se retirar o nível da curva para testar o método. Isto, porém, levanta outra questâo: qual é o valor que representa o nível da curva? A média, alguma maturidade, ou ainda outro valor? Levando isso em conta, considera-se um modelo mais geral de estimação, apresentado a seguir:
+Por essa razão, decidiu-se retirar o nível da curva para testar o método. Isto, porém, levanta outra questão: qual é o valor que representa o nível da curva? A média, alguma maturidade, ou ainda outro valor? Levando isso em conta, considera-se um modelo mais geral de estimação, apresentado a seguir:
 \begin{equation}
-\hat{y}_{t+h}(\tau_i) - k_t = m(\chi - k_t),
+\hat{y}_{t+h}(\tau_i) - k_t = \hat{r}(\chi - k_t),
 \end{equation}
 em que $k \in \mathbb{R}$. Caso $k=0$, tem-se o modelo padrão
 \begin{equation}
-\hat{y}_{t+h}(\tau_i) = m(\chi),
+\hat{y}_{t+h}(\tau_i) = \hat{r}(\chi),
 \end{equation}
 e quando $k_t = \hat{y}_{t+h}(\tau_i)$, tem-se o modelo de estimação em diferença
 \begin{equation}
-\Delta \hat{y}_{t+h}(\tau_i)= m(\chi - \hat{y}_{t+h}(\tau_i)).
+\Delta \hat{y}_{t+h}(\tau_i)= \hat{r}(\chi - \hat{y}_{t+h}(\tau_i)).
 \end{equation}
-Além desses, achou-se interessante atribuir valores mais diversos para $k_t$, de certas maturidades específicas. Assim, também foram utilizados uma maturidade curta ($\tau = 3$ meses), uma média ($\tau = 2$ anos), uma longa ($\tau = 3$ meses) e, por fim, tomar $k_t = \hat{\beta}_{1,t}$, em que $\hat{\beta}_{1,t}$ representa a estimação do primeiro fator no modelo de DL. 
+Além desses, achou-se interessante atribuir valores mais diversos para $k_t$, de certas maturidades específicas. Assim, também foram utilizados uma maturidade curta ($\tau = 3$ meses), uma média ($\tau = 2$ anos), uma longa ($\tau = 10$ anos) e, por fim, tomar $k_t = \hat{\beta}_{1,t}$, em que $\hat{\beta}_{1,t}$ representa a estimação do primeiro fator no modelo de DL. 
 
 \begin{figure}[htp]
   \centering
@@ -1227,7 +1159,7 @@ Além desses, achou-se interessante atribuir valores mais diversos para $k_t$, d
 \end{figure}
 
 
-\subsection{Escolha da \emph{bandwidth}}
+\subsection{Escolha da \emph{bandwidth}} \label{sub:bandwidth}
 
 A escolha do valor da \bw~é um fator central na estatística não-paramétrica, já que atua é o elemento principal que atua na suavização da função estimada, possuindo um papel de maior impacto que o da função Kernel. É uma escolha delicada, pois se a variância do modelo for muito alta, o poder de previsão será ruim. No outro extremo, se a suavização for máxima, o modelo estimado será um modelo linear, perdendo características importantes dos dados.
 
@@ -1238,45 +1170,63 @@ Há duas formas de definir a \bw: utilizando um valor fixo de $h$, ou definindo 
 \item[Utilização de \bw \,fixa:]
 
 Trabalha-se com um valor único para $h$, independente da curva $\chi$ que deseja-se estimar na regressão. Seja a estimação da seguinte forma:
-\[
-R_{CV}^{kernel}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\CHI_{i})/h_{opt})}{\sum_{i=1}^{n}K(d_{q}(\CHI,\CHI_{i})/h_{opt})},
-\]
-o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\boldsymbol{x_j},\boldsymbol{x_i})$. Assim, o objetivo é encontrar um valor ótimo de $h$:
+
+\begin{equation}
+R_{CV}^{kernel}(\chi_t) = 
+\frac
+	{\sum \limits_{j=t_a}^{t_b-h} \left( y_{j+h}(\tau_i)~ K(d_{q}(\chi_t,\chi_j)/h_{opt}) \right) }
+	{\sum \limits_{j=t_a}^{t_b-h} K(d_{q}(\chi_t,\chi_j)/h_{opt}) }.
+\end{equation}
+
+
+o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\cdot,\cdot)$. Assim, o objetivo é encontrar um valor ótimo de $h$:
 \[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
 sendo a função $CV(\cdot)$ definida por
 \[
-CV(h) = \sum \limits_{i=1}^n \left(  y_i - R_{(-i)}^{kernel}(\boldsymbol{x}_i)  \right)^2, 
+CV(h) = \sum \limits_{j=t_a}^{t_b} \left(  y_{j+h}(\tau_i) - R_{(-j)}^{kernel}(\boldsymbol{x}_i)  \right)^2, 
 \]
 em que
 \[
-R_{-i}^{kernel}(\CHI)=\frac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\CHI,\CHI_{j})/h)}{\sum \limits_{j=1,i \neq j}^{n}K(d_{q}(\CHI,\CHI_{i})/h)}.
+R_{CV}^{kernel}(\chi_t) = 
+\frac
+	{\sum \limits_{k=t_a, k \neq j}^{t_b-h} \left( y_{k+h}(\tau_i)~ K(d_{q}(\chi_t,\chi_k)/h_{opt}) \right) }
+	{\sum \limits_{k=t_a, k \neq j}^{t_b-h} \left( K(d_{q}(\chi_t,\chi_k)/h_{opt}) \right)  }.
 \]
+
+
 
 \item[Vizinhos mais próximos:]
 
-Aqui, a ideia é testar qual o número de vizinhos mais próximos (isto é, as curvas $i$ com valores de $d(\chi,\CHI_i)$) a se levar em conta para definir a \bw~que geram as melhores previsões feitas dentro da amostra.
-O número de vizinhos se mantém fixo, enquanto o tamanho da \bw~$h_{k_{opt}}(\CHI)$ varia localmente para manter estável em exatamente $k$ a quantidade de curvas tais que $d_{q}(\CHI,\CHI_{i})/h_{k_{opt}} \in [0,1]$, isto é, estejam dentro do intervalo de suporte da função Kernel assimétrico.
+Aqui, a ideia é testar qual o número de vizinhos mais próximos (isto é, as curvas $j$ com valores de $d(\chi_t,\chi_j)$) a se levar em conta para definir a \bw~que geram as melhores previsões feitas dentro da amostra.
+O número de vizinhos se mantém fixo, enquanto o tamanho da \bw~$h_{k_{opt}}(\chi_t)$ varia localmente para manter estável em exatamente $k$ a quantidade de curvas tais que $d_{q}(\chi_t,\chi_{j})/h_{k_{opt}} \in [0,1]$, isto é, estejam dentro do intervalo de suporte da função Kernel assimétrico.
 
 Testa-se os valores de $k$ dentro do intervalo $[10,\dfrac{n}{2}]$, em que $n$ representa o tamanho da janela de estimação. Dentre esses valores, testados, escolhe-se o valor ótimo de vizinhos mais próximos através da minimização da função $GCV(\cdot)$:
-\[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
+\[k_{opt} = \operatorname*{arg\,min}_h GCV(k),\]
 em que $GCV(\cdot)$ é definida por
 \[
-GCV(k) = \sum \limits_{i=1}^n \left(  y_i - R_{(-i)}^{kNN}(\CHI_i)  \right)^2, 
+GCV(k) = \sum \limits_{j=t_a}^{t_b} \left(  y_{j+h}(\tau_i) - R_{(-j)}^{kNN}(\chi_j)  \right)^2, 
 \]
 em que
 \[
-R_{-i}^{kernel}(x)=\frac{\sum \limits_{j=1,i \neq j}^{n}y_{j}K(d_{q}(\CHI,\CHI_{j})/h_k(\CHI))}{\sum \limits_{j=1,i \neq j}^{n}K(d_{q}(\CHI,\CHI_{i})/h_k(\CHI))}.
+R_{(-j)}^{kNN}(\chi_j) = 
+\frac
+	{\sum \limits_{k=t_a, k \neq j}^{t_b-h} \left( y_{k+h}(\tau_i)~ K(d_{q}(\chi_t,\chi_k)/h_{opt}) \right) }
+	{\sum \limits_{k=t_a, k \neq j}^{t_b-h} \left( K(d_{q}(\chi_t,\chi_k)/h_{opt}) \right)  }.
 \]
 
 
 Após encontrado o valor de $h_{k_{opt}}$, chega-se no estimador desejado:
 \[
-R_{GCV}^{kNN}(\CHI)=\dfrac{\sum_{i=1}^{n}y_{i}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}})/h_{k_{opt}}(\CHI))}{\sum_{i=1}^{n}K(d_{q}(\CHI,\boldsymbol{\CHI_{i}})/h_{k_{opt}}(\CHI))}.
+R_{GCV}^{kNN}(\chi_t)=
+\frac
+	{\sum \limits_{j=t_a}^{t_b-h} \left( y_{j+h}(\tau_i)~ K(d_{q}(\chi_t,\chi_j)/h_{k_{opt}}(\chi_t)) \right) }
+	{\sum \limits_{j=t_a}^{t_b-h} K(d_{q}(\chi_t,\chi_j)/h_{k_{opt}}(\chi_t) }.
 \]
 
 
 \end{description}
 
+Neste trabalho, limita-se à escolha da \bw~baseada na capacidade de ajuste dentro da amostra, e não na previsão. Espera-se, num trabalho futuro, incorporar também a capacidade preditiva quando feita a \emph{cross-validation}. 
 
 \subsection{Escolha da semimétrica}
 
@@ -1287,43 +1237,106 @@ Uma análise preliminar mostrou que os resultados de previsão eram muito insati
 Já para a semimétrica baseada na FPCA, o testes foram feitos para o número de componentes principais $q \in \{1, 2, ..., 9\}$. Destes, a mudança na distância entre as curvas torna-se totalmente irrelevante à medida que o número de componentes é maior do que $5$, e o resultado da previsão muda muito pouco entre tomar $2,3,4$ ou $5$ componentes principais. Além disso, notou-se que quando se toma apenas $1$ componente principal, o resultado da previsão é ruim. Assim, escolheu-se somente utilizar $q=5$.
 
 
-\section{Metodologia para avaliação da performance das previsões}
 
-Para analisar quão boas são as previsões feitas pelos métodos analisados, utiliza-se diversar métricas distintas. Seja $\{y_{t}(\tau_i)\}_{t=1}^T$ a série temporal referente à maturidade $\tau_i$ e $\{\hat{y}_{t}^m(\tau_i)\}_{t=t_0}^T$ os valores previstos para um dado método $m$. A série temporal dos erros de previsão para este método será denominada $\{e_{t}^m(\tau_i)\}_{t=t_0}^T$.
+\section{Previsão com os Métodos escolhidos como \emph{benchmark}}
+
+Para melhor avaliar os resultados dos métodos investigados neste trabalho, compara-se a capadidade de previsão deles com outros métodos utilizados na literatura. São eles: o modelo de DL, o passeio aleatório e o modelo AR(1).
+
+\subsection{Previsão com Método de Diebold-Li}
+
+Seja o modelo de \citeonline{diebold_forecasting_2006} a seguir:
+
+$$y_{t}(\tau)=\beta_{1,t}+\beta_{2,t}\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda\tau}  \right) -\beta_{3,t}\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  } -e^{ -\lambda \tau  } \right),$$
+o primeiro passo para realizar as previsões é definir o valor de $\lambda$, que é mantido fixo durante a estimação, ao contrário de quando se utiliza o modelo de NS. 
+
+Para escolher o valor de $\lambda$ emprega-se um método de \emph{cross-validation}. A busca foi realizada tomando valores dentro do intervalo $[0.2,1.2]$, com incrementos de $0.05$. O intervalo de aprendizado foi dividido em duas partes: uma para estimar (contendo 60\% do intervalo) e outra para prever fora da amostra (contendo o resto). Assim, para cada um dos valores testados, as previsões foram feitas e o Erro Quadrático Médio calculado. 
+De acordo com as simulações executadas nesse trabalho, tomar $\lambda=0.5$ gerou as melhores previsões dentro do intervalo de aprendizagem.
+
+Uma vez fixo o valor de $\lambda$, pode-se partir para as estimações por completo. Para cada período de $t$, os valores de $\hat{\beta}_{1,t}$, $\hat{\beta}_{2,t}$ e $\hat{\beta}_{3,t}$ são estimadas em \emph{cross-section}. A partir dos valores de  $\hat{\beta_1}$, $\hat{\beta_2}$ e $\hat{\beta_3}$, pode-se recriar a curva de juros para qualquer conjunto de maturidades, inclusive aquelas que não foram utilizadas estimar os $\beta$'s.
+
+Com base nos valores de $\hat{\beta}$ já estimados, prevê-se os valores futuros de $\hat{\beta}$ através de um modelo AR(1), com $h$ passos à frente. 
+$$\hat{\beta} _{ t+h/t } = \hat{c} + \hat{\Gamma}\hat{\beta}_t$$
+Após, o valor previsto para cada maturidade é obtido após multiplicar $\beta$ pelos fatores.
+$$\hat { y } _{ t+h/t }(\tau)=\hat{\beta} _{ 1,t+h/t }+\hat{\beta} _{ 2,t+h/t }\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  }  \right) -\hat{\beta} _{ 3,t+h/t }\left( \frac { 1-e^{ -\lambda \tau  } }{ \lambda \tau  } -e^{ -\lambda \tau  } \right)$$
+
+
+\subsection{Passeio aleatório}
+Considera-se a série temporal um passeio aleatório. Assim, para cada qualquer horizonte, considera-se que o valor futuro da maturidade se manterá o mesmo:
+
+\begin{equation}
+\hat{y}_{t+h/t}(\tau_i)=y_t(\tau_i).
+\end{equation}
+
+
+\subsection{AR(1)}
+Ajusta-se, à cada maturidade da curvas de juros, um modelo auto-regressivo de ordem 1, utilizando mínimos quadráticos ordinários:
+$$y_t(\tau_i)=\alpha(\tau_i) + \phi(\tau_i) y_{t-1}(\tau_i)+\varepsilon_{t}(\tau_i).$$
+Assim, minimizando os valores quadráticos de $\varepsilon$ obtém-se os estimadores de $\alpha(\tau_i)$ e $\phi(\tau_i)$.
+Pode-se, então, fazer a estimação $1$ passo à frente utilizando os valores dos coeficientes estimados na equação do modelo:
+\begin{equation}
+\hat{y}_{t+1/t}(\tau_i)=\hat{\alpha}(\tau_i) + \hat{\phi}(\tau_i) y_t(\tau_i).
+\end{equation}
+
+Para prever mais do que 1 passo à frente, é possível utilizar o valor previsto para prever outro passo à frente:
+\begin{equation}
+\hat{y}_{t+p/t}(\tau_i)=\hat{\alpha}(\tau_i) + \hat{\phi}(\tau_i) \hat{y}_{t+p-1/t}(\tau_i),
+\end{equation}
+e assim por diante. Iterativamente, consegue-se então utilizar o método para fazer a previsão $n$ passos à frente.
+
+\subsection{Série temporal funcional}
+
+O número de componentes principais utilizados pela FPCA será estimado entre 1 e 5. Similarmente ao que foi discutido no caso das semimétricas baseadas em FPCA, utilizar um número alto de componentes acaba por não mudar os valores previstos, já que cada novo componente explica cada vez uma porção menor da variabilidade dos dados. Assim, pela análise preliminar, utilizar mais que 5 componentes principais (esclarece-se que o mesmo limite de 5 fatores para a série temporal funcional e as semimétricas baseadas em FPCA é uma mera coincidência) não ocasionou nenhuma mudança nas previsões. \citeonline{hays_functional_2012} utilizam 3 fatores, para a comparação com o modelo de DL ser mais direta, avaliando principalmente a diferenciação entre usar fatores pré-determinados pelo modelo ou estimá-los a partir dos dados através de FPCA.
+A dinâmica dos fatores será modelada com ARIMA, passeio aleatório e suavização exponencial.
+
+\section{Metodologia para avaliação da performance das previsões} \label{sub:avaliacao}
+
+Para analisar quão boas são as previsões feitas pelos métodos analisados, utiliza-se diversas métricas distintas. Seja $\{y_{t}(\tau_i)\}_{t=t_0}^T$ a série temporal referente à maturidade $\tau_i$ e $\{\hat{y}_{t}^m(\tau_i)\}_{t=t_0}^T$ os valores previstos para um dado método $m$. A série temporal dos erros de previsão para este método será denominada $\{e_{t}^m(\tau_i)\}_{t=t_0}^T$.
 
 \begin{description}
-	\item[Raiz do Erro Quadrático Médio] O erro quadrático médio das previsões é um critério estatístico amplamente utilizado na literatura. Pelo erro ser elevado ao quadrado, esse critério pune com mais severamente os desvios grandes da meta. Ele é obtido pela seguinte expressão: \[ REQM^m(\tau_i) = \sqrt{ \frac{1}{R} \sum _{t = t_0}^T (\hat{y}_{t+h|t}^m(\tau_i) - y_{t+h}(\tau_i))^2 } \]
+	\item[Raiz do Erro Quadrático Médio] O erro quadrático médio das previsões é um critério estatístico amplamente utilizado na literatura. Pelo erro ser elevado ao quadrado, esse critério pune com mais severamente os desvios grandes da meta. Ele é obtido pela seguinte expressão: \[ REQM^m(\tau_i) = \sqrt{ \frac{1}{n} \sum _{t = t_0}^T (\hat{y}_{t+h|t}^m(\tau_i) - y_{t+h}(\tau_i))^2 }, \]
+	em que $n = T - t_0 + 1$.
 	\item[Erro Quadrático Acumulado de Previsão] É uma metodologia que não fornece um simples indicador comparativo de performance, mas sim um gráfico do comportamento da previsão do método avaliado com relação a algum outro método que é utilizado como \emph{benchmark}. A fórmula para implementar o método é a seguinte:
 	\[ EQAP_{m}(\tau_i) = \sum_{t=t_0}^T  \left[ \left( \hat{y}_{t+h|t}^{benchmark}(\tau_i) - y_{t+h}(\tau_i) \right)^2 - \left( \hat{y}_{t+h|t}^m(\tau_i) - y_{t+h}(\tau_i) \right)^2 \right]. \]
 Assim, o trecho em que o gráfico possui inclinação positiva é onde o método avaliado possui performance superior ao \emph{benchmark}, enquanto quando é negativamente inclinado é o método \emph{benchmark} quem possui a melhor performance.
-	
+
 	\item[Significância da diferença de previsão]
-	
-	\todo[inline]{terminar seção}
 
 Embora alguns métodos possuam resultados melhores, em termos de erro quadrático médio, do que outros, é importante saber o quão melhor um método é e se o resultado e estatisticamente importante. 
-Para isso,utiliza-se neste trabalho dois testes comumente empregados na literatura para comparar previsões: o teste de 
-Giacomini-White (GW) e o teste de Diebold-Mariano (DM).
+Para isso,utiliza-se neste trabalho dois testes comumente empregados na literatura para comparar previsões: o teste proposto por \citeonline{giacomini2006tests} e o teste proposto por \citeonline{diebold2002comparing}.
 
-GW produz uma estatística sobre a significância da diferença de performance de dois métodos de previsão, supondo que estes são 
-produzidos a partir de uma janela móvel. A hipótese nula do teste é que os dois métodos comparados, um dado método $m$ e o método \bm, possuem igual capacidade de previsão:
-\begin{equation}
+O teste de Giacomini-White (GW) produz uma estatística sobre a significância da diferença de performance de dois métodos de previsão, supondo que estes são 
+produzidos a partir de uma janela móvel de tamanho fixo. A hipótese nula do teste é que os dois métodos comparados, um dado método $m$ e o método \bm, possuem igual capacidade de previsão:
+\begin{equation} \label{eq:hip-nula-gw}
 \mathbb{H}_0:E[d_{a,t+h}|\delta_{m,t}]=0,
 \end{equation}
-em que $\delta_{m,t}$ é um vetor $p \times 1$ de funções teste ou instrumentos, $h$ o horizonte de previsão, e 
-
-	
+em que $\delta_{m,t}$ é um vetor $p \times 1$ de funções teste ou instrumentos, $h$ o horizonte de previsão e $d_{m,t}=(e_{benchmark,t})^2 - (e_{m,t})^2$ é o diferencial da perda. A estatística GW é calculada como:
 \begin{equation}
-GW_{m,n} = n \left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right)' \hat{\Omega}_n^{-1}	
-\left( n^{-1} \sum_{t=w+1}^{n-h} \delta_{m,t} d_{m,t+h} \right) \overset{d}{\longrightarrow} \chi_{dim(\delta)}^2
+GW_{m,n} = n \left( n^{-1} \sum_{t=t_0}^{T} \delta_{m,t} d_{m,t+h} \right)' \hat{\Omega}_n^{-1}	
+\left( n^{-1} \sum_{t=t_0}^{T} \delta_{m,t} d_{m,t+h} \right) \overset{d}{\longrightarrow} \chi_{dim(\delta)}^2,
 \end{equation}		
-	
-\todo[inline]{Dúvida: DM em ambos ou utilizar GW na janela movel? Significância bilateral?}
-	
-	
-	
-\end{description}
+em que $\hat{\Omega}_n$ é um estimador HAC (consistente para heterocedasticidade e autocorrelação) para a variância assintótica de $\delta_{m,t} d_{m,t}$ e $n=T-t_0+1$ é o número de previsões fora da amostra realizadas. Dada a hipótese nula em~\ref{eq:hip-nula-gw}, a estatística de teste $GW_{m,t}$ é assintoticamente distribuída como $\chi^2_p$.
 
+Por supor que a janela móvel possui tamanho fixo, o teste de GW não é utilizado para as estimações realizadas com janela de tamanho expansível, para quem será utiliza-se o teste de Diebold-Mariano (DM). Este teste possui como hipótese nula e alternativa:
+\begin{equation} \label{eq:hip-nula-dm}
+\begin{split}
+\mathbb{H}_0:E[d_{a,t+h}|\delta_{m,t}]=0 \\
+\mathbb{H}_1:E[d_{a,t+h}|\delta_{m,t}] \neq 0
+\end{split}
+\end{equation}
+A estatística de teste de DM é:
+\begin{equation}
+DM_{m,t} = \dfrac{\bar{d}}{ \left( \hat{avar}(\bar{d}) \right)^{1/2}} = 
+	\dfrac{\bar{d}}{ \left( \hat{LRV}_{\bar{d}} / T \right)^{1/2}} \overset{a}{\longrightarrow} N(0,1)
+\end{equation}
+em que 
+\[ 
+\bar{d} = \dfrac{1}{n} \sum_{t=t_0}^T d_{m,t} 
+\]
+e $\hat{LRV}_{\bar{d}}$ é um estimador consistente da variância assintótica de $\sqrt{T} \bar{d}$.
+
+Dada a hipótese nula em~\ref{eq:hip-nula-dm}, a estatística de teste $DM_{m,t}$ é assintoticamente distribuída como uma normal-padrão.
+
+\end{description}
 
 %---------------------------------
 % Resultados
@@ -1334,10 +1347,13 @@ As estimações foram feitas com códigos escritos em R, que foram disponibiliza
 disponível no apêndice~\ref{apend:rotinas} deste trabalho, enquanto a versão mais completa do documento está descrita no \emph{site} indicado acima. 
 Estimou-se a ETTJ com os seguintes métodos: \textbf{passeio aleatório} (utilizado como \bm ), modelo \textbf{AR(1)}, modelo de \textbf{DL}, \textbf{regressão não-paramétrica para dados funcionais} de diversas combinações de semimétricas e valores de $k_t$ e \textbf{séries temporais funcionais}, também com diferentes números de componentes principais e valores de $k_t$, além de diferentes formas de modelar a dinâmica dos fatores (foi utilizado para isso o passeio aleatório, suavização exponencial e modelo ARIMA).
 
-A primeira pergunta a ser respondida, quando a série começou a ser analisada, é com relação à sua estacionariedade. Para ser considerada estacionária, na sua forma fraca, a série deve ser gerada por um processo de média e desvio padrão constantes. Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada. Para todos os valores de $k_t$ descritos, com exceção de quando é identicamente nulo, a série não teve sua estacionariedade rejeitada pelo teste ADF, para nenhuma maturidade. Decidiu-se realizar o mesmo processo de retirar valores das curvas na estimação das séries temporais funcionais. Os valores de $k_t$ utilizados são os mesmos definidos na seção~\ref{metodologia-npfda}.
+A primeira pergunta a ser respondida, quando a série começou a ser analisada, é com relação à sua estacionariedade. Para ser considerada estacionária, na sua forma fraca, a série deve ser gerada por um processo de média e desvio padrão constantes. 
+Salienta-se, porém, que trabalhando com variável funcional, é necessário que esta variável que seja estacionária, e não a série univariada de cada maturidade, como seria caso fosse aplicada outra metodologia. Embora seja bem possível que quando estacionarizadas as séries de cada maturidade, obtenha-se séries funcionais também estacionárias, a estacionariedade de uma não necessariamente implica na da outra. 
+Em um artigo recente, \citeonline{horvath-2014} descreve como testar a estacionariedade para séries temporais funcionais. Neste trabalho, não foi possível implementar este teste, mas é previsto como um próximo passo importante.
+Em muitos casos, lança-se mão da diferenciação sucessiva da série para transformar os dados brutos numa série estacionária. Neste trabalho, conforme indicado na seção~\ref{metodologia-npfda}, utiliza-se a subtração de séries distintas para tentar obter uma série temporal mais bem comportada. 
+Para todos os valores de $k_t$ descritos, com exceção de quando é identicamente nulo, a série não teve sua estacionariedade rejeitada pelo teste ADF, para nenhuma maturidade. Embora não seja equivalente à série temporal funcional ser estacionário, como dito anteriormente, nota-se que os resultados melhoram quando há esse tratamento. Decidiu-se realizar o mesmo processo de retirar valores das curvas na estimação das séries temporais funcionais. Os valores de $k_t$ utilizados são os mesmos definidos na seção~\ref{metodologia-npfda}.
 
 Em relação às semimétricas escolhidas para a análise com NP-FDA, percebeu-se que a previsão da curva quando utiliza-se a distância das curvas em nível (semimétrica derivada com $d=0$) é extremamente parecida com a previsão quando utiliza-se a semimétrica baseada em FPCA com $q=5$. Por isso, decidiu-se omitir a versão da derivada com $d=0$ dos resultados finais.
-Uma análise preliminar mostrou que as previsões via função de densidade acumulada condicional e via moda da função de densidade produziam resultados insatisfatórios, bem inferiores ao produzido prevendo com regressão. Com isso, estes tipos de previsão foram retirados do resto do estudo. Daqui em diante, portanto, toda a estimação aqui descrita é feita com previsão via regressão.
 
 \begin{figure}[htp]
   \centering
@@ -1345,38 +1361,66 @@ Uma análise preliminar mostrou que as previsões via função de densidade acum
     \centering
     \begin{minipage}[t]{\linewidth}
       \centering     \includegraphics[width=\textwidth]{anexos/heatmap1.pdf}
-     \subcaption{Horizonte 1}
+     
     \end{minipage}
     \begin{minipage}[b]{\linewidth}
-      \centering     \includegraphics[width=\textwidth]{anexos/heatmap3.pdf} \subcaption{Horizonte 3}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap3.pdf} 
     \end{minipage}
   \end{minipage}
   \begin{minipage}[t]{0.45\linewidth}
     \centering
     \begin{minipage}[t]{\linewidth}
       \centering     \includegraphics[width=\textwidth]{anexos/heatmap6.pdf}
-	\subcaption{Horizonte 6}
+	
     \end{minipage}
     \begin{minipage}[b]{\linewidth}
-      \centering     \includegraphics[width=\textwidth]{anexos/heatmap12.pdf} \subcaption{Horizonte 12}
+      \centering     \includegraphics[width=\textwidth]{anexos/heatmap12.pdf} 
     \end{minipage}
   \end{minipage}
-  \caption{Gráficos de calor do Erro Quadrático Médio das previsões}
+  \caption{Gráficos de calor do Erro Quadrático Médio das previsões feitas com janela de tamanho expansível} 
   \label{fig:heatmaps}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/EQAP1-1.pdf}
+     
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/EQAP3-5.pdf} 
+    \end{minipage}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \begin{minipage}[t]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/EQAP6-10.pdf}
+    \end{minipage}
+    \begin{minipage}[b]{\linewidth}
+      \centering     \includegraphics[width=\textwidth]{anexos/EQAP12-17.pdf} 
+    \end{minipage}
+  \end{minipage}
+  \caption{Gráficos do Erro Quadrático Acumulado de previsão, para algumas maturidades selecionadas e janela de tamanho expansível} 
+  \label{fig:eqap}
 \end{figure}
 
 
 As abreviaturas para a identificação dos métodos são descritas a seguir. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$. Embora a performance utilizando $\lambda=0.5$ tenha sido, em geral, melhor no estudo com apenas a parte de teste da amostra, decidiu-se manter nos resultados a estimação feita com $\lambda=0.2$ pela performance boa nas maturidades menores.
 
-Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada.
-
-\todo[inline]{Colocar os gráficos de calor: os 4 horizontes (janela movel ou expandida?). Colocar o gráfico com os erros acumulados, 4 horizontes, melhor de ftsa, npf, DL e o ar1.}
+Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada. Já a figura~\ref{fig:eqap} apresenta o Erro Quadrático Acumulado de Previsão, conforme apersentado na seção~\ref{sub:avaliacao}, para alguns horizontes e maturidades.
 
 Analisando os resultados sobre os métodos NP-FDA, foi percebido que quanto maior a maturidade que se faz a previsão, pior foi o desempenho com relação ao passeio aleatório. Igual relação se estabelece quando se aumenta o horizonte de previsão: o desempenho relativo ao passeio aleatório também cai. Um fato importante a se destacar é que, para os métodos NP-FDA, a maioria das variações estimadas obteve melhor desempenho quando utilizada a janela expandida, com relação à janela móvel. O motivo disso é que provavelmente haver mais dados acaba contribuindo significativamente para a melhora do desempenho, possivelmente dada a convergência lenta desses métodos não-paramétricos aplicados a dados funcionais. 
+Nas maturidades mais baixas e horizontes menores, é possível achar diversos dos métodos não-paramétricos que são melhores que o passeio aleatório; no entanto, com as maturidades mais altas e horizontes maiores, os métodos aqui propostos não obtêm sucesso.
+
+Enquanto os métodos não-paramétricos apresentam melhora da capacidade preditiva quando a janela com tamanho expansível é empregada, os modelos de DL tiveram piora significativa. Percebe-se, portanto, que ter mais dados pode atrapalhar a estimação da dinâmica dos fatores. É interessante notar que os modelos de DL tiveram melhor desempenho com horizontes mais longos, contrariando a lógica dos outros métodos estimados.
 
 As abreviaturas dos métodos são descritos no apêndice~\ref{apend:legendas}. Os métodos \texttt{crt.d1} e \texttt{crt.p5} tiveram desempenho relativamente pior que os outros métodos com NP-FDA, principalmente para horizontes maiores. Isso reforça a importância de se trabalhar com as séries estacionárias, inclusive quando trabalha-se com dados funcionais. 
 
 Com relação aos dois tipos de semimétricas utilizados (primeira derivada e FPCA com 5 componentes principais), não foi percebida melhora significativa de desempenho entre eles. Ora um possui melhores previsões, ora o outro. Sobre os valores $k_t$ utilizados, pode-se perceber uma tendência de melhores resultados quando toma-se $k_t = y_t(\tau_i)$, em que $\tau_i$ é a maturidade a ser prevista. Os métodos que utilizam como $k_t$ o valor da própria maturidade prevista são indicados por \texttt{npf.}\textbf{sm}\texttt{.rpmat}, em que \textbf{sm} indica a semimétrica utilizada.
+
+Os métodos estimados com séries temporais funcionais foram os que tiveram melhor resultado, de modo geral. Em diversos deles, as previsões foram melhor que o passeio aleatório para quase todas as maturidades, e muito superiores ao estimado com os modelos de DL. A dinâmica dos fatores que, aparentemente, deu melhores resultados foi a suavização exponencial. 
 
 
 % ----------------------------------------------------------
@@ -1419,11 +1463,11 @@ Com relação aos dois tipos de semimétricas utilizados (primeira derivada e FP
 
 A Estrutura a Termo da Taxa de Juros é objeto de muitos estudos. Mesmo assim, fazer previsões com uma estratégia tão simples como o passeio aleatório permanecer como um \bm~tão utilizado demonstra a dificuldade em se prever essas séries temporais.
 
-O \emph{framework} de dados funcionais é relativamente novo. Como já havia a experiência de bons resultados na previsão da ETTJ utilizando séries temporais funcionais (baseadas em dinâmica de fatores utilizando FPCA) achou-se importante investigar outras variações de métodos que considerassem a natureza funcional do problema. Por isso, havia motivação suficiente para testar a capacidade de previsão fora da amostra com métodos não-paramétricos para dados funcionais. Os resultados insatisfatórios encontrados, porém, não podem ser encarados conclusivos de que os os métodos com NP-FDA são ruins para o problema, apenas que o caminho seguido neste trabalho não encontrou bons resultados. Como é uma área que no momento de escrita desta dissertação pertence à fronteira do conhecimento, há muita pesquisa sendo feita na base do método que pode melhorar consideravelmente sua performance. Embora computacionalmente intensivo, o aumento da força bruta computacional não representa uma possibilidade plausível de melhora.
+O \emph{framework} de dados funcionais é relativamente novo. Como já havia a experiência de bons resultados na previsão da ETTJ utilizando séries temporais funcionais (baseadas em dinâmica de fatores utilizando FPCA) achou-se importante investigar outras variações de métodos que considerassem a natureza funcional do problema. 
+Por isso, havia motivação suficiente para testar a capacidade de previsão fora da amostra com métodos não-paramétricos para dados funcionais. 
+Os resultados insatisfatórios encontrados, porém, não podem ser encarados conclusivos de que os os métodos com NP-FDA são ruins para o problema, visto que métodos tradicionais também não deram bons resultados na amostra considerada. Como é uma área que no momento de escrita desta dissertação pertence à fronteira do conhecimento, há muita pesquisa sendo feita na base do método que pode melhorar consideravelmente sua performance. 
 
-Na literatura, ainda existem poucos trabalhos que se utilizam de métodos de NP-FDA. Naqueles encontrados, eles são aplicados na estimação de curvas melhor comportadas, em que as distâncias $d(\chi_i,\chi_j)$ entre as curvas é um preditor razoável da resposta escalar, tal como no exemplo das curvas quimiométricas apresentados em \citeonline{ferraty_2007}. 
-
-É possível apontar alguns caminhos interessantes para futuros trabalhos envolvendo dados funcionais e a estimação e previsão da ETTJ, como por exemplo trabalhar com a série diferenciada em relação ao tempo, ao invés de diferenciar com relação à maturidade, como feito aqui. Outra possibilidade é aplicar diretamente o modelo linear funcional para fazer a previsão. Dentro dos próprios métodos NP-FDA, pode-se investigar a utilização do \emph{local linear} ao invés do Nadaraya-Watson.
+É possível apontar alguns caminhos interessantes para futuros trabalhos envolvendo dados funcionais e a estimação e previsão da ETTJ, como por exemplo trabalhar com a série diferenciada em relação ao tempo, ao invés de diferenciar com relação à maturidade, como feito aqui. Outra possibilidade é aplicar diretamente o modelo linear funcional para fazer a previsão. Dentro dos próprios métodos NP-FDA, pode-se investigar a utilização do \emph{local linear} ao invés do Nadaraya-Watson. Em um trabalho futuro, também está prevista a inclusão de outra forma de fazer \emph{cross-validation}, incluindo a capacidade de previsão dentro do período de estimação, conforme discutido na seção~\ref{sub:bandwidth}. 
 
 
 
@@ -1481,22 +1525,25 @@ npf \> . \> p5  \> . \> rpmat
 Resultados
 
 
+%\input{anexos/tabela-teste.tex}
 
 
-%% ----------- movel horizonte 1 ------------------%
+%\end{landscape}
+
+
+
+% ----------- movel horizonte 1 ------------------%
 %\newgeometry{left=1cm,right=1cm,bottom=1cm}
+
+
+%\begin{landscape}
+%\begin{table}[p]
 %
-%
-%%\begin{landscape}
-%Móvel Horizonte 1
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.7}{
 %\input{anexos/movel-hor1.tex}
-%}
+%
 %\end{table}
-%%\end{landscape}
-%\restoregeometry
+%\end{landscape}
+
 %
 %% ----------- movel horizonte 3 ------------------%
 %\newgeometry{left=1cm,right=1cm}
