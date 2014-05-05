@@ -1,3 +1,4 @@
+
 %% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
 %DIF LATEXDIFF DIFFERENCE FILE
 
@@ -65,6 +66,7 @@
 \usepackage[normalem]{ulem}
 \usepackage[all]{xy}
 \usepackage{xcolor}
+\usepackage{pdfpages}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -239,14 +241,12 @@ como quesito parcial para obtenção do
 % (o * indica que haverá a ficha bibliográfica)
 % ---
 \imprimirfolhaderosto*
+
 %\folhaderostocontent
 % ---
-
-
 % ---
 % Inserir a ficha bibliografica
 % ---
-
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
 % catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
@@ -257,6 +257,7 @@ como quesito parcial para obtenção do
 % \begin{fichacatalografica}
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
+
 \begin{fichacatalografica}
 	\vspace*{\fill}					% Posição vertical
 	\hrule							% Linha horizontal
@@ -290,17 +291,14 @@ como quesito parcial para obtenção do
 	\end{center}
 	\hrule
 \end{fichacatalografica}
-% ---
-
+ ---
 % ---
 % Inserir errata
 % ---
 % ---
-
 % ---
 % Inserir folha de aprovação
 % ---
-
 % Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
 % 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
 % do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
@@ -326,7 +324,7 @@ como quesito parcial para obtenção do
     \vspace*{\fill}
    \end{center}
 
-   Trabalho entregue. \imprimirlocal, 05 de maio de 2014:
+   Trabalho entregue, no aguardo de aprovação. \imprimirlocal, 05 de maio de 2014:
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
    \assinatura{\textbf{Prof. Dr. Fabricio Tourrucôo} \\ Convidado 1}
@@ -362,7 +360,19 @@ como quesito parcial para obtenção do
 % ---
 \begin{agradecimentos}
 
-\todo[inline]{escrever}
+O primeiro agradecimento vai ao meu orientador, Prof. Hudson Torrent. 
+Além de me apresentar ao divertidíssimo universo da estatística não-paramétricas, me ofereceu apoio irrestrito em todas as fases do trabalho, incluindo apoio emocional quando os resultados não estavam muito bons. Agradeço também o Prof. João Caldeira, que contribuiu com sua experiência na estimação da curva de juros e não me deixou entrar em desespero ao ver que o simples passeio aleatório era um adversário tão difícil de ser batido.
+
+No âmbito ``ombros de gigantes'' que este trabalho se apoia, os agradecimentos especiais vão aos matemáticos. Se eles já não tivessem demonstrado as propriedades e teoremas necessários para sustentar a utilização dos métodos aqui propostos, provavelmente eu teria que escolher outro tema de estudo.
+
+Aos amigos, familiares, gatos, coelhos, um muito obrigado por estarem sempre pela volta alegrando a vida.
+
+Este trabalho utilizou somente \emph{software} livre em todas as fases da sua concepção: sistema operacional GNU/Linux\footnote{há diversas distribuições gratuitas disponíveis para baixar na internet. }, \abnTeX \footnote{\emph{https://code.google.com/p/abntex2/}}~com \LaTeX \footnote{ver \emph{http://www.tug.org/}} para escrita deste documento, e linguagem científica R\footnote{http://www.r-project.org/} e RStudio\footnote{http://www.rstudio.com/} para a implementação das rotinas computacionais.
+Portanto, as pessoas que dedicam seu trabalho na elaboração \emph{softwares} de qualidade que podem ser gratuitamente utilizados por todos merecem todo o agradecimento do autor.
+
+Por fim, agradecimentos a Wolfgang Amadeus por ter composto obras que, agindo conjuntamente com bebidas preparadas com a erva \emph{Ilex paraguariensis}, funcionam como esteroides para o cérebro.
+
+
 
 \end{agradecimentos}
 % ---
@@ -394,9 +404,9 @@ como quesito parcial para obtenção do
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
 
-Este trabalho possui como objetivo testar a performance de métodos de análise de dados funcionais com intuito de fazer previsão fora da amostra para Estrutura a Termo da Taxa de Juros. A contribuição principal é a utilização de um \emph{framework} não-paramétrico baseado em funções Kernel. Utiliza-se também séries temporais funcionais. Essas duas formas de estimar são implementadas, assim como outros métodos, que são utilizados como \emph{benchmark}. 
-
-\todo[inline]{acabar resumo}
+Neste trabalho, estuda-se métodos que consideram a natureza funcional da Estrutura a Termo da Taxa de Juros (ETTJ) para fazer previsões fora da amostra. São estimados modelos não-paramétricos para dados funcionais (NP-FDA) e séries temporais funcionais (FTS). O primeiro se baseia em um estimador de regressão  proposto por \citeonline{vieu_nonparametric_2006}, que utiliza funções Kernel para atribuir pesos localmente às variáveis funcionais. Já o segundo se baseia no trabalho de \citeonline{hays_functional_2012}, que estimam a ETTJ através de um modelo de fatores dinâmicos, que por sua vez são estimados através de análise de componentes principais funcional. 
+Testa-se a capacidade de previsão dos modelos com a ETTJ americana, para os horizontes de 1, 3, 6 e 12 meses, e comparam-se os resultados com modelos \emph{benchmark}, como \citeonline{diebold_forecasting_2006} e o passeio aleatório. 
+Principal foco deste trabalho, as estimações com métodos NP-FDA não tiveram resultado muito bons, obtendo sucesso apenas com maturidades e horizontes muito curtos. Já as estimações com FTS tiveram, no geral, performance melhor que os métodos escolhidos como \emph{benchmark}.
 
  \textbf{Palavras-chaves}: Estrutura a Termo da Taxa de Juros. Análise de Dados Funcionais. Estatística não-paramétrica.
 \end{resumo}
@@ -404,7 +414,8 @@ Este trabalho possui como objetivo testar a performance de métodos de análise 
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   \todo[inline]{Write abstract}
+
+This work studies methods that takes the Yield Curve's functional nature  into account to produce out-of-sample forecasts. These methods are based in nonparametric functional data analysis (NP-FDA) and functional time series (FTS). The former are based in a functional regressor estimator proposed by \citeonline{vieu_nonparametric_2006} that includes Kernel functions to do local weighting between the functional variables. The latter are based on the paper by \citeonline{hays_functional_2012}, that forecasts the Yield Curve based in a dynamic factors model, in which the factors are determined by functional principal component analysis. Their forecasting capability is tested for the american's Yield Curve database for 1, 3, 6 and 12 months. The results from the functional methods models are then compared to benchmarks widely used in the literature, such as the random walk and the \citeonline{diebold_forecasting_2006}. Main focus on this work, the NP-FDA methods didn't produce very good forecasts, being successful only for very low maturities and short forecast horizons. The forecasts generated by the FTS methods were, in general, better than our chosen benchmarks.
 
    \vspace{\onelineskip}
 
@@ -433,11 +444,17 @@ Este trabalho possui como objetivo testar a performance de métodos de análise 
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
+  \item[ADF] Teste de Dickey–Fuller aumentado
+  \item[AR] Modelo autorregressivo
+  \item[ARIMA] Modelo auto-regressivo integrado de média móvel
   \item[DL] Modelo de Diebold-Li
+  \item[DM] Teste de Diebold-Mariano
   \item[ETTJ] Estrutura a Termo da Taxa de Juros
   \item[FPCA] Análise de Componentes Principais Funcional
   \item[GW] Teste de Giacomini-White
+  \item[NP-FDA] Métodos não-paramétricos para Análise de Dados Funcionais
   \item[NS] Modelo de Nelson-Siegel
+  \item[P-FDA] Métodos paramétricos para Análise de Dados Funcionais
   \item[PCA] Análise de Componentes Principais
   \item[SV] Modelo de Svensson
 \end{siglas}
@@ -446,12 +463,12 @@ Este trabalho possui como objetivo testar a performance de métodos de análise 
 % ---
 % inserir lista de símbolos
 % ---
-\begin{simbolos}
-  \item[$ a,b $] Intervalo fechado em $\mathbb{R}$
-  \item[$ K $] Função Kernel assimétrica
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
+%\begin{simbolos}
+%  \item[$ a,b $] Intervalo fechado em $\mathbb{R}$
+%  \item[$ K $] Função Kernel assimétrica
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
 % ---
 
 % ---
@@ -930,7 +947,7 @@ Tomando $t$ no intervalo $[t_1,t_2]$, tem-se uma série temporal de $\phi_i$ ass
 \hat{\chi}_{t_2+h}(\tau)= \sum_{i=1}^{m}{\hat{\phi}_{i,t_2+h} v_i(\tau) }.
 \end{equation}
 
-As séries temporais funcionais foram utilizadas na previsão da ETTJ por \citeonline{hays_functional_2012}, com resultados muito bons. Como é uma abordagem funcional já utilizada na literatura, será implementada para comparação com os resultados obtidos pela estimação com métodos de NP-FDA. \todo{ajeitar referência}
+As séries temporais funcionais foram utilizadas na previsão da ETTJ por \citeonline{hays_functional_2012}, com resultados muito bons. Como é uma abordagem funcional já utilizada na literatura, será implementada para comparação com os resultados obtidos pela estimação com métodos de NP-FDA.
 
 \section{Métodos Não-paramétricos para a Análise de dados funcionais}
 
@@ -1067,7 +1084,9 @@ Como estratégia de avaliação, a amostra será dividida em 2 partes. Os métod
 
 \section{Dados}
 
-Os dados utilizados serão dados mensais no período de 30/01/1970 até 31/12/2009, \todo{origem da base} constituindo 480 observações da taxa de juros para títulos de maturidades diversas (3, 6, 9, 12, 15, 18, 21, 24, 30, 36, 48, 60, 72, 84, 96, 108 e 120 meses). A figura~\ref{fig:est-termo} contém as séries temporais das diferentes maturidades.
+Os dados utilizados serão dados mensais no período de 30/01/1970 até 31/12/2009, constituindo 480 observações da taxa de juros para títulos de maturidades diversas (3, 6, 9, 12, 15, 18, 21, 24, 30, 36, 48, 60, 72, 84, 96, 108 e 120 meses). A figura~\ref{fig:est-termo} contém as séries temporais das diferentes maturidades. 
+A base de dados foi construída a partir das taxas \emph{forward} não suavizadas de \citeonline{fama1987information}, disponíveis nos arquivos do CRSP (\emph{Center for Research in Security Prices}). A transformação em Taxas de Juros foi feita por \citeonline{Jungbacker_2013}, e está disponível publicamente no arquivo de dados do \emph{Journal of Applied Econometrics}, como parte do material suplementar.
+
 \begin{figure}[h!] 
   \centering
     \includegraphics[width=0.8\textwidth]{anexos/taxas_juro}
@@ -1269,7 +1288,7 @@ Considera-se a série temporal um passeio aleatório. Assim, para cada qualquer 
 
 
 \subsection{AR(1)}
-Ajusta-se, à cada maturidade da curvas de juros, um modelo auto-regressivo de ordem 1, utilizando mínimos quadráticos ordinários:
+Ajusta-se, à cada maturidade da curvas de juros, um modelo autorregressivo de ordem 1, utilizando mínimos quadráticos ordinários:
 $$y_t(\tau_i)=\alpha(\tau_i) + \phi(\tau_i) y_{t-1}(\tau_i)+\varepsilon_{t}(\tau_i).$$
 Assim, minimizando os valores quadráticos de $\varepsilon$ obtém-se os estimadores de $\alpha(\tau_i)$ e $\phi(\tau_i)$.
 Pode-se, então, fazer a estimação $1$ passo à frente utilizando os valores dos coeficientes estimados na equação do modelo:
@@ -1407,7 +1426,7 @@ Em relação às semimétricas escolhidas para a análise com NP-FDA, percebeu-s
 \end{figure}
 
 
-As abreviaturas para a identificação dos métodos são descritas a seguir. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$. Embora a performance utilizando $\lambda=0.5$ tenha sido, em geral, melhor no estudo com apenas a parte de teste da amostra, decidiu-se manter nos resultados a estimação feita com $\lambda=0.2$ pela performance boa nas maturidades menores.
+As abreviaturas dos métodos são descritos no apêndice~\ref{apend:legendas}. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$. Embora a performance utilizando $\lambda=0.5$ tenha sido, em geral, melhor no estudo com apenas a parte de teste da amostra, decidiu-se manter nos resultados a estimação feita com $\lambda=0.2$ pela performance boa nas maturidades menores.
 
 Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada. Já a figura~\ref{fig:eqap} apresenta o Erro Quadrático Acumulado de Previsão, conforme apersentado na seção~\ref{sub:avaliacao}, para alguns horizontes e maturidades.
 
@@ -1416,46 +1435,12 @@ Nas maturidades mais baixas e horizontes menores, é possível achar diversos do
 
 Enquanto os métodos não-paramétricos apresentam melhora da capacidade preditiva quando a janela com tamanho expansível é empregada, os modelos de DL tiveram piora significativa. Percebe-se, portanto, que ter mais dados pode atrapalhar a estimação da dinâmica dos fatores. É interessante notar que os modelos de DL tiveram melhor desempenho com horizontes mais longos, contrariando a lógica dos outros métodos estimados.
 
-As abreviaturas dos métodos são descritos no apêndice~\ref{apend:legendas}. Os métodos \texttt{crt.d1} e \texttt{crt.p5} tiveram desempenho relativamente pior que os outros métodos com NP-FDA, principalmente para horizontes maiores. Isso reforça a importância de se trabalhar com as séries estacionárias, inclusive quando trabalha-se com dados funcionais. 
+Os métodos \texttt{crt.d1} e \texttt{crt.p5} tiveram desempenho relativamente pior que os outros métodos com NP-FDA, principalmente para horizontes maiores. Isso reforça a importância de se trabalhar com as séries estacionárias, inclusive quando trabalha-se com dados funcionais. 
 
-Com relação aos dois tipos de semimétricas utilizados (primeira derivada e FPCA com 5 componentes principais), não foi percebida melhora significativa de desempenho entre eles. Ora um possui melhores previsões, ora o outro. Sobre os valores $k_t$ utilizados, pode-se perceber uma tendência de melhores resultados quando toma-se $k_t = y_t(\tau_i)$, em que $\tau_i$ é a maturidade a ser prevista. Os métodos que utilizam como $k_t$ o valor da própria maturidade prevista são indicados por \texttt{npf.}\textbf{sm}\texttt{.rpmat}, em que \textbf{sm} indica a semimétrica utilizada.
+Com relação aos dois tipos de semimétricas utilizados (primeira derivada e FPCA com 5 componentes principais), não foi percebida melhora significativa de desempenho entre eles. Ora um possui melhores previsões, ora o outro. Sobre os valores $k_t$ utilizados, pode-se perceber uma tendência de melhores resultados quando toma-se $k_t = y_t(\tau_i)$, em que $\tau_i$ é a maturidade a ser prevista. Os métodos que utilizam como $k_t$ o valor da própria maturidade prevista são indicados por \texttt{crt.}\textbf{sm}\texttt{.rpmat}, em que \textbf{sm} indica a semimétrica utilizada.
 
 Os métodos estimados com séries temporais funcionais foram os que tiveram melhor resultado, de modo geral. Em diversos deles, as previsões foram melhor que o passeio aleatório para quase todas as maturidades, e muito superiores ao estimado com os modelos de DL. A dinâmica dos fatores que, aparentemente, deu melhores resultados foi a suavização exponencial. 
 
-
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-%\part{Preparação da pesquisa}
-% ----------------------------------------------------------
-
-% ---
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
-% ---
-%\include{abntex2-modelo-include-comandos}
-% ---
-
-
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-%\part{Resultados}
-% ----------------------------------------------------------
-
-% ---
-% primeiro capitulo de Resultados
-% ---
-%\chapter{Resultados}
-
-% ----------------------------------------------------------
-% Finaliza a parte no bookmark do PDF
-% para que se inicie o bookmark na raiz
-% e adiciona espaço de parte no Sumário
-% ----------------------------------------------------------
-%\phantompart
-
-% ---
-% Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
 \chapter*[Conclusão]{Considerações Finais} \label{ch:conclusao}
 \addcontentsline{toc}{chapter}{Considerações Finais}
@@ -1503,150 +1488,13 @@ Os resultados insatisfatórios encontrados, porém, não podem ser encarados con
 \partapendices
 %
 
-
-
-\chapter{Apresentação dos resultados} \label{tabelas-resultados}
-
-
-\section{Legendas} \label{apend:legendas}
-
-Os métodos não-paramétricos funcionais são apresentados em códigos da seguinte forma:
-\begin{tabbing}
-\hspace{1cm}\=\hspace{0.5cm}\=\hspace{1cm}\=\hspace{0.5cm}\=\kill
-npf \> . \> p5 \>  \> \\ 
-npf \> . \> d1 \> . \> rmat6 \\ 
-npf \> . \> p5  \> . \> rpmat
-\end{tabbing} 
-
-\todo[inline]{explicar nome dos métodos na tabela}
-
-\section{Tabelas} \label{apend:tabelas}
-
-Resultados
-
-
-%\input{anexos/tabela-teste.tex}
-
-
-%\end{landscape}
-
-
-
-% ----------- movel horizonte 1 ------------------%
-%\newgeometry{left=1cm,right=1cm,bottom=1cm}
-
-
-%\begin{landscape}
-%\begin{table}[p]
-%
-%\input{anexos/movel-hor1.tex}
-%
-%\end{table}
-%\end{landscape}
-
-%
-%% ----------- movel horizonte 3 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Móvel Horizonte 3
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/movel-hor3.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%% ----------- movel horizonte 6 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Móvel Horizonte 6
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/movel-hor6.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%% ----------- movel horizonte 12 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Móvel Horizonte 12
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/movel-hor12.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%
-%% ----------- expand horizonte 1 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Expandida Horizonte 1
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/expand-hor1.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%% ----------- expand horizonte 3 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Expandida Horizonte 3
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/expand-hor3.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%% ----------- expand horizonte 6 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\medskip 
-%\begin{landscape}
-%Expandida Horizonte 6
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/expand-hor6.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%% ----------- expand horizonte 12 ------------------%
-%\newgeometry{left=1cm,right=1cm}
-%\begin{landscape}
-%Expandida Horizonte 12
-%\begin{table}[ht]
-%\centering
-%\scalebox{0.9}{
-%\input{anexos/expand-hor12.tex}
-%}
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%
-%
-%
-
-
+%%%%%%%%%%%%%%%%%% Capítulo Rotinas %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Sobre as rotinas utilizadas} \label{apend:rotinas}
+
 
 Um dos cuidados que se teve na execução deste trabalho foi montar os códigos e rotinas de modo que fosse facilmente reproduzível por quem tivesse interesse. Assim, fica fácil para quem quiser dar continuidade à pesquisa, encontrar melhorias e até potenciais erros no código que influenciem os resultados.
 
-Os códigos estão disponíveis em \emph{https://github.com/mcruas/dissertacao}. Para um início fácil e rápido, recomenda-se clonar o repositório. Instruções para isso estão disponíveis no \emph{site}.
+Os códigos estão disponíveis em \emph{https://github.com/mcruas/dissertacao}. Para um início fácil e rápido, recomenda-se clonar o repositório. Instruções para isto estão disponíveis no \emph{site}.
 
 \section{Estimação da ETTJ com NP-FDA}
 Para realizar a estimação e previsão da ETTJ, é preciso, primeiro, carregar o arquivo \texttt{biblioteca-npfda-ettj.R}. As funções presentes nesse arquivo foram uma extensão das disponibilizadas em \emph{http://www.math.univ-toulouse.fr/staph/npfda/} como acompanhamento do livro \citeonline{vieu_nonparametric_2006}.
@@ -1691,48 +1539,47 @@ previsoes <- predict(curvas.fts,vetor.horizontes = c(1,3,6,12), ordem.pca = 5,
 É importante notar que a rotina que implementa as séries temporais funcionais estima todas as maturidades ao mesmo tempo, uma das razões pelas quais o tempo de execução total é muito menor para estes métodos do que para métodos com NP-FDA.
 
 
+
+%%%%%%%%%%%%%%%%%%%% Capítulo tabela %%%%%%%%%%%%%%%
+\chapter{Apresentação dos resultados} \label{tabelas-resultados}
+
+
+\section{Legendas} \label{apend:legendas}
+
+Como foram testadas diversas combinações de parâmetros e técnicas, foi estabelecido um sistema de abreviaturas para exibir os resultados nas tabelas e nos gráficos. São eles:
+
+\begin{description}
+	\item[ar] Relativo ao modelo AR(1)
+	\item[diebold] Relativo ao modelo DL. O número que segue é o valor do $\lambda$. Por exemplo, \texttt{diebold.05} se refere ao modelo de DL estimado com $\lambda = 0,5$.
+	\item[crt] Refere-se aos modelos utilizando NP-FDA. O caractere ``.'' separa os nome dos métodos em duas ou três partes: na primeira está escrito ``crt'', referente aos métodos não-paramétricos. A origem aparentemente estranha da sigla é devida à investigação, quando este estudo começou a ser realizado, da modelagem das séries temporais univariadas como métodos funcionais. Quando todas as maturidades passam a ser consideradas, o modelo atual foi batizado de ``corte transversal''. 
+	
+	A segunda parte é o espaço para a semimétrica: início em \textbf{d} significa semimétrica baseada em derivadas (o número significa a ordem da derivada), enquanto o início em \textbf{p} indica o uso da semimétrica baseada em componentes principais (seguido do número de componentes principais utilizados). 
+	
+	Já a terceira indica a série de valores $k_t$, que são retirados dos valores das taxas de juros. Espaço vazio significa $k_t$ nulo. A sigla \texttt{rmat*} indica $k_t = y_t(\tau*)$, em que $\tau*$ representa a *-ésima maturidade. Se $k_t = \hat{\beta}_{1,t}$, em que $\hat{\beta}_{1,t}$ representa a estimação do primeiro fator no modelo de DL, utiliza-se a sigla \texttt{rb1}. Quando o valor de $k_t$ corresponde ao valor da taxa de juros da própria maturidade prevista, utiliza-se \texttt{rpmat}.
+
+	\item[ftsa] Indica os métodos baseados em séries temporais funcionais. As siglas também são divididas pelo caractere ``.'' em duas ou três partes. A terceira parte contém as mesmas referências para o valor $k_t$ explicadas no item anterior.
+	
+A parte do meio, no entanto, possui duas informações: a quantidade de fatores utilizados (o número que vem logo após \textbf{p}) e o modo como a dinâmica dos fatores é modelada para a previsão (\texttt{arima} para o modelo ARIMA, \texttt{ets} para suavização exponencial e \texttt{rw} para passeio aleatório). Eles são separados pelo caractere ``\_'' .
+
+\end{description}
+
+\section{Tabelas} \label{apend:tabelas}
+
+A seguir, apresentam-se as tabelas com os resultados das previsões. Na primeira coluna, são listados os métodos estimados, cujas siglas são descritas na seção anterior. Cada coluna representa as previsões para uma maturidade diferente (com duração em anos). A estatística apresentada é a razão entre as Raízes dos Erros Quadrático Médio entre o método em questão e o passeio aleatório:
+\[
+\dfrac{REQM_{\text{método}}}{REQM_{\text{passeio aleatório}}}.
+\]
+Assim, com base nessa métrica, valores maiores do que 1 indicam que o método analisado teve capacidade de previsão pior do que a do passeio aleatório.
+
+     %\includepdf[pages=-]{anexos/tabelas.pdf}
+
 \end{apendicesenv}
-%% ---
-%
-%
-%% ----------------------------------------------------------
-%% Anexos
-%% ----------------------------------------------------------
-%
-%% ---
-%% Inicia os anexos
-%% ---
-%
-%%\begin{anexosenv}
-%
-%% Imprime uma página indicando o início dos anexos
-%%\partanexos
-%
-%% ---
-%%\chapter{Morbi ultrices rutrum lorem.}
-%% ---
-%%\lipsum[30]
-%
-%% ---
-%%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-%parturient montes nascetur ridiculus mus}
-% ---
-
-%\lipsum[31]
-
-% ---
-%\chapter{Fusce facilisis lacinia dui}
-% ---
-
-%\lipsum[32]
-
-%\end{anexosenv}
 
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 %\phantompart
-\printindex
+%\printindex
 %---------------------------------------------------------------------
 
 \end{document}
