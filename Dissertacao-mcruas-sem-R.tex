@@ -258,40 +258,40 @@ como quesito parcial para obtenção do
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
 
-\begin{fichacatalografica}
-	\vspace*{\fill}					% Posição vertical
-	\hrule							% Linha horizontal
-	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
-
-	\imprimirautor
-
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título\\ 			
-
-	\hspace{8.75cm} CDU 02:141:005.7\\
-
-	\end{minipage}
-	\end{center}
-	\hrule
-\end{fichacatalografica}
- ---
+%\begin{fichacatalografica}
+%	\vspace*{\fill}					% Posição vertical
+%	\hrule							% Linha horizontal
+%	\begin{center}					% Minipage Centralizado
+%	\begin{minipage}[c]{12.5cm}		% Largura
+%
+%	\imprimirautor
+%
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+%	\imprimirlocal, \imprimirdata-
+%
+%	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+%
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%	\imprimirdata.}\\
+%
+%	\hspace{0.5cm}
+%		1. Palavra-chave1.
+%		2. Palavra-chave2.
+%		I. Orientador.
+%		II. Universidade xxx.
+%		III. Faculdade de xxx.
+%		IV. Título\\ 			
+%
+%	\hspace{8.75cm} CDU 02:141:005.7\\
+%
+%	\end{minipage}
+%	\end{center}
+%	\hrule
+%\end{fichacatalografica}
+% ---
 % ---
 % Inserir errata
 % ---
@@ -515,9 +515,9 @@ de \citeonline{nelson_parsimonious_1987}(NS),
 
 
 A abordagem de dados funcionais já foi utilizada na previsão da ETTJ por \citeonline{hays_functional_2012}, que empregou séries temporais funcionais. Os resultados obtidos utilizando este método (uma mistura de modelos de fatores dinâmicos com análise de componentes principais funcional) foram muito bons, chamando a atenção para a adequação de tal abordagem ao problema estudado. Por essa razão, achou-se importante investigar outras variações de métodos que considerassem a natureza funcional do problema. 
-Assim, este trabalho estuda o uso de métodos de Análise de Dados Funcionais (FDA) na estimação e previsão da ETTJ. Antes de mais nada, é importante esclarecer o que são dados funcionais.
+Assim, este trabalho estuda o uso de métodos de Análise de Dados Funcionais (FDA) na estimação e previsão da ETTJ. Antes de mais nada, é importante esclarecer o que são dados funcionais. 
 Uma dada variável aleatória $\chi$ é denominada \textbf{variável
-funcional }quando ela toma valor num espaco infinito dimensional $\mathcal{H}$.
+funcional }quando ela toma valor num espaço infinito dimensional $\mathcal{H}$.
 Uma observação $\chi$ de $\mathcal{\CHI}$ é denominada um \textbf{dado
 funcional} \cite{vieu_nonparametric_2006}.
 De forma intuitiva, pode-se entender um dado funcional como uma variável
@@ -779,10 +779,10 @@ Uma função periódica $f(t)$, com período igual a $2\pi/\omega$,
 A base de Fourier é eficiente para funções estáveis, isto é, que não
 possuam particularidades locais e cuja curvatura seja semelhante em
 toda a sua extensão. Assim, sua utilização não é recomendada em casos
-onde haja discontinuidades na função ou nas primeiras derivadas. As funções periódicas da base de Fourier são apresentadas na figura~\ref{fig-base-fourier}
+onde haja descontinuidades na função ou nas primeiras derivadas. As funções periódicas da base de Fourier são apresentadas na figura~\ref{fig-base-fourier}
 \begin{figure}[h!] 
   \centering
-    \includegraphics[width=0.8\textwidth]{anexos/base_fourier}
+    \includegraphics[width=0.8\textwidth]{anexos/base_fourier.pdf}
   \caption{Exemplo de base Fourier utilizando 5 funções. Função constante não está representada.}
   \label{fig-base-fourier}
 \end{figure}
@@ -800,7 +800,7 @@ A literatura cita vantagens computacionais em se utilizar uma base B-splines em 
 Uma referência para aprofundar mais no estudo de splines pode ser encontrada em \citeonline{de_boor_practical_1978}. Um exemplo de base de B-splines com polinômios de grau 4 e 4 \emph{breakpoints} é mostrado na figura~\ref{fig:base-bspline}.
 \begin{figure}[h!] 
   \centering
-    \includegraphics[width=0.8\textwidth]{anexos/base_bsplines1}
+    \includegraphics[width=0.8\textwidth]{anexos/base_bsplines1.pdf}
   \caption{Exemplo de base B-splines utilizando 10 funções}
   \label{fig:base-bspline}
 \end{figure}
@@ -958,7 +958,7 @@ o modelo tomará a seguinte forma:
 \[
 Y=r(\chi)+erro,
 \]
-em que $r(\cdot)$ é um operador linear contínuo de um espaco infinito dimensional $\mathcal{H}$
+em que $r(\cdot)$ é um operador linear contínuo de um espaço infinito dimensional $\mathcal{H}$
 em $\mathbb{R}$. A maioria das funções utilizadas para implementação
 podem ser encontradas em \emph{http://www.lsp.ups-tlse.fr/staph/npfda. }
 
@@ -966,7 +966,7 @@ podem ser encontradas em \emph{http://www.lsp.ups-tlse.fr/staph/npfda. }
 
 Enquanto no caso multivariado normalmente se utiliza funções Kernel simétricas (ver \citeonline{wand_kernel_1995}), para dados funcionais utiliza-se funções Kernel assimétricas, tais que $\int K = 0$, com suporte compacto em $[0,1]$ (à exceção do Kernel gaussiano, que possui suporte em $[0,\infty)$) e tais que $\forall u \in (0,1), K(u) > 0$. O motivo de se utilizar funções Kernel assimétricas é o fato de as semi-métricas utilizadas para medir a distância entre as curvas produzirem apenas valores positivos. As funções Kernel serão utilizadas pelos métodos não-paramétricos estudados a seguir, e possuem como finalidade atribuir peso localmente às variáveis da amostra.
 
-Seja $I_R(u)$ uma função definida como $1$, quando $u \in \mathbb{R}$ e 0, caso contrário, as funções Kernal mais utilizadas são as seguintes:
+Seja $I_R(u)$ uma função definida como $1$, quando $u \in \mathbb{R}$ e 0, caso contrário, as funções Kernel mais utilizadas são as seguintes:
 \begin{description}
 	\item[Kernel uniforme] $K(u)= I_{[0,1]}(u)$
     \item[Kernel triangular] $K(u)= 2(1-u)I_{[0,1]}(u)$
@@ -984,7 +984,7 @@ e a previsão por esse método será dada por:
 \hat{y}=\hat{r}(\chi).
 \]
 Para a estimação de $\hat{r}(\chi)$, é proposta a utilização do estimador
-não paramétrico utilizando-se uma função kernel assimétrica $K$. Considere que os pesos das curvas são dados por
+não paramétrico utilizando-se uma função Kernel assimétrica $K$. Considere que os pesos das curvas são dados por
 \begin{equation} \label{peso-local}
 \Delta_i=\frac{K(h^{-1}d(\chi,\boldsymbol{\chi}_{i})}{\mathbb{E} \left( K(h^{-1}d(\chi,\CHI_{i}) \right)}.
 \end{equation}
@@ -1089,7 +1089,7 @@ A base de dados foi construída a partir das taxas \emph{forward} não suavizada
 
 \begin{figure}[h!] 
   \centering
-    \includegraphics[width=0.8\textwidth]{anexos/taxas_juro}
+    \includegraphics[width=0.8\textwidth]{anexos/taxas_juro.pdf}
   \caption{Estrutura a termo da taxa de juros}
   \label{fig:est-termo}
 \end{figure}
@@ -1198,7 +1198,7 @@ R_{CV}^{kernel}(\chi_t) =
 \end{equation}
 
 
-o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. Serão testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\cdot,\cdot)$. Assim, o objetivo é encontrar um valor ótimo de $h$:
+o valor ótimo para $h_{opt}$ será obtido com base num processo de \emph{cross-validation}. São testados valores para $h$ dentro do intervalo $[p(5\%),p(50\%)]$, em que $p(\cdot)$ representa o percentil indicado das distâncias entre pares de curvas $d_q(\cdot,\cdot)$. Assim, o objetivo é encontrar um valor ótimo de $h$:
 \[h_{opt} = \operatorname*{arg\,min}_h CV(h),\]
 sendo a função $CV(\cdot)$ definida por
 \[
@@ -1245,7 +1245,7 @@ R_{GCV}^{kNN}(\chi_t)=
 
 \end{description}
 
-Neste trabalho, limita-se à escolha da \bw~baseada na capacidade de ajuste dentro da amostra, e não na previsão. Espera-se, num trabalho futuro, incorporar também a capacidade preditiva quando feita a \emph{cross-validation}. 
+Neste trabalho, limita-se à escolha da \bw~baseada na capacidade de ajuste dentro da amostra, e não na previsão. Espera-se, num trabalho futuro, incorporar também a capacidade preditiva quando feita a \emph{cross-validation}. Além disso, utilizou-se apenas o critério de quantidade de vizinhos mais próximos como metodologia de seleção da \bw.
 
 \subsection{Escolha da semimétrica}
 
@@ -1428,7 +1428,7 @@ Em relação às semimétricas escolhidas para a análise com NP-FDA, percebeu-s
 
 As abreviaturas dos métodos são descritos no apêndice~\ref{apend:legendas}. A diferença entre \texttt{diebold.02} e \texttt{diebold.05} é que o primeiro utiliza $\lambda=0.2$ e o segundo, $\lambda=0.5$. Embora a performance utilizando $\lambda=0.5$ tenha sido, em geral, melhor no estudo com apenas a parte de teste da amostra, decidiu-se manter nos resultados a estimação feita com $\lambda=0.2$ pela performance boa nas maturidades menores.
 
-Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada. Já a figura~\ref{fig:eqap} apresenta o Erro Quadrático Acumulado de Previsão, conforme apersentado na seção~\ref{sub:avaliacao}, para alguns horizontes e maturidades.
+Os resultados completos das estimações e previsões estão disponíveis no Apêndice~\ref{tabelas-resultados}. Eles estão organizados em tabelas por horizonte (1, 3, 6 e 12 meses) e por tipo de janela (móvel ou expandindo). Nas tabelas comparativas com o passeio aleatório, o valor informado é o Erro Quadrático Médio. A figura~\ref{fig:heatmaps} mostra gráficos de calor para mostrar de forma mais visual o conteúdo de algumas tabelas. Valores de erro maiores são associados à cores mais amareladas, tendendo ao branco quanto piores forem as previsões. Já os métodos que se saíram bem possuem uma cor avermelhada. Já a figura~\ref{fig:eqap} apresenta o Erro Quadrático Acumulado de Previsão, conforme apresentado na seção~\ref{sub:avaliacao}, para alguns horizontes e maturidades.
 
 Analisando os resultados sobre os métodos NP-FDA, foi percebido que quanto maior a maturidade que se faz a previsão, pior foi o desempenho com relação ao passeio aleatório. Igual relação se estabelece quando se aumenta o horizonte de previsão: o desempenho relativo ao passeio aleatório também cai. Um fato importante a se destacar é que, para os métodos NP-FDA, a maioria das variações estimadas obteve melhor desempenho quando utilizada a janela expandida, com relação à janela móvel. O motivo disso é que provavelmente haver mais dados acaba contribuindo significativamente para a melhora do desempenho, possivelmente dada a convergência lenta desses métodos não-paramétricos aplicados a dados funcionais. 
 Nas maturidades mais baixas e horizontes menores, é possível achar diversos dos métodos não-paramétricos que são melhores que o passeio aleatório; no entanto, com as maturidades mais altas e horizontes maiores, os métodos aqui propostos não obtêm sucesso.
@@ -1569,7 +1569,7 @@ A seguir, apresentam-se as tabelas com os resultados das previsões. Na primeira
 \[
 \dfrac{REQM_{\text{método}}}{REQM_{\text{passeio aleatório}}}.
 \]
-Assim, com base nessa métrica, valores maiores do que 1 indicam que o método analisado teve capacidade de previsão pior do que a do passeio aleatório.
+Assim, com base nessa métrica, valores maiores do que 1 indicam que o método analisado teve capacidade de previsão pior do que a do passeio aleatório. A significância é indicada por $***$ ($p-valor$ < 1\%), $**$ (p-valor < 5\%) ou $*$ (p-valor < 10\%), quando houver.
 
      %\includepdf[pages=-]{anexos/tabelas.pdf}
 
